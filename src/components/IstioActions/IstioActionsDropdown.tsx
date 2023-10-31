@@ -52,7 +52,7 @@ export const IstioActionDropdown: React.FC<IstioActionDropdownProps> = (props: I
 
   const deleteAction = (
     <DropdownItem key="delete" onClick={onClickDelete} isDisabled={!props.canDelete}>
-      Delete
+      {$t('Delete')}
     </DropdownItem>
   );
 
@@ -71,7 +71,7 @@ export const IstioActionDropdown: React.FC<IstioActionDropdownProps> = (props: I
             onClick={() => onToggle(!dropdownOpen)}
             isExpanded={dropdownOpen}
           >
-            Actions
+            {$t('Actions')}
           </MenuToggle>
         )}
         isOpen={dropdownOpen}
@@ -83,16 +83,16 @@ export const IstioActionDropdown: React.FC<IstioActionDropdownProps> = (props: I
       </Dropdown>
 
       <Modal
-        title="Confirm Delete"
+        title={$t('Confirm_Delete')}
         variant={ModalVariant.small}
         isOpen={showConfirmModal}
         onClose={hideConfirmModal}
         actions={[
           <Button key="confirm" variant={ButtonVariant.danger} onClick={onDelete}>
-            Delete
+            {$t('Delete')}
           </Button>,
           <Button key="cancel" variant={ButtonVariant.secondary} onClick={hideConfirmModal}>
-            Cancel
+            {$t('Cancel')}
           </Button>
         ]}
       >

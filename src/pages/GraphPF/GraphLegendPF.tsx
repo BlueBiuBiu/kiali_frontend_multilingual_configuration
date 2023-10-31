@@ -41,9 +41,9 @@ export class GraphLegendPF extends React.Component<GraphLegendProps> {
     return (
       <div className={legendBoxStyle} data-test="graph-legend">
         <div className={`${headerStyle}`}>
-          <span>Legend</span>
+          <span>{$t('Legend')}</span>
           <span className={closeBoxStyle}>
-            <Tooltip content="Close Legend">
+            <Tooltip content={$t('CloseLegend')}>
               <Button id="legend_close" variant={ButtonVariant.plain} onClick={this.props.closeLegend}>
                 <CloseIcon />
               </Button>
@@ -70,7 +70,7 @@ export class GraphLegendPF extends React.Component<GraphLegendProps> {
       <div className={aStyle}>
         {legendData.map((legendItem: GraphLegendItem) => (
           <div key={legendItem.title} className={legendColumnHeadingStyle}>
-            {legendItem.title}
+            {$t(legendItem.title)}
             {this.renderLegendRowItems(legendItem.data)}
           </div>
         ))}
@@ -109,7 +109,7 @@ export class GraphLegendPF extends React.Component<GraphLegendProps> {
         <span className={keyStyle}>
           <img alt={legendItemRow.label} src={legendItemRow.icon} />
         </span>
-        <span className={legendItemLabelStyle}>{legendItemRow.label}</span>
+        <span className={legendItemLabelStyle}>{$t(legendItemRow.label)}</span>
       </div>
     );
   }

@@ -111,7 +111,7 @@ export class BreadcrumbView extends React.Component<BreadCumbViewProps, Breadcru
         </BreadcrumbItem>
         <BreadcrumbItem>
           <Link to={`/${pathItem}?namespaces=${namespace}`} onClick={this.cleanFilters}>
-            Namespace: {namespace}
+            {$t('Namespace')}: {namespace}
           </Link>
         </BreadcrumbItem>
         {isIstio && (

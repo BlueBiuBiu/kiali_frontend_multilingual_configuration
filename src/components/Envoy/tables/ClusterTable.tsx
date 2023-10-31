@@ -149,25 +149,19 @@ export class ClusterTable implements SummaryTable {
     return (
       <ul className={kialiStyle({ textAlign: 'left' })}>
         <li>
-          <b>STATIC</b>: Static is the simplest service discovery type. The configuration explicitly specifies the
-          resolved network name (IP address/port, unix domain socket, etc.) of each upstream host.
+          <b>{$t('STATIC')}</b>: {$t('tip302')}
         </li>
         <li>
-          <b>STRICT_DNS</b>: Envoy will continuously and asynchronously resolve the specified DNS targets
+          <b>{$t('STRICT_DNS')}</b>: {$t('tip216')}
         </li>
         <li>
-          <b>LOGICAL_DNS</b>: Logical DNS uses a similar asynchronous resolution mechanism to strict DNS. However,
-          instead of strictly taking the results of the DNS query and assuming that they comprise the entire upstream
-          cluster, a logical DNS cluster only uses the first IP address returned when a new connection needs to be
-          initiated
+          <b>{$t('LOGICAL_DNS')}</b>: {$t('tip217')}
         </li>
         <li>
-          <b>EDS</b>: The endpoint discovery service is a xDS management server based on gRPC or REST-JSON API server
-          used by Envoy to fetch cluster members.{' '}
+          <b>EDS</b>: {$t('tip218')}
         </li>
         <li>
-          <b>ORIGINAL_DST</b>: Original destination cluster can be used when incoming connections are redirected to
-          Envoy either via an iptables REDIRECT or TPROXY target or with Proxy Protocol
+          <b>{$t('ORIGINAL_DST')}</b>: {$t('tip303')}
         </li>
       </ul>
     );
@@ -178,7 +172,7 @@ export class ClusterTable implements SummaryTable {
       {
         title: 'Service FQDN',
         transforms: [sortable],
-        header: { info: { tooltip: <>Fully Qualified Domain Name</> } }
+        header: { info: { tooltip: <>{$t('tip220')}</> } }
       },
       { title: 'Port', transforms: [sortable] },
       { title: 'Subset', transforms: [sortable] },
@@ -190,12 +184,10 @@ export class ClusterTable implements SummaryTable {
             tooltip: (
               <ul className={kialiStyle({ textAlign: 'left' })}>
                 <li>
-                  <b>inbound</b>: The inbound cluster events are the events that come into a node. These cluster events
-                  come from another node and enter other nodes.
+                  <b>{$t('inbound')}</b>: {$t('tip221')}
                 </li>
                 <li>
-                  <b>outbound</b>: The outbound cluster events are the events that go out of a node. These cluster
-                  events are produced and sent from a node to other nodes.
+                  <b>{$t('outbound')}</b>: {$t('tip222')}
                 </li>
               </ul>
             )
@@ -223,13 +215,7 @@ export class ClusterTable implements SummaryTable {
 
   tooltip = (): React.ReactNode => {
     return (
-      <Tooltip
-        content={
-          <div className={kialiStyle({ textAlign: 'left' })}>
-            Group of logically similar upstream hosts that Envoy connects to. (All the hosts that envoy manage traffic)
-          </div>
-        }
-      >
+      <Tooltip content={<div className={kialiStyle({ textAlign: 'left' })}>{$t('tip223')}</div>}>
         <KialiIcon.Help className={kialiStyle({ width: '14px', height: '14px', color: PFColors.Info })} />
       </Tooltip>
     );

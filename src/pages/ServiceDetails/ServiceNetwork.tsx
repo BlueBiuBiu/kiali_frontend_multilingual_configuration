@@ -115,7 +115,7 @@ export class ServiceNetwork extends React.Component<Props> {
               )}
               {this.props.serviceDetails.endpoints && this.props.serviceDetails.endpoints.length > 0 && (
                 <li>
-                  <span>Endpoints</span>
+                  <span>{$t('Endpoints')}</span>
                   <div style={{ display: 'inline-block' }}>
                     {(this.props.serviceDetails.endpoints || []).map((endpoint, i) => {
                       return (endpoint.addresses || []).map((address, u) => (

@@ -148,13 +148,13 @@ class AppDetails extends React.Component<AppDetailsProps, AppDetailsState> {
 
   private staticTabs() {
     const overTab = (
-      <Tab title="Overview" eventKey={0} key={'Overview'}>
+      <Tab title={$t('Overview')} eventKey={0} key={'Overview'}>
         <AppInfo app={this.state.app} duration={this.props.duration} health={this.state.health} />
       </Tab>
     );
 
     const trafficTab = (
-      <Tab title="Traffic" eventKey={1} key={'Traffic'}>
+      <Tab title={$t('Traffic')} eventKey={1} key={'Traffic'}>
         <TrafficDetails
           itemName={this.props.appId.app}
           itemType={MetricsObjectTypes.APP}
@@ -166,7 +166,7 @@ class AppDetails extends React.Component<AppDetailsProps, AppDetailsState> {
     );
 
     const inTab = (
-      <Tab title="Inbound Metrics" eventKey={2} key={'Inbound Metrics'}>
+      <Tab title={$t('Inbound Metrics')} eventKey={2} key={'Inbound Metrics'}>
         <IstioMetrics
           data-test="inbound-metrics-component"
           lastRefreshAt={this.props.lastRefreshAt}
@@ -180,7 +180,7 @@ class AppDetails extends React.Component<AppDetailsProps, AppDetailsState> {
     );
 
     const outTab = (
-      <Tab title="Outbound Metrics" eventKey={3} key={'Outbound Metrics'}>
+      <Tab title={$t('Outbound Metrics')} eventKey={3} key={'Outbound Metrics'}>
         <IstioMetrics
           data-test="outbound-metrics-component"
           lastRefreshAt={this.props.lastRefreshAt}
@@ -200,7 +200,7 @@ class AppDetails extends React.Component<AppDetailsProps, AppDetailsState> {
     if (this.props.tracingInfo && this.props.tracingInfo.enabled) {
       if (this.props.tracingInfo.integration) {
         tabsArray.push(
-          <Tab eventKey={4} style={{ textAlign: 'center' }} title={'Traces'} key={tracesTabName}>
+          <Tab eventKey={4} style={{ textAlign: 'center' }} title={$t('Traces')} key={tracesTabName}>
             <TracesComponent
               lastRefreshAt={this.props.lastRefreshAt}
               namespace={this.props.appId.namespace}

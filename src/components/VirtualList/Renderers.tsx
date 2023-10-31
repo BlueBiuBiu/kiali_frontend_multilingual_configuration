@@ -337,15 +337,7 @@ export const labels: Renderer<SortResource | NamespaceInfo> = (
             <Tooltip
               key={'Tooltip_Label_' + key + '_' + value}
               content={
-                labelAct ? (
-                  isExactlyLabelFilter ? (
-                    <>Remove label from Filters</>
-                  ) : (
-                    <>Kiali can't remove the filter if is an expression</>
-                  )
-                ) : (
-                  <>Add label to Filters</>
-                )
+                labelAct ? isExactlyLabelFilter ? <>{$t('action2')}</> : <>{$t('action3')}</> : <>{$t('action4')}</>
               }
             >
               {labelComponent}

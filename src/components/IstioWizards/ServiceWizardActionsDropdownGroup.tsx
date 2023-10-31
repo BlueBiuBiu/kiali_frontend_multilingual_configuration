@@ -137,7 +137,7 @@ export const ServiceWizardActionsDropdownGroup: React.FunctionComponent<Props> =
       isDisabled={deleteDisabled}
       data-test={DELETE_TRAFFIC_ROUTING}
     >
-      Delete Traffic Routing
+      {$t('DeleteTrafficRouting')}
     </DropdownItem>
   );
 

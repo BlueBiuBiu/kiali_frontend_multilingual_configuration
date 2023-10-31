@@ -47,7 +47,7 @@ export interface GraphLegendItemRow {
 
 export const legendData: GraphLegendItem[] = [
   {
-    title: 'Node Shapes',
+    title: 'NodeShapes',
     data: [
       { label: 'Workload', icon: workloadImage },
       { label: 'App', icon: appImage },
@@ -57,7 +57,7 @@ export const legendData: GraphLegendItem[] = [
     ]
   },
   {
-    title: 'Node Colors',
+    title: 'NodeColors',
     data: [
       { label: 'Healthy', icon: nodeColorHealthyImage },
       { label: 'Warn', icon: nodeColorWarningImage },
@@ -66,10 +66,10 @@ export const legendData: GraphLegendItem[] = [
     ]
   },
   {
-    title: 'Node Background',
+    title: 'NodeBackground',
     data: [
-      { label: 'Unselected Namespace', icon: externalNamespaceImage },
-      { label: 'Restricted / External', icon: restrictedNamespaceImage }
+      { label: 'UnselectedNamespace', icon: externalNamespaceImage },
+      { label: 'title10', icon: restrictedNamespaceImage }
     ]
   },
   {
@@ -78,32 +78,32 @@ export const legendData: GraphLegendItem[] = [
       { label: 'Failure', icon: edgeDangerImage },
       { label: 'Degraded', icon: edgeWarnImage },
       { label: 'Healthy', icon: edgeSuccessImage },
-      { label: 'TCP Connection', icon: edgeTcpImage },
+      { label: 'TCPConnection', icon: edgeTcpImage },
       { label: 'Idle', icon: edgeIdlemage },
-      { label: 'mTLS (badge)', icon: edgeMtlsImage }
+      { label: 'title11', icon: edgeMtlsImage }
     ]
   },
   {
-    title: 'Traffic Animation',
+    title: 'TrafficAnimation',
     data: [
-      { label: 'Healthy Request', icon: trafficHealthyImage },
-      { label: 'Failed Request', icon: trafficFailedImage },
-      { label: 'TCP Traffic', icon: trafficTcpImage }
+      { label: 'HealthyRequest', icon: trafficHealthyImage },
+      { label: 'FailedRequest', icon: trafficFailedImage },
+      { label: 'TCPTraffic', icon: trafficTcpImage }
     ]
   },
   {
-    title: 'Node Badges',
+    title: 'NodeBadges',
     data: [
-      { label: 'Circuit Breaker', icon: badgeCircuitBreakerImage },
-      { label: 'Fault Injection', icon: badgeFaultInjectionImage },
+      { label: 'CircuitBreaker', icon: badgeCircuitBreakerImage },
+      { label: 'FaultInjection', icon: badgeFaultInjectionImage },
       { label: 'Gateway', icon: badgeGatewaysImage },
       { label: 'Mirroring', icon: badgeMirroringImage },
-      { label: 'Missing Sidecar', icon: badgeMissingSidecarImage },
-      { label: 'Request Timeout', icon: badgeRequestTimeoutImage },
-      { label: 'Traffic Shifting / TCP Traffic Shifting', icon: badgeTrafficShiftingSourceImage },
-      { label: 'Traffic Source', icon: badgeTrafficSourceImage },
-      { label: 'Virtual Service / Request Routing', icon: badgeVirtualServicesImage },
-      { label: 'Workload Entry', icon: badgeWorkloadEntryImage }
+      { label: 'MissingSidecar', icon: badgeMissingSidecarImage },
+      { label: 'RequestTimeout', icon: badgeRequestTimeoutImage },
+      { label: 'title12', icon: badgeTrafficShiftingSourceImage },
+      { label: 'TrafficSource', icon: badgeTrafficSourceImage },
+      { label: 'title13', icon: badgeVirtualServicesImage },
+      { label: 'Workload_Entry', icon: badgeWorkloadEntryImage }
     ]
   }
 ];

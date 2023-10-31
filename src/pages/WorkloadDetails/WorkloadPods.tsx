@@ -94,13 +94,13 @@ export class WorkloadPods extends React.Component<WorkloadPodsProps> {
           <div key="properties-list" className={resourceListStyle}>
             <ul style={{ listStyleType: 'none' }}>
               <li>
-                <span>Created</span>
+                <span>{$t('Created')}</span>
                 <div style={{ display: 'inline-block' }}>
                   <LocalTime time={pod.createdAt} />
                 </div>
               </li>
               <li>
-                <span>Created By</span>
+                <span>{$t('CreatedBy')}</span>
                 <div style={{ display: 'inline-block' }}>
                   {pod.createdBy && pod.createdBy.length > 0
                     ? pod.createdBy.map(ref => ref.name + ' (' + ref.kind + ')').join(', ')
@@ -108,23 +108,23 @@ export class WorkloadPods extends React.Component<WorkloadPodsProps> {
                 </div>
               </li>
               <li>
-                <span>Service Account</span>
+                <span>{$t('ServiceAccount')}</span>
                 <div style={{ display: 'inline-block' }}>{pod.serviceAccountName || 'Not found'}</div>
               </li>
               <li>
-                <span>Istio Init Container</span>
+                <span>{$t('IstioInitContainer')}</span>
                 <div style={{ display: 'inline-block' }}>
                   {pod.istioInitContainers ? pod.istioInitContainers.map(c => `${c.image}`).join(', ') : 'Not found'}
                 </div>
               </li>
               <li>
-                <span>Istio Container</span>
+                <span>{$t('IstioContainer')}</span>
                 <div style={{ display: 'inline-block' }}>
                   {pod.istioContainers ? pod.istioContainers.map(c => `${c.image}`).join(', ') : 'Not found'}
                 </div>
               </li>
               <li>
-                <span>Labels</span>
+                <span>{$t('Labels')}</span>
                 <div style={{ display: 'inline-block' }}>
                   <Labels labels={pod.labels} expanded={true} />
                 </div>

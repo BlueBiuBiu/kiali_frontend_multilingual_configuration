@@ -28,9 +28,9 @@ export class RateTableGrpc extends React.Component<RateTableGrpcPropType, {}> {
         <table className={tableStyle}>
           <thead>
             <tr>
-              <th>Total</th>
-              <th>%Success</th>
-              <th>%Error</th>
+              <th>{$t('Total')}</th>
+              <th>{$t('title3')}</th>
+              <th>{$t('title4')}</th>
             </tr>
           </thead>
           <tbody>
@@ -109,9 +109,9 @@ export class RateTableTcp extends React.Component<RateTableTcpPropType, {}> {
         <table className={tableStyle}>
           <thead>
             <tr>
-              <th>Total</th>
-              <th>%Success</th>
-              <th>%Error</th>
+              <th>{$t('Total')}</th>
+              <th>{$t('title3')}</th>
+              <th>{$t('title4')}</th>
             </tr>
           </thead>
           <tbody>

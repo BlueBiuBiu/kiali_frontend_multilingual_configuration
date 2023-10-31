@@ -200,7 +200,7 @@ export const getTitle = (title: string): React.ReactFragment => {
   }
   return (
     <div className={summaryTitle}>
-      {title}
+      {$t(title)}
       <br />
     </div>
   );

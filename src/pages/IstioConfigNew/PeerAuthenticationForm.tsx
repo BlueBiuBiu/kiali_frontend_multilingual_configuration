@@ -317,7 +317,7 @@ export class PeerAuthenticationForm extends React.Component<Props, PeerAuthentic
           />
         </FormGroup>
         {this.state.addWorkloadSelector && (
-          <FormGroup fieldId="workloadLabels" label="Labels">
+          <FormGroup fieldId="workloadLabels" label={$t('Labels')}>
             <TextInput
               id="gwHosts"
               name="gwHosts"
@@ -329,9 +329,7 @@ export class PeerAuthenticationForm extends React.Component<Props, PeerAuthentic
             <FormHelperText>
               <HelperText>
                 <HelperTextItem>
-                  {isValid(this.state.workloadSelectorValid)
-                    ? 'One or more labels to select a workload where the PeerAuthentication is applied.'
-                    : 'Enter a label in the format <label>=<value>. Enter one or multiple labels separated by comma.'}
+                  {isValid(this.state.workloadSelectorValid) ? $t('helpTip45') : $t('helpTip46')}
                 </HelperTextItem>
               </HelperText>
             </FormHelperText>
@@ -366,11 +364,9 @@ export class PeerAuthenticationForm extends React.Component<Props, PeerAuthentic
               <TableBody />
             </Table>
             {this.props.peerAuthentication.portLevelMtls.length === 0 && (
-              <div className={noPortMtlsStyle}>PeerAuthentication has no Port Mutual TLS defined</div>
+              <div className={noPortMtlsStyle}>{$t('tip87')}</div>
             )}
-            {!this.state.addWorkloadSelector && (
-              <div className={noPortMtlsStyle}>Port Mutual TLS requires a Workload Selector</div>
-            )}
+            {!this.state.addWorkloadSelector && <div className={noPortMtlsStyle}>{$t('tip88')}</div>}
           </FormGroup>
         )}
       </>

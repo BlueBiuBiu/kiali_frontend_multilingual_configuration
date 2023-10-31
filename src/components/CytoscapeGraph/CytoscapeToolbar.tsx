@@ -257,7 +257,7 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
         {this.props.boxByNamespace && (
           <div>
             <Tooltip
-              content={'Namespace Layout 1 ' + KialiDagreGraph.getLayout().name}
+              content={$t('NamespaceLayout1') + '' + KialiDagreGraph.getLayout().name}
               position={TooltipPosition.right}
             >
               <Button
@@ -284,7 +284,7 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
         {this.props.boxByNamespace && (
           <div>
             <Tooltip
-              content={'Namespace Layout 2 ' + KialiBreadthFirstGraph.getLayout().name}
+              content={$t('NamespaceLayout2') + '' + KialiBreadthFirstGraph.getLayout().name}
               position={TooltipPosition.right}
             >
               <Button
@@ -312,7 +312,7 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
 
         <TourStop info={GraphTourStops.Legend}>
           <div>
-            <Tooltip content="Show Legend" position={TooltipPosition.right}>
+            <Tooltip content={$t('ShowLegend')} position={TooltipPosition.right}>
               <Button
                 id="toolbar_toggle_legend"
                 aria-label="Show Legend"

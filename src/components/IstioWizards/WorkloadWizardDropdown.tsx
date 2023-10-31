@@ -140,7 +140,7 @@ export const WorkloadWizardDropdown: React.FC<Props> = (props: Props) => {
           onClick={() => onAction(WIZARD_REMOVE_AUTO_INJECTION)}
           isDisabled={serverConfig.deployment.viewOnlyMode}
         >
-          Remove Auto Injection
+          {$t('RemoveAutoInjection')}
         </DropdownItem>
       );
 

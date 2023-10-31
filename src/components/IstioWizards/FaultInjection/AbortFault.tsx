@@ -11,8 +11,6 @@ type Props = {
   onAbort: (aborted: boolean, abort: Abort) => void;
 };
 
-const httpStatusMsg = $t('httpStatusMsg');
-
 export class AbortFault extends React.Component<Props> {
   render() {
     return (
@@ -70,7 +68,9 @@ export class AbortFault extends React.Component<Props> {
             />
             <FormHelperText>
               <HelperText>
-                <HelperTextItem>{isValid(this.props.isValid) ? httpStatusMsg : httpStatusMsg}</HelperTextItem>
+                <HelperTextItem>
+                  {isValid(this.props.isValid) ? $t('httpStatusMsg') : $t('httpStatusMsg')}
+                </HelperTextItem>
               </HelperText>
             </FormHelperText>
           </FormGroup>

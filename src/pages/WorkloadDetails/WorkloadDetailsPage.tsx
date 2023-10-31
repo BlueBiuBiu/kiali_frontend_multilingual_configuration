@@ -127,7 +127,7 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
         });
       })
       .catch(error => {
-        AlertUtils.addError('Could not fetch Workload.', error);
+        AlertUtils.addError($t('helpTip67'), error);
         const msg: ErrorMsg = {
           title: 'No Workload is selected',
           description: this.props.workloadId.workload + ' is not found in the mesh'
@@ -141,7 +141,7 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
     const tabsArray: JSX.Element[] = [];
 
     const overTab = (
-      <Tab title="Overview" eventKey={0} key={'Overview'}>
+      <Tab title={$t('Overview')} eventKey={0} key={'Overview'}>
         <WorkloadInfo
           workload={this.state.workload}
           duration={this.props.duration}
@@ -154,7 +154,7 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
     tabsArray.push(overTab);
 
     const trafficTab = (
-      <Tab title="Traffic" eventKey={1} key={'Traffic'}>
+      <Tab title={$t('Traffic')} eventKey={1} key={'Traffic'}>
         <TrafficDetails
           itemName={this.props.workloadId.workload}
           itemType={MetricsObjectTypes.WORKLOAD}
@@ -168,7 +168,7 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
 
     if (!serverConfig.kialiFeatureFlags.disabledFeatures?.includes('logs-tab')) {
       const logTab = (
-        <Tab title="Logs" eventKey={2} key={'Logs'} data-test={'workload-details-logs-tab'}>
+        <Tab title={$t('Logs')} eventKey={2} key={'Logs'} data-test={'workload-details-logs-tab'}>
           {hasPods ? (
             <WorkloadPodLogs
               lastRefreshAt={this.props.lastRefreshAt}
@@ -183,7 +183,7 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
                 titleText={<>No logs for Workload{this.props.workloadId.workload}</>}
                 headingLevel="h5"
               />
-              <EmptyStateBody>There are no logs to display because the workload has no pods.</EmptyStateBody>
+              <EmptyStateBody>{$t('tip353')}</EmptyStateBody>
             </EmptyState>
           )}
         </Tab>
@@ -192,7 +192,7 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
     }
 
     const inTab = (
-      <Tab title="Inbound Metrics" eventKey={3} key={'Inbound Metrics'}>
+      <Tab title={$t('Inbound Metrics')} eventKey={3} key={'Inbound Metrics'}>
         <IstioMetrics
           data-test="inbound-metrics-component"
           lastRefreshAt={this.props.lastRefreshAt}
@@ -207,7 +207,7 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
     tabsArray.push(inTab);
 
     const outTab = (
-      <Tab title="Outbound Metrics" eventKey={4} key={'Outbound Metrics'}>
+      <Tab title={$t('Outbound Metrics')} eventKey={4} key={'Outbound Metrics'}>
         <IstioMetrics
           data-test="outbound-metrics-component"
           lastRefreshAt={this.props.lastRefreshAt}
@@ -223,7 +223,7 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
 
     if (this.props.tracingInfo && this.props.tracingInfo.enabled && this.props.tracingInfo.integration) {
       tabsArray.push(
-        <Tab eventKey={5} title="Traces" key="Traces">
+        <Tab eventKey={5} title={$t('Traces')} key="Traces">
           <TracesComponent
             lastRefreshAt={this.props.lastRefreshAt}
             namespace={this.props.workloadId.namespace}
@@ -236,7 +236,7 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
     }
     if (this.state.workload && this.hasIstioSidecars(this.state.workload) && !isWaypoint(this.state.workload.labels)) {
       const envoyTab = (
-        <Tab title="Envoy" eventKey={10} key={'Envoy'}>
+        <Tab title={$t('Envoy')} eventKey={10} key={'Envoy'}>
           {this.state.workload && (
             <EnvoyDetails
               lastRefreshAt={this.props.lastRefreshAt}

@@ -110,7 +110,7 @@ export const sortFields: SortField<AppListItem>[] = [
 
 const appNameFilter: FilterType = {
   category: 'App Name',
-  placeholder: 'Filter by App Name',
+  placeholder: 'placeholder15',
   filterType: TextInputTypes.text,
   action: FILTER_ACTION_APPEND,
   filterValues: []

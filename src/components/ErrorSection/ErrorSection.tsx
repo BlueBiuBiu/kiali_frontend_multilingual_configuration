@@ -16,7 +16,7 @@ export class ErrorSection extends React.Component<MessageProps> {
     return (
       <div>
         <EmptyState id="empty-page-error" variant={EmptyStateVariant.lg} className={errorSectionStyle}>
-          <EmptyStateHeader titleText={<>{this.props.error.title}</>} headingLevel="h5" />
+          <EmptyStateHeader titleText={<>{$t(this.props.error.title)}</>} headingLevel="h5" />
           <EmptyStateBody>{this.props.error.description}</EmptyStateBody>
         </EmptyState>
       </div>

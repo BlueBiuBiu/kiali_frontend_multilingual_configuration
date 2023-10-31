@@ -77,7 +77,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
         className={modalStyle}
         style={{ overflow: 'auto', overflowY: 'hidden' }}
         disableFocusTrap={true}
-        title="Envoy Access Log Entry"
+        title={$t('EnvoyAccessLogEntry')}
         isOpen={true}
         onClose={this.props.onClose}
       >
@@ -152,11 +152,11 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>Authority is the request authority header %REQ(:AUTHORITY)%</p>
+                  <p>{$t('tip171')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“).</p>
+                  <p>{$t('tip172')}</p>
                 </dd>
               </dl>
             </dd>
@@ -165,59 +165,55 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'bytes received':
         return (
           <>
-            <dt>%BYTES_RECEIVED%</dt>
+            <dt>%{$t('BYTES_RECEIVED')}%</dt>
             <dd>
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>Body bytes received.</p>
+                  <p>{$t('tip173')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Downstream bytes received on connection.</p>
+                  <p>{$t('tip174')}</p>
                 </dd>
               </dl>
-              <p>Renders a numeric value in typed JSON logs.</p>
+              <p>{$t('tip182')}</p>
             </dd>
           </>
         );
       case 'bytes sent':
         return (
           <>
-            <dt>%BYTES_SENT%</dt>
+            <dt>%{$t('BYTES_SENT')}%</dt>
             <dd>
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>Body bytes sent. For WebSocket connection it will also include response header bytes.</p>
+                  <p>{$t('tip175')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Downstream bytes sent on connection.</p>
+                  <p>{$t('tip176')}</p>
                 </dd>
               </dl>
-              <p>Renders a numeric value in typed JSON logs.</p>
+              <p>{$t('tip182')}</p>
             </dd>
           </>
         );
       case 'downstream local':
         return (
           <>
-            <dt>%DOWNSTREAM_LOCAL_ADDRESS%</dt>
+            <dt>%{$t('DOWNSTREAM_LOCAL_ADDRESS')}%</dt>
             <dd>
               <p>
-                Local address of the downstream connection. If the address is an IP address it includes both address and
-                port. If the original connection was redirected by iptables REDIRECT, this represents the original
-                destination address restored by the{' '}
+                {$t('tip177')}{' '}
                 <a
                   className="reference internal"
                   href="/docs/envoy/latest/configuration/listeners/listener_filters/original_dst_filter#config-listener-filters-original-dst"
                 >
-                  <span className="std std-ref">Original Destination Filter</span>
+                  <span className="std std-ref">{$t('tip178')}</span>
                 </a>{' '}
-                using SO_ORIGINAL_DST socket option. If the original connection was redirected by iptables TPROXY, and
-                the listener’s transparent option was set to true, this represents the original destination address and
-                port.
+                {$t('tip179')}
               </p>
             </dd>
           </>
@@ -225,12 +221,9 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'downstream remote':
         return (
           <>
-            <dt>%DOWNSTREAM_REMOTE_ADDRESS%</dt>
+            <dt>%{$t('DOWNSTREAM_REMOTE_ADDRESS')}%</dt>
             <dd>
-              <p>
-                Remote address of the downstream connection. If the address is an IP address it includes both address
-                and port.
-              </p>
+              <p>{$t('tip336')}</p>
               <div className="admonition note">
                 <p className="admonition-title">Note</p>
                 <p>
@@ -257,19 +250,19 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'duration':
         return (
           <>
-            <dt>%DURATION%</dt>
+            <dt>%{$t('DURATION')}%</dt>
             <dd>
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>Total duration in milliseconds of the request from the start time to the last byte out.</p>
+                  <p>{$t('tip180')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Total duration in milliseconds of the downstream connection.</p>
+                  <p>{$t('tip181')}</p>
                 </dd>
               </dl>
-              <p>Renders a numeric value in typed JSON logs.</p>
+              <p>{$t('tip182')}</p>
             </dd>
           </>
         );
@@ -281,11 +274,11 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>ForwardedFor is the X-Forwarded-For header value %REQ(FORWARDED-FOR)%</p>
+                  <p>{$t('tip183')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“).</p>
+                  <p>{$t('tip184')}</p>
                 </dd>
               </dl>
             </dd>
@@ -299,11 +292,11 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>Method is the HTTP method %REQ(:METHOD)%</p>
+                  <p>{$t('tip185')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“).</p>
+                  <p>{$t('tip184')}</p>
                 </dd>
               </dl>
             </dd>
@@ -312,7 +305,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'protocol':
         return (
           <>
-            <dt>%PROTOCOL%</dt>
+            <dt>%{$t('PROTOCOL')}%</dt>
             <dd>
               <dl className="simple">
                 <dt>HTTP</dt>
@@ -323,7 +316,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“).</p>
+                  <p>{$t('tip172')}</p>
                 </dd>
               </dl>
               <p>
@@ -344,11 +337,11 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>RequestId is the envoy generated X-REQUEST-ID header "%REQ(X-REQUEST-ID)%"</p>
+                  <p>{$t('tip186')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“).</p>
+                  <p>{$t('172')}</p>
                 </dd>
               </dl>
             </dd>
@@ -357,16 +350,16 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'requested server':
         return (
           <>
-            <dt>%REQUESTED_SERVER_NAME%</dt>
+            <dt>%{$t('REQUESTED_SERVER_NAME')}%</dt>
             <dd>
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>String value set on ssl connection socket for Server Name Indication (SNI)</p>
+                  <p>{$t('tip187')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>String value set on ssl connection socket for Server Name Indication (SNI)</p>
+                  <p>{$t('tip188')}</p>
                 </dd>
               </dl>
             </dd>
@@ -375,25 +368,21 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'response flags':
         return (
           <>
-            <dt>%RESPONSE_FLAGS%</dt>
+            <dt>%{$t('RESPONSE_FLAGS')}%</dt>
             <dd>
-              <p>
-                Additional details about the response or connection, if any. For TCP connections, the response codes
-                mentioned in the descriptions do not apply. Possible values are:
-              </p>
+              <p>{$t('tip189')}:</p>
               <dl className="simple">
                 <dt>HTTP and TCP</dt>
                 <dd>
                   <ul className="simple">
                     <li>
                       <p>
-                        <strong>UH</strong>: No healthy upstream hosts in upstream cluster in addition to 503 response
-                        code.
+                        <strong>UH</strong>: {$t('tip190')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>UF</strong>: Upstream connection failure in addition to 503 response code.
+                        <strong>UF</strong>: {$t('tip191')}
                       </p>
                     </li>
                     <li>
@@ -442,7 +431,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                     </li>
                     <li>
                       <p>
-                        <strong>NC</strong>: Upstream cluster not found.
+                        <strong>NC</strong>: {$t('tip337')}
                       </p>
                     </li>
                   </ul>
@@ -452,61 +441,61 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                   <ul className="simple">
                     <li>
                       <p>
-                        <strong>DC</strong>: Downstream connection termination.
+                        <strong>DC</strong>: {$t('tip338')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>LH</strong>: Local service failed{' '}
+                        <strong>LH</strong>: {$t('tip339')}{' '}
                         <a
                           className="reference internal"
                           href="/docs/envoy/latest/intro/arch_overview/upstream/health_checking#arch-overview-health-checking"
                         >
-                          <span className="std std-ref">health check request</span>
+                          <span className="std std-ref">{$t('tip340')}</span>
                         </a>{' '}
                         in addition to 503 response code.
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>UT</strong>: Upstream request timeout in addition to 504 response code.
+                        <strong>UT</strong>: {$t('tip341')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>LR</strong>: Connection local reset in addition to 503 response code.
+                        <strong>LR</strong>: {$t('tip193')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>UR</strong>: Upstream remote reset in addition to 503 response code.
+                        <strong>UR</strong>: {$t('tip194')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>UC</strong>: Upstream connection termination in addition to 503 response code.
+                        <strong>UC</strong>: {$t('tip195')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>DI</strong>: The request processing was delayed for a period specified via{' '}
+                        <strong>DI</strong>: {$t('tip342')}{' '}
                         <a
                           className="reference internal"
                           href="/docs/envoy/latest/configuration/http/http_filters/fault_filter#config-http-filters-fault-injection"
                         >
-                          <span className="std std-ref">fault injection</span>
+                          <span className="std std-ref">{$t('faultInjection')}</span>
                         </a>
                         .
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>FI</strong>: The request was aborted with a response code specified via{' '}
+                        <strong>FI</strong>: {$t('tip343')}{' '}
                         <a
                           className="reference internal"
                           href="/docs/envoy/latest/configuration/http/http_filters/fault_filter#config-http-filters-fault-injection"
                         >
-                          <span className="std std-ref">fault injection</span>
+                          <span className="std std-ref">{$t('FaultInjection')}</span>
                         </a>
                         .
                       </p>
@@ -525,13 +514,12 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                     </li>
                     <li>
                       <p>
-                        <strong>UAEX</strong>: The request was denied by the external authorization service.
+                        <strong>UAEX</strong>: {$t('tip196')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>RLSE</strong>: The request was rejected because there was an error in rate limit
-                        service.
+                        <strong>RLSE</strong>: {$t('tip197')}
                       </p>
                     </li>
                     <li>
@@ -548,22 +536,22 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                     </li>
                     <li>
                       <p>
-                        <strong>SI</strong>: Stream idle timeout in addition to 408 response code.
+                        <strong>SI</strong>: {$t('tip198')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>DPE</strong>: The downstream request had an HTTP protocol error.
+                        <strong>DPE</strong>: {$t('tip199')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>UPE</strong>: The upstream response had an HTTP protocol error.
+                        <strong>UPE</strong>: {$t('tip200')}
                       </p>
                     </li>
                     <li>
                       <p>
-                        <strong>UMSDR</strong>: The upstream request reached to max stream duration.
+                        <strong>UMSDR</strong>: {$t('tip201')}
                       </p>
                     </li>
                   </ul>
@@ -575,36 +563,29 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'route name':
         return (
           <>
-            <dt>%ROUTE_NAME%</dt>
+            <dt>%{$t('ROUTE_NAME')}%</dt>
             <dd>
-              <p>RouteName is the name of the VirtualService route which matched this request %ROUTE_NAME%</p>
+              <p>{$t('tip202')}</p>
             </dd>
           </>
         );
       case 'status code':
         return (
           <>
-            <dt>%RESPONSE_CODE%</dt>
+            <dt>%{$t('RESPONSE_CODE')}%</dt>
             <dd>
               <dl>
                 <dt>HTTP</dt>
                 <dd>
-                  <p>
-                    HTTP response code. Note that a response code of ‘0’ means that the server never sent the beginning
-                    of a response. This generally means that the (downstream) client disconnected.
-                  </p>
-                  <p>
-                    Note that in the case of 100-continue responses, only the response code of the final headers will be
-                    logged. If a 100-continue is followed by a 200, the logged response will be 200. If a 100-continue
-                    results in a disconnect, the 100 will be logged.
-                  </p>
+                  <p>{$t('tip203')}</p>
+                  <p>{$t('tip204')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“).</p>
+                  <p>{$t('tip172')}</p>
                 </dd>
               </dl>
-              <p>Renders a numeric value in typed JSON logs.</p>
+              <p>{$t('tip182')}</p>
             </dd>
           </>
         );
@@ -616,13 +597,11 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>
-                    TCPServiceTime is the X-ENVOY-UPSTREAM-SERVICE-TIME header "%REQ(X-ENVOY-UPSTREAM-SERVICE-TIME)%"
-                  </p>
+                  <p>{$t('tip344')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“).</p>
+                  <p>{$t('tip172')}</p>
                 </dd>
               </dl>
             </dd>
@@ -631,16 +610,16 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'timestamp':
         return (
           <>
-            <dt>%START_TIME%</dt>
+            <dt>%{$t('START_TIME')}%</dt>
             <dd>
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>Request start time including milliseconds.</p>
+                  <p>{$t('tip205')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Downstream connection start time including milliseconds.</p>
+                  <p>{$t('tip206')}</p>
                 </dd>
               </dl>
               <p>
@@ -658,10 +637,10 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                 <thead>
                   <tr className="row-odd">
                     <th className="head">
-                      <p>Specifier</p>
+                      <p>{$t('Specifier')}</p>
                     </th>
                     <th className="head">
-                      <p>Explanation</p>
+                      <p>{$t('Explanation')}</p>
                     </th>
                   </tr>
                 </thead>
@@ -675,7 +654,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                       </p>
                     </td>
                     <td>
-                      <p>The number of seconds since the Epoch</p>
+                      <p>{$t('tip207')}</p>
                     </td>
                   </tr>
                   <tr className="row-odd">
@@ -691,7 +670,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                       </p>
                     </td>
                     <td>
-                      <p>Fractional seconds digits, default is 9 digits (nanosecond)</p>
+                      <p>{$t('tip208')}</p>
                     </td>
                   </tr>
                   <tr className="row-even">
@@ -702,7 +681,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                             <code className="docutils literal notranslate">
                               <span className="pre">%3f</span>
                             </code>{' '}
-                            millisecond (3 digits)
+                            {$t('millisecond')}
                           </p>
                         </li>
                         <li>
@@ -710,7 +689,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                             <code className="docutils literal notranslate">
                               <span className="pre">%6f</span>
                             </code>{' '}
-                            microsecond (6 digits)
+                            {$t('microsecond')}
                           </p>
                         </li>
                         <li>
@@ -718,7 +697,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                             <code className="docutils literal notranslate">
                               <span className="pre">%9f</span>
                             </code>{' '}
-                            nanosecond (9 digits)
+                            {$t('nanosecond')}
                           </p>
                         </li>
                       </ul>
@@ -726,23 +705,23 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                   </tr>
                 </tbody>
               </table>
-              <p>Examples of formatting START_TIME is as follows:</p>
+              <p>{$t('tip209')}:</p>
               <div className="highlight-none notranslate">
                 <div className="highlight">
                   <pre>
-                    <span></span>%START_TIME(%Y/%m/%dT%H:%M:%S%z %s)% # To include millisecond fraction of the second
-                    (.000 ... .999). E.g. 1527590590.528. %START_TIME(%s.%3f)% %START_TIME(%s.%6f)% %START_TIME(%s.%9f)%
+                    <span></span>
+                    {$t('tip210')}
                   </pre>
                 </div>
               </div>
-              <p>In typed JSON logs, START_TIME is always rendered as a string.</p>
+              <p>{$t('tip211')}</p>
             </dd>
           </>
         );
       case 'upstream cluster':
         return (
           <>
-            <dt>%UPSTREAM_CLUSTER%</dt>
+            <dt>%{$t('UPSTREAM_CLUSTER')}%</dt>
             <dd>
               <p>
                 Upstream cluster to which the upstream host belongs to. If runtime feature
@@ -761,7 +740,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'upstream failure reason':
         return (
           <>
-            <dt>%UPSTREAM_TRANSPORT_FAILURE_REASON%</dt>
+            <dt>%{$t('UPSTREAM_TRANSPORT_FAILURE_REASON')}%</dt>
             <dd>
               <dl className="simple">
                 <dt>HTTP</dt>
@@ -781,7 +760,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“)</p>
+                  <p>{$t('172')}</p>
                 </dd>
               </dl>
             </dd>
@@ -790,19 +769,16 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
       case 'upstream local':
         return (
           <>
-            <dt>%UPSTREAM_LOCAL_ADDRESS%</dt>
+            <dt>%{$t('UPSTREAM_LOCAL_ADDRESS')}%</dt>
             <dd>
-              <p>
-                Local address of the upstream connection. If the address is an IP address it includes both address and
-                port.
-              </p>
+              <p>{$t('tip212')}</p>
             </dd>
           </>
         );
       case 'upstream service':
         return (
           <>
-            <dt>%UPSTREAM_HOST%</dt>
+            <dt>%{$t('UPSTREAM_HOST')}%</dt>
             <dd>
               <p>
                 Upstream host URL (e.g.,{' '}
@@ -822,11 +798,11 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>An HTTP request header: "%REQ(X-ENVOY-ORIGINAL-PATH?):PATH"</p>
+                  <p>{$t('tip345')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“).</p>
+                  <p>{$t('tip172')}</p>
                 </dd>
               </dl>
             </dd>
@@ -840,18 +816,18 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
               <dl className="simple">
                 <dt>HTTP</dt>
                 <dd>
-                  <p>An HTTP request header: "%REQ(USER-AGENT)</p>
+                  <p>{$t('tip346')}</p>
                 </dd>
                 <dt>TCP</dt>
                 <dd>
-                  <p>Not implemented (“-“).</p>
+                  <p>{$t('tip172')}</p>
                 </dd>
               </dl>
             </dd>
           </>
         );
       default:
-        return <>No documentation available</>;
+        return <>{$t('tip213')}</>;
     }
   };
 }

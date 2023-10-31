@@ -59,17 +59,17 @@ export class K8sRules extends React.Component<Props> {
   // @ts-ignore
   actionResolver = (rowData, { rowIndex }) => {
     const removeAction = {
-      title: $t('RemoveRule'),
+      title: 'RemoveRule',
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => this.props.onRemoveRule(rowIndex)
     };
     const moveUpAction = {
-      title: $t('MoveUp'),
+      title: 'MoveUp',
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => this.props.onMoveRule(rowIndex, MOVE_TYPE.UP)
     };
     const moveDownAction = {
-      title: $t('MoveDown'),
+      title: 'MoveDown',
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => this.props.onMoveRule(rowIndex, MOVE_TYPE.DOWN)
     };
@@ -92,20 +92,20 @@ export class K8sRules extends React.Component<Props> {
     // https://github.com/patternfly/patternfly-next/issues/2373
     const headerCells: ICell[] = [
       {
-        title: $t('RuleOrder'),
+        title: 'RuleOrder',
         transforms: [cellWidth(10) as any],
         props: {}
       },
       {
-        title: $t('RequestMatching'),
+        title: 'RequestMatching',
         props: {}
       },
       {
-        title: $t('RouteFiltering'),
+        title: 'RouteFiltering',
         props: {}
       },
       {
-        title: $t('RouteTo'),
+        title: 'RouteTo',
         props: {}
       }
     ];

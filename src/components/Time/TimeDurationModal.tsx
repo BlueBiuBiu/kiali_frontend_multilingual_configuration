@@ -75,35 +75,35 @@ export function TimeDurationModal(props: Props) {
       showClose={false}
       actions={[
         <Button key="confirm" variant="primary" onClick={handleConfirm}>
-          Confirm
+          {$t('Confirm')}
         </Button>,
         <Button key="cancel" variant="link" onClick={handleCancel}>
-          Cancel
+          {$t('Cancel')}
         </Button>
       ]}
       position="top"
     >
       <Form isHorizontal={true}>
         {props.customDuration ? (
-          <FormGroup label="Time range" fieldId="drform-time-range">
+          <FormGroup label={$t('TimeRange')} fieldId="drform-time-range">
             <div style={{ display: 'flex' }}>
-              <TimeRangeComp timeRange={timeRange} setTimeRange={handleSetTimeRange} tooltip={'Time range'} />
+              <TimeRangeComp timeRange={timeRange} setTimeRange={handleSetTimeRange} tooltip={$t('TimeRange')} />
             </div>
           </FormGroup>
         ) : (
-          <FormGroup label="Duration" fieldId="drform-duration">
+          <FormGroup label={$t('Duration')} fieldId="drform-duration">
             <DurationDropdownComponent
               id={'drform-duration-dd'}
               disabled={false}
               duration={duration}
               prefix="Last"
               setDuration={handleSetDuration}
-              tooltip="Traffic metrics per refresh"
+              tooltip={$t('TrafficMetricsPerRefresh')}
               tooltipPosition={TooltipPosition.top}
             />
           </FormGroup>
         )}
-        <FormGroup label="Refresh interval" fieldId="drform-refresh">
+        <FormGroup label={$t('tip25')} fieldId="drform-refresh">
           <RefreshComponent
             id="drform-metrics-refresh"
             hideLabel={true}

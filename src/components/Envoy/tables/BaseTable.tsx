@@ -68,7 +68,7 @@ export function SummaryTableRenderer<T extends SummaryTable>() {
               </div>
               <ToolbarDropdown
                 id="envoy_pods_list"
-                tooltip="Display envoy config for the selected pod"
+                tooltip={$t('tip214')}
                 handleSelect={key => this.props.setPod(key)}
                 value={this.props.pod}
                 label={this.props.pod}

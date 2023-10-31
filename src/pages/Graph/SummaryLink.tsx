@@ -29,7 +29,7 @@ const getTooltip = (tooltip: React.ReactFragment, nodeData: GraphNodeData): Reac
     homeCluster?.name !== nodeData.cluster;
   return (
     <div style={{ textAlign: 'left' }}>
-      <span>{tooltip}</span>
+      <span>{$t(tooltip as string)}</span>
       {addNamespace && <div>{`Namespace: ${nodeData.namespace}`}</div>}
       {addCluster && <div>{`Cluster: ${nodeData.cluster}`}</div>}
     </div>

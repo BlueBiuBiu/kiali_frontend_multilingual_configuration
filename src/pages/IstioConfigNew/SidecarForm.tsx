@@ -238,7 +238,7 @@ export class SidecarForm extends React.Component<Props, SidecarState> {
           />
         </FormGroup>
         {this.state.addWorkloadSelector && (
-          <FormGroup fieldId="workloadLabels" label="Labels">
+          <FormGroup fieldId="workloadLabels" label={$t('Labels')}>
             <TextInput
               id="gwHosts"
               name="gwHosts"
@@ -250,15 +250,13 @@ export class SidecarForm extends React.Component<Props, SidecarState> {
             <FormHelperText>
               <HelperText>
                 <HelperTextItem>
-                  {isValid(this.state.workloadSelectorValid)
-                    ? 'One or more labels to select a workload where the Sidecar is applied.'
-                    : 'Enter a label in the format <label>=<value>. Enter one or multiple labels separated by comma.'}
+                  {isValid(this.state.workloadSelectorValid) ? $t('helpTip51') : $t('helpTip46')}
                 </HelperTextItem>
               </HelperText>
             </FormHelperText>
           </FormGroup>
         )}
-        <FormGroup label="Egress" fieldId="egressHostTable">
+        <FormGroup label={$t('Egress')} fieldId="egressHostTable">
           <Table
             aria-label="Egress Hosts"
             cells={headerCells}
@@ -269,9 +267,7 @@ export class SidecarForm extends React.Component<Props, SidecarState> {
             <TableHeader />
             <TableBody />
           </Table>
-          {this.state.egressHosts.length === 0 && (
-            <div className={noEgressHostsStyle}>Sidecar has no Egress Hosts Defined</div>
-          )}
+          {this.state.egressHosts.length === 0 && <div className={noEgressHostsStyle}>{$t('tip305')}</div>}
         </FormGroup>
       </>
     );

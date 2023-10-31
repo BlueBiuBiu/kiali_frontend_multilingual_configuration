@@ -126,12 +126,12 @@ class NamespaceDropdownComponent extends React.PureComponent<NamespaceDropdownPr
 
   private namespaceButtonText() {
     if (this.state.selectedNamespaces.length === 0) {
-      return <span>Select Namespaces</span>;
+      return <span>{$t('SelectNamespaces')}</span>;
     }
 
     return (
       <>
-        <span style={{ paddingRight: '0.75rem' }}>Namespace:</span>
+        <span style={{ paddingRight: '0.75rem' }}>{$t('Namespace')}:</span>
         {this.state.selectedNamespaces.length === 1 ? (
           <span>{this.state.selectedNamespaces[0].name}</span>
         ) : (
@@ -160,7 +160,7 @@ class NamespaceDropdownComponent extends React.PureComponent<NamespaceDropdownPr
             anySelected ? this.onBulkNone() : this.onBulkAll();
           }}
         ></Checkbox>
-        <span className={optionLabelStyle}>Select all</span>
+        <span className={optionLabelStyle}>{$t('Select_all')}</span>
       </div>
     );
   }
@@ -226,7 +226,7 @@ class NamespaceDropdownComponent extends React.PureComponent<NamespaceDropdownPr
         </>
       );
     }
-    return <div className={optionStyle}>No namespaces found</div>;
+    return <div className={optionStyle}>{$t('NoNamespacesFound')}</div>;
   }
 
   render() {

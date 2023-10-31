@@ -643,11 +643,7 @@ class TrafficPolicyComponent extends React.Component<Props, TrafficPolicyState> 
                   />
                   <FormHelperText>
                     <HelperText>
-                      <HelperTextItem>
-                        {isValid(isValidLB)
-                          ? 'TTL is expressed in nanoseconds (i.e. 1000, 2000, etc) or seconds (i.e. 10s, 1.5s, etc).'
-                          : 'HTTP Cookie Name must be non empty and TTL must be expressed in in nanoseconds (i.e. 1000, 2000, etc) or seconds (i.e. 10s, 1.5s, etc).'}
-                      </HelperTextItem>
+                      <HelperTextItem>{isValid(isValidLB) ? $t('helpTip26') : $t('helpTip27')}</HelperTextItem>
                     </HelperText>
                   </FormHelperText>
                 </FormGroup>

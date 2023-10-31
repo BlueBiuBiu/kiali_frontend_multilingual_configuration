@@ -91,7 +91,7 @@ export class IstioConfigOverview extends React.Component<IstioConfigOverviewProp
         <ul style={{ listStyleType: 'none' }}>
           {istioObject && istioObject.metadata.creationTimestamp && (
             <li>
-              <span>Created</span>
+              <span>{$t('Created')}</span>
               <div style={{ display: 'inline-block' }}>
                 <LocalTime time={istioObject.metadata.creationTimestamp} />
               </div>
@@ -99,7 +99,7 @@ export class IstioConfigOverview extends React.Component<IstioConfigOverviewProp
           )}
           {istioObject && istioObject.metadata.resourceVersion && (
             <li>
-              <span>Version</span>
+              <span>{$t('Version')}</span>
               {istioObject.metadata.resourceVersion}
             </li>
           )}
@@ -129,7 +129,7 @@ export class IstioConfigOverview extends React.Component<IstioConfigOverviewProp
       <Stack hasGutter={true}>
         <StackItem>
           <Title headingLevel="h3" size={TitleSizes.xl}>
-            Overview
+            {$t('Overview')}
           </Title>
         </StackItem>
         <StackItem>

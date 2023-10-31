@@ -28,9 +28,6 @@ type State = {
   validationMsg: string;
 };
 
-const MSG_SAME_MATCHING = $t('tip1');
-const MSG_HEADER_NAME_NON_EMPTY = $t('tip2');
-const MSG_HEADER_VALUE_NON_EMPTY = $t('tip3');
 
 export class RequestRouting extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -180,7 +177,7 @@ export class RequestRouting extends React.Component<Props, State> {
             headerName: prevState.headerName,
             matchValue: prevState.matchValue,
             rules: prevState.rules,
-            validationMsg: MSG_SAME_MATCHING,
+            validationMsg: $t('tip1'),
             faultInjectionRoute: prevState.faultInjectionRoute,
             timeoutRetryRoute: prevState.timeoutRetryRoute
           };
@@ -194,7 +191,7 @@ export class RequestRouting extends React.Component<Props, State> {
     this.setState(prevState => {
       return {
         matches: prevState.matches.filter(m => matchToRemove !== m),
-        validationMsg: prevState.validationMsg === MSG_SAME_MATCHING ? '' : prevState.validationMsg
+        validationMsg: prevState.validationMsg === $t('tip1') ? '' : prevState.validationMsg
       };
     });
   };
@@ -215,10 +212,10 @@ export class RequestRouting extends React.Component<Props, State> {
   onHeaderNameChange = (headerName: string) => {
     let validationMsg = '';
     if (this.state.matchValue !== '' && headerName === '') {
-      validationMsg = MSG_HEADER_NAME_NON_EMPTY;
+      validationMsg = $t('tip2');
     }
     if (this.state.matchValue === '' && headerName !== '' && this.state.operator !== PRESENCE) {
-      validationMsg = MSG_HEADER_VALUE_NON_EMPTY;
+      validationMsg = $t('tip3');
     }
     this.setState({
       headerName: headerName,
@@ -230,10 +227,10 @@ export class RequestRouting extends React.Component<Props, State> {
     let validationMsg = '';
     if (this.state.category === HEADERS) {
       if (this.state.headerName === '' && matchValue !== '') {
-        validationMsg = MSG_HEADER_NAME_NON_EMPTY;
+        validationMsg = $t('tip2');
       }
       if (this.state.headerName !== '' && matchValue === '') {
-        validationMsg = MSG_HEADER_VALUE_NON_EMPTY;
+        validationMsg = $t('tip3');
       }
     }
     if (matchValue === '') {

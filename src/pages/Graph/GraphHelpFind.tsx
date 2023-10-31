@@ -69,7 +69,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
           shouldClose={this.props.onClose}
           headerContent={
             <div>
-              <span>Graph Find/Hide</span>
+              <span>{$t('Graph_Find_Hide')}</span>
             </div>
           }
           bodyContent={

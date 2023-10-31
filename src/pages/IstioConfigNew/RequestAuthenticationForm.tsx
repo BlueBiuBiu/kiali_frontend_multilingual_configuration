@@ -156,7 +156,7 @@ export class RequestAuthenticationForm extends React.Component<Props, RequestAut
           />
         </FormGroup>
         {this.state.addWorkloadSelector && (
-          <FormGroup fieldId="workloadLabels" label="Labels">
+          <FormGroup fieldId="workloadLabels" label={$t('Labels')}>
             <TextInput
               id="gwHosts"
               name="gwHosts"
@@ -168,15 +168,13 @@ export class RequestAuthenticationForm extends React.Component<Props, RequestAut
             <FormHelperText>
               <HelperText>
                 <HelperTextItem>
-                  {isValid(this.state.workloadSelectorValid)
-                    ? 'One or more labels to select a workload where the RequestAuthentication is applied.'
-                    : 'Enter a label in the format <label>=<value>. Enter one or multiple labels separated by comma.'}
+                  {isValid(this.state.workloadSelectorValid) ? $t('helpTip47') : $t('helpTip46')}
                 </HelperTextItem>
               </HelperText>
             </FormHelperText>
           </FormGroup>
         )}
-        <FormGroup label="JWT Rules" fieldId="addJWTRules">
+        <FormGroup label={$t('JWTRules')} fieldId="addJWTRules">
           <Switch
             id="addJWTRules"
             label={' '}
@@ -187,10 +185,10 @@ export class RequestAuthenticationForm extends React.Component<Props, RequestAut
         </FormGroup>
         {this.state.addJWTRules && (
           <>
-            <FormGroup label="JWT Rule Builder" fieldId="jwtRulesBuilder">
+            <FormGroup label={$t('JWTRuleBuilder')} fieldId="jwtRulesBuilder">
               <JwtRuleBuilder onAddJwtRule={this.onAddJwtRule} />
             </FormGroup>
-            <FormGroup label="JWT Rules List" fieldId="jwtRulesList">
+            <FormGroup label={$t('JWTRulesList')} fieldId="jwtRulesList">
               <JwtRuleList jwtRules={this.state.jwtRules} onRemoveJwtRule={this.onRemoveJwtRule} />
             </FormGroup>
           </>

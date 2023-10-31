@@ -319,7 +319,7 @@ export class OverviewTrafficPolicies extends React.Component<OverviewTrafficPoli
               {modalAction}
             </Button>,
             <Button key="cancel" variant={ButtonVariant.secondary} onClick={this.onHideConfirmModal}>
-              Cancel
+              {$t('Cancel')}
             </Button>
           ]}
         >

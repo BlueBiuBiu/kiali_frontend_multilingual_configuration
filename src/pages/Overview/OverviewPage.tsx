@@ -695,7 +695,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           'data-test': `enable-${nsInfo.name}-namespace-sidecar-injection`,
           isGroup: false,
           isSeparator: false,
-          title: 'Enable Auto Injection',
+          title: 'AlertUtils4',
           action: (ns: string) =>
             this.setState({
               showTrafficPoliciesModal: true,
@@ -709,7 +709,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           'data-test': `disable-${nsInfo.name}-namespace-sidecar-injection`,
           isGroup: false,
           isSeparator: false,
-          title: 'Disable Auto Injection',
+          title: 'DisableAutoInjection',
           action: (ns: string) =>
             this.setState({
               showTrafficPoliciesModal: true,
@@ -723,7 +723,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           'data-test': `remove-${nsInfo.name}-namespace-sidecar-injection`,
           isGroup: false,
           isSeparator: false,
-          title: 'Remove Auto Injection',
+          title: 'RemoveAutoInjection',
           action: (ns: string) =>
             this.setState({
               showTrafficPoliciesModal: true,
@@ -809,7 +809,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
       const addAuthorizationAction = {
         isGroup: false,
         isSeparator: false,
-        title: (aps.length === 0 ? 'Create ' : 'Update') + ' Traffic Policies',
+        title: (aps.length === 0 ? $t('Create') + ' ' : $t('Update')) + ' ' + $t('TrafficPolicies'),
         action: (ns: string) => {
           this.setState({
             opTarget: aps.length === 0 ? 'create' : 'update',
@@ -823,7 +823,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
       const removeAuthorizationAction = {
         isGroup: false,
         isSeparator: false,
-        title: 'Delete Traffic Policies',
+        title: 'DeleteTrafficPolicies',
         action: (ns: string) =>
           this.setState({
             opTarget: 'delete',
@@ -1181,12 +1181,13 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           }
         >
           <div id="labels_info" style={{ display: 'inline' }}>
-            {labelsLength} label{labelsLength !== '1' ? 's' : ''}
+            {labelsLength} {$t('label')}
+            {labelsLength !== '1' ? 's' : ''}
           </div>
         </Tooltip>
       </div>
     ) : (
-      <div style={{ textAlign: 'left' }}>No labels</div>
+      <div style={{ textAlign: 'left' }}>{$t('NoLabels')}</div>
     );
     return labelContent;
   }

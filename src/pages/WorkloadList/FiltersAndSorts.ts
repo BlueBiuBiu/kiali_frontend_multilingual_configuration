@@ -206,7 +206,7 @@ export const sortFields: SortField<WorkloadListItem>[] = [
 
 const workloadNameFilter: FilterType = {
   category: 'Workload Name',
-  placeholder: 'Filter by Workload Name',
+  placeholder: 'placeholder29',
   filterType: TextInputTypes.text,
   action: FILTER_ACTION_APPEND,
   filterValues: []
@@ -214,7 +214,7 @@ const workloadNameFilter: FilterType = {
 
 export const appLabelFilter: FilterType = {
   category: 'App Label',
-  placeholder: 'Filter by App Label Validation',
+  placeholder: 'placeholder30',
   filterType: AllFilterTypes.select,
   action: FILTER_ACTION_UPDATE,
   filterValues: presenceValues
@@ -222,7 +222,7 @@ export const appLabelFilter: FilterType = {
 
 export const versionLabelFilter: FilterType = {
   category: 'Version Label',
-  placeholder: 'Filter by Version Label Validation',
+  placeholder: 'placeholder44',
   filterType: AllFilterTypes.select,
   action: FILTER_ACTION_UPDATE,
   filterValues: presenceValues
@@ -230,7 +230,7 @@ export const versionLabelFilter: FilterType = {
 
 const workloadTypeFilter: FilterType = {
   category: 'Workload Type',
-  placeholder: 'Filter by Workload Type',
+  placeholder: 'placeholder31',
   filterType: AllFilterTypes.typeAhead,
   action: FILTER_ACTION_APPEND,
   filterValues: [

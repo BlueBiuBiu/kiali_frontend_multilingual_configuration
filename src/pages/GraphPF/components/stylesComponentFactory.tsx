@@ -72,11 +72,11 @@ const nodeContextMenu = (node: GraphElement): React.ReactElement[] => {
       // TODO: fix kiosk param
       !!o.altClickHandler ? (
         <ContextMenuItem key={`option-${i}`} onClick={() => o.altClickHandler!(o.node!)}>
-          {o.text}
+          {$t(o.text)}
         </ContextMenuItem>
       ) : (
         <ContextMenuItem key={`option-${i}`} onClick={() => clickHandler(o, '')}>
-          {o.text} {o.target === '_blank' && <ExternalLinkAltIcon />}
+          {$t(o.text)} {o.target === '_blank' && <ExternalLinkAltIcon />}
         </ContextMenuItem>
       )
     );
@@ -101,27 +101,15 @@ const handleDoubleTap = (doubleTapNode: GraphElement) => {
 
   if (dtNodeData.isOutOfMesh) {
     if (!serverConfig.ambientEnabled) {
-      AlertUtils.add(
-        `A node with a missing sidecar provides no node-specific telemetry and can not provide a node detail graph.`,
-        undefined,
-        MessageType.WARNING
-      );
+      AlertUtils.add($t('tip47'), undefined, MessageType.WARNING);
     } else {
-      AlertUtils.add(
-        `A node out of the mesh provides no node-specific telemetry and can not provide a node detail graph.`,
-        undefined,
-        MessageType.WARNING
-      );
+      AlertUtils.add($t('AlertUtils15'), undefined, MessageType.WARNING);
     }
 
     return;
   }
   if (dtNodeData.isIdle) {
-    AlertUtils.add(
-      `An idle node has no node-specific traffic and can not provide a node detail graph.`,
-      undefined,
-      MessageType.WARNING
-    );
+    AlertUtils.add($t('tip48'), undefined, MessageType.WARNING);
     return;
   }
   if (dtNodeData.isOutside) {

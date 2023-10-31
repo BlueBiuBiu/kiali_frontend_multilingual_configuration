@@ -139,7 +139,7 @@ const MeshPageComponent: React.FunctionComponent<MeshPageProps> = (props: MeshPa
     <>
       <DefaultSecondaryMasthead
         hideNamespaceSelector={true}
-        rightToolbar={<RefreshButton key={'Refresh'} handleRefresh={fetchMeshClusters} />}
+        rightToolbar={<RefreshButton key={$t('Refresh')} handleRefresh={fetchMeshClusters} />}
       />
       <RenderContent>
         <div className={containerPadding}>
@@ -149,8 +149,8 @@ const MeshPageComponent: React.FunctionComponent<MeshPageProps> = (props: MeshPa
           </Table>
           {clusterRows.length === 0 ? (
             <EmptyState variant={EmptyStateVariant.full}>
-              <EmptyStateHeader titleText="No Clusters" headingLevel="h2" />
-              <EmptyStateBody>No clusters were discovered in your mesh.</EmptyStateBody>
+              <EmptyStateHeader titleText={$t('NoClusters')} headingLevel="h2" />
+              <EmptyStateBody>{$t('tip352')}</EmptyStateBody>
             </EmptyState>
           ) : null}
         </div>

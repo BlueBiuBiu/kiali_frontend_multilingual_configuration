@@ -110,11 +110,7 @@ export class RouteTable implements SummaryTable {
         transforms: [sortable],
         header: {
           info: {
-            tooltip: (
-              <div className={kialiStyle({ textAlign: 'left' })}>
-                Envoy will be matched this domain to this virtual host.
-              </div>
-            )
+            tooltip: <div className={kialiStyle({ textAlign: 'left' })}>{$t('tip347')}</div>
           }
         }
       },
@@ -123,11 +119,7 @@ export class RouteTable implements SummaryTable {
         transforms: [sortable],
         header: {
           info: {
-            tooltip: (
-              <div className={kialiStyle({ textAlign: 'left' })}>
-                The match tree to use when resolving route actions for incoming requests
-              </div>
-            )
+            tooltip: <div className={kialiStyle({ textAlign: 'left' })}>{$t('tip348')}</div>
           }
         }
       },
@@ -151,13 +143,7 @@ export class RouteTable implements SummaryTable {
 
   tooltip = (): React.ReactNode => {
     return (
-      <Tooltip
-        content={
-          <div className={kialiStyle({ textAlign: 'left' })}>
-            Network connection between source a destination that is configured in envoy
-          </div>
-        }
-      >
+      <Tooltip content={<div className={kialiStyle({ textAlign: 'left' })}>{$t('tip349')}</div>}>
         <KialiIcon.Help className={kialiStyle({ width: '14px', height: '14px', color: PFColors.Info })} />
       </Tooltip>
     );

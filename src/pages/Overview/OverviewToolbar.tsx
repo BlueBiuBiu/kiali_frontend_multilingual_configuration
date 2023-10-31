@@ -169,7 +169,7 @@ class OverviewToolbarComponent extends React.Component<Props, State> {
       this.setState({ overviewType: otype });
       this.props.onRefresh();
     } else {
-      throw new Error('Overview type is not valid.');
+      throw new Error($t('tip105'));
     }
   };
 
@@ -181,7 +181,7 @@ class OverviewToolbarComponent extends React.Component<Props, State> {
       this.setState({ directionType: dtype });
       this.props.onRefresh();
     } else {
-      throw new Error('Direction type is not valid.');
+      throw new Error($t('tip106'));
     }
   };
 
@@ -236,7 +236,7 @@ class OverviewToolbarComponent extends React.Component<Props, State> {
           handleSelect={this.updateOverviewType}
           nameDropdown="Health for"
           value={this.state.overviewType}
-          label={overviewTypes[this.state.overviewType]}
+          label={$t(overviewTypes[this.state.overviewType])}
           options={overviewTypes}
         />
         {this.props.displayMode !== OverviewDisplayMode.COMPACT && (
@@ -250,7 +250,7 @@ class OverviewToolbarComponent extends React.Component<Props, State> {
             options={directionTypes}
           />
         )}
-        <Tooltip content={<>Expand view</>} position={TooltipPosition.top}>
+        <Tooltip content={<>{$t('Expandview')}</>} position={TooltipPosition.top}>
           <Button
             onClick={() => this.props.setDisplayMode(OverviewDisplayMode.EXPAND)}
             variant={ButtonVariant.plain}
@@ -261,7 +261,7 @@ class OverviewToolbarComponent extends React.Component<Props, State> {
             <ThLargeIcon />
           </Button>
         </Tooltip>
-        <Tooltip content={<>Compact view</>} position={TooltipPosition.top}>
+        <Tooltip content={<>{$t('CompactView')}</>} position={TooltipPosition.top}>
           <Button
             onClick={() => this.props.setDisplayMode(OverviewDisplayMode.COMPACT)}
             variant={ButtonVariant.plain}
@@ -272,7 +272,7 @@ class OverviewToolbarComponent extends React.Component<Props, State> {
             <ThIcon />
           </Button>
         </Tooltip>
-        <Tooltip content={<>List view</>} position={TooltipPosition.top}>
+        <Tooltip content={<>{$t('ListView')}</>} position={TooltipPosition.top}>
           <Button
             onClick={() => this.props.setDisplayMode(OverviewDisplayMode.LIST)}
             variant={ButtonVariant.plain}

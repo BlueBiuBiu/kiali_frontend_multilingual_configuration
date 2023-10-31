@@ -178,15 +178,15 @@ export class WizardAnnotations extends React.Component<Props, State> {
     const footer = (
       <ActionGroup>
         <Button variant="primary" isDisabled={!this.props.canEdit} onClick={this.onChange}>
-          Save
+          {$t('Save')}
         </Button>
         {this.props.canEdit && (
           <Button variant="link" onClick={this.onClear}>
-            Clear
+            {$t('Clear')}
           </Button>
         )}
         <Button variant="link" onClick={this.onClose}>
-          Cancel
+          {$t('Cancel')}
         </Button>
       </ActionGroup>
     );
@@ -205,8 +205,8 @@ export class WizardAnnotations extends React.Component<Props, State> {
           <Table variant={'compact'}>
             <Thead>
               <Tr>
-                <Th>Key</Th>
-                <Th>Value</Th>
+                <Th>{$t('Key')}</Th>
+                <Th>{$t('Value')}</Th>
                 {this.props.canEdit && <Th></Th>}
               </Tr>
             </Thead>
@@ -221,7 +221,7 @@ export class WizardAnnotations extends React.Component<Props, State> {
             }}
             isInline
           >
-            <span style={{ marginLeft: '3px' }}>Add more</span>
+            <span style={{ marginLeft: '3px' }}>{$t('AddMore')}</span>
           </Button>
           {this.state.validation.length > 0 && (
             <Alert variant="danger" isInline isExpandable title="An error occurred">

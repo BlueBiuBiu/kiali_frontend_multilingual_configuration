@@ -153,7 +153,7 @@ export class K8sTrafficShifting extends React.Component<Props, State> {
         {this.props.subServices.length > 1 && (
           <div className={evenlyButtonStyle}>
             <Button variant={ButtonVariant.link} icon={<EqualizerIcon />} onClick={() => this.resetState()}>
-              Evenly distribute traffic
+              {$t('EvenlyDistributeTraffic')}
             </Button>{' '}
           </div>
         )}

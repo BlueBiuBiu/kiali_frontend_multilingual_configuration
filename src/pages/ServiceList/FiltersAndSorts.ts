@@ -152,7 +152,7 @@ export const sortFields: SortField<ServiceListItem>[] = [
 
 const serviceNameFilter: FilterType = {
   category: 'Service Name',
-  placeholder: 'Filter by Service Name',
+  placeholder: 'placeholder26',
   filterType: TextInputTypes.text,
   action: FILTER_ACTION_APPEND,
   filterValues: []
@@ -160,7 +160,7 @@ const serviceNameFilter: FilterType = {
 
 const serviceTypeFilter: FilterType = {
   category: 'Service Type',
-  placeholder: 'Filter by Service Type',
+  placeholder: 'placeholder27',
   filterType: AllFilterTypes.typeAhead,
   action: FILTER_ACTION_APPEND,
   filterValues: [

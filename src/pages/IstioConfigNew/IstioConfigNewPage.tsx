@@ -462,29 +462,29 @@ class IstioConfigNewPageComponent extends React.Component<Props, State> {
         </div>
         <RenderContent>
           <Form className={formPadding} isHorizontal={true}>
-            <FormGroup label="Namespaces" isRequired={true} fieldId="namespaces">
+            <FormGroup label={$t('Namespaces')} isRequired={true} fieldId="namespaces">
               <NamespaceDropdown disabled={false} />
               {!isValid(isNamespacesValid) && (
                 <FormHelperText>
                   <HelperText>
-                    <HelperTextItem>An Istio Config resource needs at least one namespace selected</HelperTextItem>
+                    <HelperTextItem>{$t('tip289')}</HelperTextItem>
                   </HelperText>
                 </FormHelperText>
               )}
             </FormGroup>
             {isMultiCluster && (
-              <FormGroup label="Clusters" isRequired={true} fieldId="clusters">
+              <FormGroup label={$t('Clusters')} isRequired={true} fieldId="clusters">
                 <ClusterDropdown />
                 {!isValid(isClustersValid) && (
                   <FormHelperText>
                     <HelperText>
-                      <HelperTextItem>An Istio Config resource needs at least one cluster selected</HelperTextItem>
+                      <HelperTextItem>{$t('tip290')}</HelperTextItem>
                     </HelperText>
                   </FormHelperText>
                 )}
               </FormGroup>
             )}
-            <FormGroup label="Name" isRequired={true} fieldId="name">
+            <FormGroup label={$t('Name')} isRequired={true} fieldId="name">
               <TextInput
                 value={this.state.name}
                 isRequired={true}
@@ -540,17 +540,17 @@ class IstioConfigNewPageComponent extends React.Component<Props, State> {
                 onClick={() => this.showPreview()}
                 data-test={'preview'}
               >
-                Preview
+                {$t('Preview')}
               </Button>
               <Button variant={ButtonVariant.secondary} onClick={() => this.backToList()}>
-                Cancel
+                {$t('Cancel')}
               </Button>
             </ActionGroup>
           </Form>
           <IstioConfigPreview
             isOpen={this.state.showPreview}
             items={this.state.itemsPreview}
-            title={'Preview new istio objects'}
+            title={$t('title34')}
             opTarget={'create'}
             disableAction={!canCreate}
             ns={this.props.activeNamespaces.join(',')}

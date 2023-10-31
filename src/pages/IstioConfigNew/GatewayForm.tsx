@@ -147,7 +147,7 @@ export class GatewayForm extends React.Component<Props, GatewayState> {
           />
         </FormGroup>
         {this.state.addWorkloadSelector && (
-          <FormGroup fieldId="workloadLabels" label="Labels">
+          <FormGroup fieldId="workloadLabels" label={$t('Labels')}>
             <TextInput
               id="gwHosts"
               name="gwHosts"
@@ -159,9 +159,7 @@ export class GatewayForm extends React.Component<Props, GatewayState> {
             <FormHelperText>
               <HelperText>
                 <HelperTextItem>
-                  {isValid(this.state.workloadSelectorValid)
-                    ? 'One or more labels to select a workload where the Gateway is applied.'
-                    : 'Enter a label in the format <label>=<value>. Enter one or multiple labels separated by comma.'}
+                  {isValid(this.state.workloadSelectorValid) ? $t('helpTip40') : $t('helpTip46')}
                 </HelperTextItem>
               </HelperText>
             </FormHelperText>

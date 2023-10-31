@@ -140,7 +140,7 @@ class TrafficList extends FilterComponent.Component<
       <>
         <div className={containerPadding}>
           <Title headingLevel="h5" size={TitleSizes.lg}>
-            {hasInbound ? '' : 'No '} Inbound Traffic
+            {hasInbound ? '' : $t('No')} {$t('Inbound_Traffic')}
           </Title>
           {hasInbound && (
             <Table aria-label="Sortable Table" cells={cols} onSort={this.onSort} rows={inboundRows} sortBy={sortBy}>
@@ -151,7 +151,7 @@ class TrafficList extends FilterComponent.Component<
         </div>
         <div className={containerPadding}>
           <Title headingLevel="h5" size={TitleSizes.lg}>
-            {hasOutbound ? '' : 'No '} Outbound Traffic
+            {hasOutbound ? '' : $t('No')} {$t('Outbound_Traffic')}
           </Title>
           {hasOutbound && (
             <Table aria-label="Sortable Table" cells={cols} onSort={this.onSort} rows={outboundRows} sortBy={sortBy}>
@@ -269,7 +269,11 @@ class TrafficList extends FilterComponent.Component<
               <Tooltip
                 key={`tt_status_${i}`}
                 position={TooltipPosition.top}
-                content={<>Traffic Status: {item.healthStatus.status.name}</>}
+                content={
+                  <>
+                    {$t('Traffic_Status')}: {item.healthStatus.status.name}
+                  </>
+                }
               >
                 {createTooltipIcon(createIcon(item.healthStatus.status, 'sm'))}
               </Tooltip>
@@ -312,11 +316,11 @@ class TrafficList extends FilterComponent.Component<
                       kioskContextMenuAction(links.metrics);
                     }}
                   >
-                    View metrics
+                    {$t('View_metrics')}
                   </Link>
                 ) : (
                   <Link key={`link_m_${item.badge}_${name}`} to={links.metrics}>
-                    View metrics
+                    {$t('View_metrics')}
                   </Link>
                 ))}
             </>

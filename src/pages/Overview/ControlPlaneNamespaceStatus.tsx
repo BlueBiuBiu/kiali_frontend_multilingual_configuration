@@ -28,19 +28,8 @@ export class ControlPlaneNamespaceStatus extends React.Component<Props> {
       <div style={{ textAlign: 'left' }}>
         {this.props.outboundTrafficPolicy && (
           <div>
-            <div style={{ display: 'inline-block', width: '125px', whiteSpace: 'nowrap' }}>Outbound policy</div>
-            <Tooltip
-              position={TooltipPosition.right}
-              content={
-                <div style={{ textAlign: 'left' }}>
-                  This value represents the meshConfig.outboundTrafficPolicy.mode, that configures the sidecar handling
-                  of external services, that is, those services that are not defined in Istio’s internal service
-                  registry. If this option is set to ALLOW_ANY, the Istio proxy lets calls to unknown services pass
-                  through. If the option is set to REGISTRY_ONLY, then the Istio proxy blocks any host without an HTTP
-                  service or service entry defined within the mesh
-                </div>
-              }
-            >
+            <div style={{ display: 'inline-block', width: '125px', whiteSpace: 'nowrap' }}>{$t('OutboundPolicy')}</div>
+            <Tooltip position={TooltipPosition.right} content={<div style={{ textAlign: 'left' }}>{$t('tip95')}</div>}>
               <Label isCompact color="blue">
                 {this.props.outboundTrafficPolicy.mode}
                 <KialiIcon.Info className={infoStyle} />
@@ -50,16 +39,8 @@ export class ControlPlaneNamespaceStatus extends React.Component<Props> {
         )}
         {showProxyPushTime && (
           <div>
-            <div style={{ display: 'inline-block', width: '125px', whiteSpace: 'nowrap' }}>Proxy push time</div>
-            <Tooltip
-              position={TooltipPosition.right}
-              content={
-                <div style={{ textAlign: 'left' }}>
-                  This value represents the delay in seconds between config change and a proxy receiving all required
-                  configuration.
-                </div>
-              }
-            >
+            <div style={{ display: 'inline-block', width: '125px', whiteSpace: 'nowrap' }}>{$t('ProxyPushTime')}</div>
+            <Tooltip position={TooltipPosition.right} content={<div style={{ textAlign: 'left' }}>{$t('tip96')}</div>}>
               <Label isCompact color="blue">
                 {maxProxyPushTime?.toFixed(2)} ms
                 <KialiIcon.Info className={infoStyle} />

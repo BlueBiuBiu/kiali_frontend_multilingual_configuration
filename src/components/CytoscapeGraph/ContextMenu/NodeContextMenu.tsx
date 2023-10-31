@@ -251,7 +251,7 @@ export function NodeContextMenuComponent(props: Props) {
       return (
         <div className={contextMenuItem} style={{ color: PFColors.Color200 }}>
           <Tooltip position={TooltipPosition.left} content={<>{getDropdownItemTooltipMessage()}</>}>
-            <div style={{ display: 'inline-block', cursor: 'not-allowed' }}>Delete Traffic Routing</div>
+            <div style={{ display: 'inline-block', cursor: 'not-allowed' }}>{$t('DeleteTrafficRouting')}</div>
           </Tooltip>
         </div>
       );
@@ -265,7 +265,7 @@ export function NodeContextMenuComponent(props: Props) {
             onClick={handleDeleteTrafficRouting}
             data-test="delete-traffic-routing"
           >
-            Delete Traffic Routing
+            {$t('DeleteTrafficRouting')}
           </a>
         </div>
       );
@@ -277,7 +277,7 @@ export function NodeContextMenuComponent(props: Props) {
       return (
         <>
           <hr className={hrStyle} />
-          <div className={contextMenuSubTitle}>Actions</div>
+          <div className={contextMenuSubTitle}>{$t('Actions')}</div>
           <div className={contextMenuItem}>
             <Spinner size="md" aria-label="Loading actions..." />
           </div>

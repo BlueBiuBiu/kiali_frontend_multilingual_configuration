@@ -202,7 +202,7 @@ export class AuthorizationPolicyForm extends React.Component<Props, Authorizatio
           </FormGroup>
         )}
         {this.state.addWorkloadSelector && (
-          <FormGroup fieldId="workloadLabels" label="Labels">
+          <FormGroup fieldId="workloadLabels" label={$t('Labels')}>
             <TextInput
               id="gwHosts"
               name="gwHosts"
@@ -214,16 +214,14 @@ export class AuthorizationPolicyForm extends React.Component<Props, Authorizatio
             <FormHelperText>
               <HelperText>
                 <HelperTextItem>
-                  {isValid(this.state.workloadSelectorValid)
-                    ? 'One or more labels to select a workload where the AuthorizationPolicy is applied.'
-                    : 'Enter a label in the format <label>=<value>. Enter one or multiple labels separated by comma.'}
+                  {isValid(this.state.workloadSelectorValid) ? $t('tip83') : $t('helpTip46')}
                 </HelperTextItem>
               </HelperText>
             </FormHelperText>
           </FormGroup>
         )}
         {this.state.policy === RULES && (
-          <FormGroup label="Action" fieldId="action-form">
+          <FormGroup label={$t('Action')} fieldId="action-form">
             <FormSelect value={this.state.action} onChange={this.onActionChange} id="action-form" name="action-form">
               {actions.map((option, index) => (
                 <FormSelectOption key={index} value={option} label={option} />
@@ -233,7 +231,7 @@ export class AuthorizationPolicyForm extends React.Component<Props, Authorizatio
         )}
         {this.state.policy === RULES && <RuleBuilder onAddRule={this.onAddRule} />}
         {this.state.policy === RULES && (
-          <FormGroup label="Rule List" fieldId="apRuleList">
+          <FormGroup label={$t('RuleList')} fieldId="apRuleList">
             <RuleList action={this.state.action} ruleList={this.state.rules} onRemoveRule={this.onRemoveRule} />
           </FormGroup>
         )}

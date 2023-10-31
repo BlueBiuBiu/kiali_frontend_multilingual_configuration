@@ -4,7 +4,7 @@ import { RichSpanData } from 'types/TracingInfo';
 const byWorkload = (workloads: FilterValue[]): RunnableFilter<RichSpanData> => {
   return {
     category: 'Workload',
-    placeholder: 'Filter by Workload',
+    placeholder: 'placeholder10',
     filterType: AllFilterTypes.typeAhead,
     action: FILTER_ACTION_APPEND,
     filterValues: workloads,
@@ -15,7 +15,7 @@ const byWorkload = (workloads: FilterValue[]): RunnableFilter<RichSpanData> => {
 const byApp = (apps: FilterValue[]): RunnableFilter<RichSpanData> => {
   return {
     category: 'App',
-    placeholder: 'Filter by App',
+    placeholder: 'placeholder11',
     filterType: AllFilterTypes.typeAhead,
     action: FILTER_ACTION_APPEND,
     filterValues: apps,
@@ -26,7 +26,7 @@ const byApp = (apps: FilterValue[]): RunnableFilter<RichSpanData> => {
 const byComponent = (components: FilterValue[]): RunnableFilter<RichSpanData> => {
   return {
     category: 'Component',
-    placeholder: 'Filter by Span Component',
+    placeholder: 'placeholder12',
     filterType: AllFilterTypes.typeAhead,
     action: FILTER_ACTION_APPEND,
     filterValues: components,
@@ -37,7 +37,7 @@ const byComponent = (components: FilterValue[]): RunnableFilter<RichSpanData> =>
 const byOperation = (ops: FilterValue[]): RunnableFilter<RichSpanData> => {
   return {
     category: 'Operation',
-    placeholder: 'Filter by Operation Name',
+    placeholder: 'placeholder13',
     filterType: AllFilterTypes.typeAhead,
     action: FILTER_ACTION_APPEND,
     filterValues: ops,
@@ -47,7 +47,7 @@ const byOperation = (ops: FilterValue[]): RunnableFilter<RichSpanData> => {
 
 const byError: RunnableFilter<RichSpanData> = {
   category: 'Error',
-  placeholder: 'Filter by Error',
+  placeholder: 'placeholder14',
   filterType: AllFilterTypes.select,
   action: FILTER_ACTION_UPDATE,
   filterValues: [

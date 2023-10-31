@@ -228,12 +228,12 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
             <SimpleTabs id="edge_summary_flag_hosts_tabs" defaultTab={0} style={{ paddingBottom: '10px' }}>
               <Tab style={summaryFont} eventKey={0} title="Flags">
                 <div style={summaryFont}>
-                  <ResponseFlagsTable title="Response flags by code:" responses={edgeData.responses} />
+                  <ResponseFlagsTable title={$t('title26') + ':'} responses={edgeData.responses} />
                 </div>
               </Tab>
               <Tab style={summaryFont} eventKey={1} title="Hosts">
                 <div style={summaryFont}>
-                  <ResponseHostsTable title="Hosts by code:" responses={edgeData.responses} />
+                  <ResponseHostsTable title={$t('HostsByCode') + ':'} responses={edgeData.responses} />
                 </div>
               </Tab>
             </SimpleTabs>

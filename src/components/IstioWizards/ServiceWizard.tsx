@@ -749,7 +749,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
               {this.props.update ? $t('Update') : $t('Create')}
             </Button>,
             <Button key="cancel" variant={ButtonVariant.secondary} onClick={() => this.onClose(false)}>
-              Cancel
+              {$t('Cancel')}
             </Button>
           ]}
         >
@@ -778,10 +778,10 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
               onClick={this.onPreview}
               data-test="preview"
             >
-              Preview
+              {$t('Preview')}
             </Button>,
             <Button key="cancel" variant={ButtonVariant.secondary} onClick={() => this.onClose(false)}>
-              Cancel
+              {$t('Cancel')}
             </Button>
           ]}
         >
@@ -799,8 +799,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
           />
           {!this.props.istioAPIEnabled && (
             <div style={{ padding: ' 0 0 20px 0' }}>
-              <KialiIcon.Warning /> <b>Istio API is disabled.</b> Be careful when editing the configuration as the Istio
-              config validations are disabled when the Istio API is disabled.
+              <KialiIcon.Warning /> <b>{$t('tip10')}</b> {$t('tip11')}
             </div>
           )}
           {this.props.type === WIZARD_REQUEST_ROUTING && (
@@ -890,7 +889,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
                     />
                   </div>
                 </Tab>
-                <Tab eventKey={2} title={'Traffic Policy'}>
+                <Tab eventKey={2} title={$t('TrafficPolicy')}>
                   <div style={{ marginTop: '20px', marginBottom: '10px' }}>
                     <TrafficPolicy
                       mtlsMode={this.state.trafficPolicy.mtlsMode}
