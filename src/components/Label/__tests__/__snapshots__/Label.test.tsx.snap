@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`#Badge render correctly with data should render badge 1`] = `
+<Label
+  className="kiali_f1il4iwg"
+  isCompact={true}
+>
+  app=bookinfo
+</Label>
+`;

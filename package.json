@@ -1,0 +1,169 @@
+{
+  "name": "@kiali/kiali-ui",
+  "version": "1.76.0",
+  "description": "React UI for [Kiali](https://github.com/kiali/kiali).",
+  "keywords": [
+    "istio service mesh",
+    "kiali",
+    "monitoring",
+    "observability",
+    "okd",
+    "openshift"
+  ],
+  "homepage-comment": [
+    "*Do not* change this setting if you wish run Kiali under different server root.",
+    "Instead update 'web_root' in Kaili config map in OpenShift console."
+  ],
+  "homepage": "./",
+  "proxy": "http://192.168.2.140:20001/kiali",
+  "bugs": {
+    "url": "https://github.com/kiali/kiali/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiali/kiali-ui.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Red Hat",
+  "main": "index.js",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "script-comments": [
+    "When adding new scripts, please be careful to using `npm run` instead of `yarn` for the tasks.",
+    "Some build environments we use do not include npm access, and installing yarn is not possible."
+  ],
+  "scripts": {
+    "build": "if [ \"${KIALI_ENV}\" = \"production\" ]; then npm run build:prod; else npm run build:dev; fi",
+    "build:dev": "sh -ac '. ./.env.upstream; npm run lint && npm run build:kiali'",
+    "build:kiali": "REACT_APP_VERSION=$npm_package_version REACT_APP_NAME=$npm_package_name REACT_APP_GIT_HASH=$(git rev-parse HEAD) GENERATE_SOURCEMAP=false EXTEND_ESLINT=true react-scripts build --profile",
+    "build:prod": "sh -ac '. ./.env.downstream; npm run build:kiali'",
+    "precypress:run:junit": "npm run cypress:delete:reports",
+    "cypress": "cypress open -e TAGS=\"not @multi-cluster\"",
+    "cypress:mc": "cypress open -e TAGS=\"@multi-cluster\"",
+    "cypress:run": "cypress run -e TAGS=\"@smoke\" && cypress run -e TAGS=\"not @crd-validation and not @multi-cluster and not @smoke\" && cypress run -e TAGS=\"@crd-validation and not @multi-cluster and not @smoke\"",
+    "cypress:run:smoke": "cypress run -e TAGS=\"@smoke\"",
+    "cypress:run:multi-cluster": "cypress run -e TAGS=\"not @crd-validation and @multi-cluster\"",
+    "cypress:run:junit": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json -e TAGS=\"not @crd-validation and not @multi-cluster\" && cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json -e TAGS=\"@crd-validation and not @multi-cluster\"",
+    "cypress:delete:reports": "rm cypress/results/* || true",
+    "cypress:combine:reports": "jrm cypress/results/combined-report.xml \"cypress/results/*.xml\"",
+    "lint": "eslint --ext js,ts,tsx src",
+    "lint:precommit": "if git diff --name-only HEAD | grep -E '\\.tsx?$'; then npm run lint; else true; fi",
+    "lintfix": "eslint --ext js,ts,tsx --fix src",
+    "start": "if [ \"${KIALI_ENV}\" = \"production\" ]; then npm run start:prod; else npm run start:dev; fi",
+    "start:dev": "sh -ac '. ./.env.upstream; npm run start:kiali'",
+    "start:kiali": "react-scripts start",
+    "start:prod": "sh -ac '. ./.env.downstream; npm run start:kiali'",
+    "test": "tsc -p . && TEST_RUNNER=1 react-scripts test --env=jsdom __tests__ --transformIgnorePatterns 'node_modules/(?!my-library-dir)/'",
+    "prettier": "prettier --write \"{src/**/*.{js,jsx,ts,tsx,json,yml,css,scss},travis.yml,*.json}\""
+  },
+  "dependencies": {
+    "@patternfly/patternfly": "5.0.4",
+    "@patternfly/react-charts": "7.0.1",
+    "@patternfly/react-core": "5.0.1",
+    "@patternfly/react-table": "5.0.1",
+    "@patternfly/react-topology": "5.0.0",
+    "axios": "^0.21.4",
+    "bootstrap-slider-without-jquery": "10.0.0",
+    "cy-node-html-label": "2.0.0",
+    "cytoscape": "3.15.5",
+    "cytoscape-canvas": "3.0.1",
+    "cytoscape-popper": "1.0.7",
+    "dagre": "0.8.5",
+    "deep-freeze": "0.0.1",
+    "eventemitter3": "4.0.7",
+    "i18next": "^23.6.0",
+    "js-yaml": "^3.13.1",
+    "json-beautify": "1.0.1",
+    "lodash-es": "^4.17.21",
+    "micro-memoize": "4.0.9",
+    "moment": "^2.29.4",
+    "react": "^17.0.1",
+    "react-ace": "9.1.3",
+    "react-copy-to-clipboard": "5.x",
+    "react-datepicker": "3.8.0",
+    "react-dom": "^17.0.1",
+    "react-flexview": "4.0.3",
+    "react-i18next": "^13.3.1",
+    "react-redux": "7.2.2",
+    "react-resize-detector": "3.4.0",
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0",
+    "react-virtualized": "9.x",
+    "redux": "4.0.3",
+    "redux-persist": "5.10.0",
+    "redux-persist-transform-filter": "0.0.18",
+    "redux-thunk": "2.4.1",
+    "regression": "^2.0.1",
+    "reselect": "4.0.0",
+    "screenfull": "5.0.2",
+    "tippy.js": "3.4.1",
+    "typesafe-actions": "^4.2.1",
+    "typestyle": "^2.4.0",
+    "visibilityjs": "2.0.2"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^12.2.0",
+    "@cypress/browserify-preprocessor": "3.0.2",
+    "@types/cytoscape": "3.14.0",
+    "@types/enzyme": "3.10.5",
+    "@types/jest": "23.3.10",
+    "@types/js-yaml": "^4.0.5",
+    "@types/lodash-es": "4.17.x",
+    "@types/node": "^18.17.14",
+    "@types/react": "^17.0.1",
+    "@types/react-datepicker": "^4.15.0",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-redux": "7.1.7",
+    "@types/react-router-dom": "^5.2.0",
+    "@types/react-virtualized": "9.x",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "axios-mock-adapter": "1.16.0",
+    "cypress": "^10.7.0",
+    "cypress-multi-reporters": "^1.6.0",
+    "cypress-react-selector": "^2.3.17",
+    "enzyme": "3.11.0",
+    "enzyme-to-json": "3.4.4",
+    "husky": "1.3.1",
+    "jest-canvas-mock": "2.2.0",
+    "jest-localstorage-mock": "2.4.2",
+    "junit-report-merger": "^3.0.5",
+    "mocha-junit-reporter": "^2.0.2",
+    "prettier": "2.0.5",
+    "pretty-quick": "2.0.1",
+    "react-scripts": "^5.0.1",
+    "redux-mock-store": "1.5.4",
+    "sass": "^1.63.6",
+    "seedrandom": "3.0.1",
+    "typescript": "4.6.4"
+  },
+  "resolutions": {
+    "@babel/core": "^7.22.15",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-syntax-flow": "^7.22.5",
+    "@babel/plugin-transform-react-jsx": "^7.22.15",
+    "async": "^3.2.2",
+    "json-schema": "^0.4.0",
+    "minimist": "^1.2.6",
+    "nth-check": "^2.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "yarn": ">=1.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run pretty-quick --staged --pattern \"{frontend/src/**/*.{js,jsx,ts,tsx,json,yml,css,scss},travis.yml,*.json}\" && npm run lint:precommit"
+    }
+  },
+  "browserslist": [
+    ">10%",
+    "last 2 versions",
+    "not ie <= 11"
+  ],
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/integration/**/*.{js,ts}",
+    "filterSpecs": true
+  }
+}
