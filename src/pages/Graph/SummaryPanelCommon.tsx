@@ -124,7 +124,7 @@ export const getNodeMetrics = (
     case NodeMetricType.WORKLOAD:
       return API.getWorkloadMetrics(nodeData.namespace, nodeData.workload!, options, nodeData.cluster);
     default:
-      return Promise.reject(new Error(`Unknown NodeMetricType: ${nodeMetricType}`));
+      return Promise.reject(new Error(`${$t('tip362')}: ${nodeMetricType}`));
   }
 };
 
@@ -177,7 +177,7 @@ export const renderNoTraffic = (protocol?: string) => {
   return (
     <>
       <div>
-        <KialiIcon.Info /> No {protocol ? protocol : ''} traffic logged.
+        <KialiIcon.Info /> {$t('No')} {protocol ? protocol : ''} {$t('trafficLogged')}
       </div>
     </>
   );

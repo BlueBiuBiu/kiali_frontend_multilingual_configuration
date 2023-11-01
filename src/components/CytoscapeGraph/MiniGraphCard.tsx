@@ -85,7 +85,7 @@ class MiniGraphCardComponent extends React.Component<MiniGraphCardProps, MiniGra
   render() {
     const graphCardActions = [
       <DropdownItem key="viewFullGraph" onClick={this.onViewFullGraph}>
-        Show full graph
+        {$t('ShowFullGraph')}
       </DropdownItem>
     ];
     if (isParentKiosk(this.props.kiosk)) {
@@ -106,7 +106,7 @@ class MiniGraphCardComponent extends React.Component<MiniGraphCardProps, MiniGra
     } else {
       graphCardActions.push(
         <DropdownItem key="viewNodeGraph" onClick={this.onViewNodeGraph}>
-          Show node graph
+          {$t('ShowNodeGraph')}
         </DropdownItem>
       );
     }

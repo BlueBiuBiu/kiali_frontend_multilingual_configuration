@@ -320,7 +320,7 @@ export class RequestRouting extends React.Component<Props, State> {
             this.setState(_prevState => {
               return {
                 faultInjectionRoute: faultInjectionRoute,
-                validationMsg: !valid ? 'Fault Injection not valid' : ''
+                validationMsg: !valid ? $t('helpTip18') : ''
               };
             });
           }}
@@ -329,7 +329,7 @@ export class RequestRouting extends React.Component<Props, State> {
             this.setState(_prevState => {
               return {
                 timeoutRetryRoute: timeoutRetryRoute,
-                validationMsg: !valid ? 'Request Timeout not valid' : ''
+                validationMsg: !valid ? $t('helpTip19') : ''
               };
             });
           }}

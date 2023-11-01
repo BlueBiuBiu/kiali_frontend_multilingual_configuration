@@ -197,27 +197,22 @@ export class SummaryPanelNamespaceBox extends React.Component<SummaryPanelPropTy
                  <SimpleTabs id="graph_summary_tabs" defaultTab={0} style={{ paddingBottom: '10px' }}>
                    <Tooltip
                      id="tooltip-inbound"
-                     content="Traffic entering from another namespace."
+                     content={$t('title27')}
                      entryDelay={1250}
                      triggerRef={tooltipInboundRef}
                    />
                    <Tooltip
                      id="tooltip-outbound"
-                     content="Traffic exiting to another namespace."
+                     content={$t('title28')}
                      entryDelay={1250}
                      triggerRef={tooltipOutboundRef}
                    />
-                   <Tooltip
-                     id="tooltip-total"
-                     content="All inbound, outbound and internal namespace traffic."
-                     entryDelay={1250}
-                     triggerRef={tooltipTotalRef}
-                   />
+                   <Tooltip id="tooltip-total" content={$t('title29')} entryDelay={1250} triggerRef={tooltipTotalRef} />
                    <Tab style={summaryFont} title="Inbound" eventKey={0} ref={tooltipInboundRef}>
                      <div style={summaryFont}>
                        {grpcIn.rate === 0 && httpIn.rate === 0 && tcpIn.rate === 0 && (
                          <>
-                           <KialiIcon.Info /> No inbound traffic.
+                           <KialiIcon.Info /> {$t('tip282')}
                          </>
                        )}
                        {grpcIn.rate > 0 && (
@@ -230,7 +225,7 @@ export class SummaryPanelNamespaceBox extends React.Component<SummaryPanelPropTy
                        )}
                        {httpIn.rate > 0 && (
                          <RateTableHttp
-                           title="HTTP (requests per second):"
+                           title={`${$t('title15')}:`}
                            rate={httpIn.rate}
                            rate3xx={httpIn.rate3xx}
                            rate4xx={httpIn.rate4xx}
@@ -245,11 +240,11 @@ export class SummaryPanelNamespaceBox extends React.Component<SummaryPanelPropTy
                        }
                      </div>
                    </Tab>
-                   <Tab style={summaryFont} title="Outbound" eventKey={1} ref={tooltipOutboundRef}>
+                   <Tab style={summaryFont} title={$t('Outbound')} eventKey={1} ref={tooltipOutboundRef}>
                      <div style={summaryFont}>
                        {grpcOut.rate === 0 && httpOut.rate === 0 && tcpOut.rate === 0 && (
                          <>
-                           <KialiIcon.Info /> No outbound traffic.
+                           <KialiIcon.Info /> {$t('tip283')}
                          </>
                        )}
                        {grpcOut.rate > 0 && (
@@ -277,11 +272,11 @@ export class SummaryPanelNamespaceBox extends React.Component<SummaryPanelPropTy
                        }
                      </div>
                    </Tab>
-                   <Tab style={summaryFont} title="Total" eventKey={2} ref={tooltipTotalRef}>
+                   <Tab style={summaryFont} title={$t('"Total"')} eventKey={2} ref={tooltipTotalRef}>
                      <div style={summaryFont}>
                        {grpcTotal.rate === 0 && httpTotal.rate === 0 && tcpTotal.rate === 0 && (
                          <>
-                           <KialiIcon.Info /> No traffic.
+                           <KialiIcon.Info /> {$t('tip284')}
                          </>
                        )}
                        {grpcTotal.rate > 0 && (
@@ -294,7 +289,7 @@ export class SummaryPanelNamespaceBox extends React.Component<SummaryPanelPropTy
                        )}
                        {httpTotal.rate > 0 && (
                          <RateTableHttp
-                           title="HTTP (requests per second):"
+                           title={`${$t('title15')}:`}
                            rate={httpTotal.rate}
                            rate3xx={httpTotal.rate3xx}
                            rate4xx={httpTotal.rate4xx}

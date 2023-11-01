@@ -60,7 +60,7 @@ export interface WorkloadHealthResponse {
 export const TRAFFICSTATUS = 'Traffic Status';
 
 const createTrafficTitle = (time: string) => {
-  return TRAFFICSTATUS + ' (Last ' + time + ')';
+  return TRAFFICSTATUS + ` (${$t('Last')} ` + time + ')';
 };
 
 /*
@@ -338,14 +338,14 @@ export class ServiceHealth extends Health {
       const reqError = calculateErrorRate(ns, srv, 'service', requests);
       const reqErrorsText =
         reqError.errorRatio.global.status.status === NA
-          ? 'No requests'
+          ? $t('NoRequests')
           : reqError.errorRatio.global.status.value.toFixed(2) + '%';
       const item: HealthItem = {
         title: createTrafficTitle(getName(ctx.rateInterval).toLowerCase()),
         status: reqError.errorRatio.global.status.status,
         children: [
           {
-            text: 'Inbound: ' + reqErrorsText,
+            text: `${$t('Inbound')}: ` + reqErrorsText,
             status: reqError.errorRatio.global.status.status,
             value: reqError.errorRatio.global.status.value
           }
@@ -362,7 +362,7 @@ export class ServiceHealth extends Health {
       items.push({
         title: TRAFFICSTATUS,
         status: NA,
-        text: 'No Istio sidecar'
+        text: $t('NoIstioSidecar')
       });
     }
     return { items, statusConfig };
@@ -478,19 +478,25 @@ export class WorkloadHealth extends Health {
           {
             status: podsStatus,
             text: String(
-              workloadStatus.desiredReplicas + ' desired pod' + (workloadStatus.desiredReplicas !== 1 ? 's' : '')
+              workloadStatus.desiredReplicas +
+                ` ${$t('desiredPod')}` +
+                (workloadStatus.desiredReplicas !== 1 ? 's' : '')
             )
           },
           {
             status: podsStatus,
             text: String(
-              workloadStatus.currentReplicas + ' current pod' + (workloadStatus.currentReplicas !== 1 ? 's' : '')
+              workloadStatus.currentReplicas +
+                ` ${$t('currentPod')}` +
+                (workloadStatus.currentReplicas !== 1 ? 's' : '')
             )
           },
           {
             status: podsStatus,
             text: String(
-              workloadStatus.availableReplicas + ' available pod' + (workloadStatus.availableReplicas !== 1 ? 's' : '')
+              workloadStatus.availableReplicas +
+                ` ${$t('availablePod')}` +
+                (workloadStatus.availableReplicas !== 1 ? 's' : '')
             )
           }
         ];
@@ -499,7 +505,9 @@ export class WorkloadHealth extends Health {
           item.children.push({
             status: podsStatus,
             text: String(
-              workloadStatus.syncedProxies + ' synced prox' + (workloadStatus.availableReplicas !== 1 ? 'ies' : 'y')
+              workloadStatus.syncedProxies +
+                ` ${$t('syncedProx')}` +
+                (workloadStatus.availableReplicas !== 1 ? 'ies' : 'y')
             )
           });
         }

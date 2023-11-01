@@ -178,7 +178,7 @@ export class AuthorizationPolicyForm extends React.Component<Props, Authorizatio
   render() {
     return (
       <>
-        <FormGroup label="Policy" fieldId="rules-form">
+        <FormGroup label={$t('Policy')} fieldId="rules-form">
           <FormSelect value={this.state.policy} onChange={this.onRulesFormChange} id="rules-form" name="rules-form">
             {rulesFormValues.map((option, index) => (
               <FormSelectOption key={index} value={option} label={option} />
@@ -191,7 +191,7 @@ export class AuthorizationPolicyForm extends React.Component<Props, Authorizatio
           </FormHelperText>
         </FormGroup>
         {this.state.policy === RULES && (
-          <FormGroup label="Workload Selector" fieldId="workloadSelectorSwitch">
+          <FormGroup label={$t('WorkloadSelector')} fieldId="workloadSelectorSwitch">
             <Switch
               id="workloadSelectorSwitch"
               label={' '}

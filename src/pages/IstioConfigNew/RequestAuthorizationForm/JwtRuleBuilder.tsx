@@ -311,8 +311,8 @@ export class JwtRuleBuilder extends React.Component<Props, State> {
           isDisabled={!this.isJwtRuleValid()}
           onClick={this.onAddJwtRuleToList}
         >
-          Add JWT Rule
-          {!this.isJwtRuleValid() && <span className={warningStyle}>A JWT Rule needs an "issuer"</span>}
+          {$t('AddJWTRule')}
+          {!this.isJwtRuleValid() && <span className={warningStyle}>{$t('tip91')}</span>}
         </Button>
       </>
     );

@@ -149,13 +149,21 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
           {hasPrincipals && (
             <>
               <div style={{ padding: '5px 0 2px 0' }}>
-                <strong>Principals:</strong>
+                <strong>{$t('Principals')}:</strong>
               </div>
-              <Tooltip key="tt_src_ppl" position="top" content={`Source principal: ${edgeData.sourcePrincipal}`}>
-                <span className={principalStyle}>{edgeData.sourcePrincipal || 'unknown'}</span>
+              <Tooltip
+                key="tt_src_ppl"
+                position="top"
+                content={`${$t('Source_principal')}: ${edgeData.sourcePrincipal}`}
+              >
+                <span className={principalStyle}>{edgeData.sourcePrincipal || $t('unknown')}</span>
               </Tooltip>
-              <Tooltip key="tt_src_ppl" position="top" content={`Destination principal: ${edgeData.destPrincipal}`}>
-                <span className={principalStyle}>{edgeData.destPrincipal || 'unknown'}</span>
+              <Tooltip
+                key="tt_src_ppl"
+                position="top"
+                content={`${$t('Destination_principal')}: ${edgeData.destPrincipal}`}
+              >
+                <span className={principalStyle}>{edgeData.destPrincipal || $t('unknown')}</span>
               </Tooltip>
             </>
           )}
@@ -174,7 +182,7 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
         {(isHttp || isGrpc) && (
           <div className={summaryBodyTabs}>
             <SimpleTabs id="edge_summary_rate_tabs" defaultTab={0} style={{ paddingBottom: '10px' }}>
-              <Tab style={summaryFont} title="Traffic" eventKey={0}>
+              <Tab style={summaryFont} title={$t('Traffic')} eventKey={0}>
                 <div style={summaryFont}>
                   {isGrpc && (
                     <>
@@ -189,7 +197,7 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
                   {isHttp && (
                     <>
                       <RateTableHttp
-                        title="HTTP requests per second:"
+                        title={`${$t('title25')}:`}
                         rate={this.safeRate(edgeData.http)}
                         rate3xx={this.safeRate(edgeData.http3xx)}
                         rate4xx={this.safeRate(edgeData.http4xx)}
@@ -201,7 +209,7 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
                 </div>
               </Tab>
               {isRequests && (
-                <Tab style={summaryFont} title="Flags" eventKey={1}>
+                <Tab style={summaryFont} title={$t('Flags')} eventKey={1}>
                   <div style={summaryFont}>
                     <ResponseFlagsTable
                       title={'Response flags by ' + (isGrpc ? 'GRPC code:' : 'HTTP code:')}
@@ -210,7 +218,7 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
                   </div>
                 </Tab>
               )}
-              <Tab style={summaryFont} title="Hosts" eventKey={2}>
+              <Tab style={summaryFont} title={$t('Hosts')} eventKey={2}>
                 <div style={summaryFont}>
                   <ResponseHostsTable
                     title={'Hosts by ' + (isGrpc ? 'GRPC code:' : 'HTTP code:')}
@@ -226,12 +234,12 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
         {isTcp && (
           <div className={summaryBodyTabs}>
             <SimpleTabs id="edge_summary_flag_hosts_tabs" defaultTab={0} style={{ paddingBottom: '10px' }}>
-              <Tab style={summaryFont} eventKey={0} title="Flags">
+              <Tab style={summaryFont} eventKey={0} title={$t('Flags')}>
                 <div style={summaryFont}>
                   <ResponseFlagsTable title={$t('title26') + ':'} responses={edgeData.responses} />
                 </div>
               </Tab>
-              <Tab style={summaryFont} eventKey={1} title="Hosts">
+              <Tab style={summaryFont} eventKey={1} title={$t('Hosts')}>
                 <div style={summaryFont}>
                   <ResponseHostsTable title={$t('HostsByCode') + ':'} responses={edgeData.responses} />
                 </div>
@@ -545,14 +553,12 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
     if (!this.hasSupportedCharts(edge, isPF)) {
       return isGrpc || isHttp ? (
         <>
-          <KialiIcon.Info /> Service graphs do not support service-to-service aggregate sparklines. See the chart above
-          for aggregate traffic or use the workload graph type to observe individual workload-to-service edge
-          sparklines.
+          <KialiIcon.Info /> {$t('tip57')}
         </>
       ) : (
         <>
-          <KialiIcon.Info /> Service graphs do not support service-to-service aggregate sparklines. Use the workload
-          graph type to observe individual workload-to-service edge sparklines.
+          <KialiIcon.Info />
+          {$t('tip58')}
         </>
       );
     }
@@ -561,19 +567,19 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
     if (destData.isInaccessible) {
       return (
         <>
-          <KialiIcon.Info /> Sparkline charts cannot be shown because the destination is inaccessible.
+          <KialiIcon.Info /> {$t('tip59')}
         </>
       );
     }
 
     if (this.state.loading) {
-      return <strong>Loading charts...</strong>;
+      return <strong>{$t('placeholder45')}</strong>;
     }
 
     if (this.state.metricsLoadError) {
       return (
         <div>
-          <KialiIcon.Warning /> <strong>Error loading metrics: </strong>
+          <KialiIcon.Warning /> <strong>{$t('Error_loading_metrics')}: </strong>
           {this.state.metricsLoadError}
         </div>
       );
@@ -582,14 +588,14 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
     let requestChart, streamChart;
     if (isGrpc || isHttp) {
       if (isRequests) {
-        const labelRps = isGrpc ? 'gRPC Request Traffic' : 'HTTP Request Traffic';
-        const labelRt = isGrpc ? 'gRPC Request Response Time (ms)' : 'HTTP Request Response Time (ms)';
+        const labelRps = isGrpc ? 'gRPCRequestTraffic' : 'HTTPRequestTraffic';
+        const labelRt = isGrpc ? 'label4' : 'label5';
         requestChart = (
           <>
-            <RequestChart label={labelRps} dataRps={this.state.rates!} dataErrors={this.state.errRates} />
+            <RequestChart label={$t(labelRps)} dataRps={this.state.rates!} dataErrors={this.state.errRates} />
             {hr()}
             <ResponseTimeChart
-              label={labelRt}
+              label={$t(labelRt)}
               rtAvg={this.state.rtAvg}
               rtMed={this.state.rtMed}
               rt95={this.state.rt95}
@@ -603,7 +609,7 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
         requestChart = (
           <>
             <StreamChart
-              label="gRPC Message Traffic"
+              label={$t('gRPCMessageTraffic')}
               sentRates={this.state.sent!}
               receivedRates={this.state.received}
               unit="messages"
@@ -613,7 +619,12 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
       }
     } else if (isTcp) {
       streamChart = (
-        <StreamChart label="TCP Traffic" sentRates={this.state.sent} receivedRates={this.state.received} unit="bytes" />
+        <StreamChart
+          label={$t('TCPTraffic')}
+          sentRates={this.state.sent}
+          receivedRates={this.state.received}
+          unit="bytes"
+        />
       );
     }
 

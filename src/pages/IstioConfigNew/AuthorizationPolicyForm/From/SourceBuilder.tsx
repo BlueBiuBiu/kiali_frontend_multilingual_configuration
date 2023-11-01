@@ -235,7 +235,7 @@ export class SourceBuilder extends React.Component<Props, State> {
           isDisabled={Object.keys(this.state.source).length === 0}
           onClick={this.onAddSourceFromList}
         >
-          Add Source to From List
+          {$t('tip359')}
         </Button>
       </>
     );

@@ -80,13 +80,13 @@ const replaySliderStyle = kialiStyle({
 
 // key represents replay interval in milliseconds
 const replayIntervals = {
-  60000: '1 minute',
-  300000: '5 minutes',
-  600000: '10 minutes',
-  1800000: '30 minutes'
+  60000: `1 ${$t('minutes')}`,
+  300000: `5 ${$t('minutes')}`,
+  600000: `10 ${$t('minutes')}`,
+  1800000: `30 ${$t('minutes')}`
 };
 
-const replayLastIntervals = _.mapValues(replayIntervals, i => `Last ${i}`);
+const replayLastIntervals = _.mapValues(replayIntervals, i => `${$t('Last')} ${i}`);
 
 // key represents speed in milliseconds (i.e. how long to wait before refreshing-the-frame (fetching new data)
 const replaySpeeds: ReplaySpeed[] = [
@@ -254,7 +254,7 @@ class ReplayComponent extends React.PureComponent<ReplayProps, ReplayState> {
     return (
       <div className={`${replayStyle} ${replayBorder}`}>
         {this.state.isCustomStartTime && (
-          <Tooltip content="Replay start time">
+          <Tooltip content={$t('ReplayStartTime')}>
             <DateTimePicker
               injectTimes={[maxTime]}
               maxDate={maxTime}
@@ -270,12 +270,12 @@ class ReplayComponent extends React.PureComponent<ReplayProps, ReplayState> {
           value={String(this.state.replayWindow.interval)}
           label={dropdownOptions[this.state.replayWindow.interval]}
           options={dropdownOptions}
-          tooltip="Replay length"
+          tooltip={$t('ReplayLength')}
         />
         <Tooltip
           key="toggle-is-custom"
           position="top"
-          content={`Set ${this.state.isCustomStartTime ? 'simple' : 'custom'} start time`}
+          content={`Set ${this.state.isCustomStartTime ? $t('Simple') : $t('custom')} ${$t('startTime')}`}
         >
           <Button className={isCustomStyle} variant={ButtonVariant.control} onClick={this.toggleCustomStartTime}>
             <KialiIcon.UserClock className={this.state.isCustomStartTime ? isCustomActiveStyle : ''} />
@@ -305,7 +305,7 @@ class ReplayComponent extends React.PureComponent<ReplayProps, ReplayState> {
           </div>
           <span className={controlStyle}>
             {this.state.status === 'playing' ? (
-              <Tooltip key="replay-pause" position="top" content="Pause" entryDelay={1000}>
+              <Tooltip key="replay-pause" position="top" content={$t('Pause')} entryDelay={1000}>
                 <Button
                   data-test="graph-replay-pause-button"
                   className={controlButtonStyle}
@@ -319,7 +319,7 @@ class ReplayComponent extends React.PureComponent<ReplayProps, ReplayState> {
               <Tooltip
                 key="replay-play"
                 position="top"
-                content={this.state.status === 'done' ? 'Play again' : 'Play'}
+                content={this.state.status === 'done' ? $t('PlayAgain') : $t('Play')}
                 entryDelay={1000}
               >
                 <Button

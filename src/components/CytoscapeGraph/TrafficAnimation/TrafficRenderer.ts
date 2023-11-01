@@ -528,7 +528,7 @@ export class TrafficRenderer {
     } else if (controlPoints.length === 5) {
       return EdgeConnectionType.LOOP;
     } else {
-      throw Error('Unknown EdgeConnectionType, ControlPoint.length=' + controlPoints.length);
+      throw Error($t('tip166') + controlPoints.length);
     }
   }
 }

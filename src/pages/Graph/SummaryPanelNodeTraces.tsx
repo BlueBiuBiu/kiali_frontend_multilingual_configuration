@@ -198,7 +198,7 @@ class SummaryPanelNodeTracesComponent extends React.Component<Props, State> {
             }
           }}
         >
-          Show Traces
+          {$t('ShowTraces')}
         </Button>
       </div>
     );

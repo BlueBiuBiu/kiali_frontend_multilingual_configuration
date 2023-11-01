@@ -242,7 +242,7 @@ export class MetricsSettingsDropdown extends React.Component<Props, State> {
               }
             }}
           />
-          <span className={checkboxSelectAllStyle}>Select all metric/label filters</span>
+          <span className={checkboxSelectAllStyle}>{$t('tip249')}</span>
         </div>
         <Divider />
       </div>
@@ -300,7 +300,7 @@ export class MetricsSettingsDropdown extends React.Component<Props, State> {
 
     return (
       <>
-        <label className={classes(titleLabelStyle, titleStyle, labelStyle)}>Show metrics by:</label>
+        <label className={classes(titleLabelStyle, titleStyle, labelStyle)}>{$t('ShowMetricsBy')}:</label>
         {displayGroupingLabels}
         <div className={spacerStyle} />
       </>
@@ -333,7 +333,7 @@ export class MetricsSettingsDropdown extends React.Component<Props, State> {
                 isChecked={checked && this.props.hasHistogramsPercentiles}
                 isDisabled={!this.props.hasHistogramsPercentiles}
                 onChange={(_event, checked) => this.onHistogramOptionsChanged(o, checked)}
-                label={`Quantile ${o}`}
+                label={`${$t('Quantile')}${o}`}
               />
             </label>
           </div>
@@ -344,17 +344,14 @@ export class MetricsSettingsDropdown extends React.Component<Props, State> {
     return (
       <>
         <label className={classes(titleLabelStyle, titleStyle, labelStyle)} style={{ paddingRight: '0.5rem' }}>
-          Histograms:
+          {$t('Histograms')}:
         </label>
         <Tooltip
           key="tooltip_histograms"
           position={TooltipPosition.right}
           content={
             <div style={{ textAlign: 'left' }}>
-              <div>
-                "No data available" is displayed for a histogram that does not have telemetry supporting the selected
-                option. If no histograms support the necessary telemetry, the option will be disabled.
-              </div>
+              <div>{$t('tip250')}</div>
             </div>
           }
         >

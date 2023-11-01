@@ -42,7 +42,7 @@ export class ConnectionPool extends React.Component<Props> {
             />
             <FormHelperText>
               <HelperText>
-                <HelperTextItem>Maximum number of HTTP1 /TCP connections to a destination host</HelperTextItem>
+                <HelperTextItem>{$t('helpTip1')}</HelperTextItem>
               </HelperText>
             </FormHelperText>
           </FormGroup>

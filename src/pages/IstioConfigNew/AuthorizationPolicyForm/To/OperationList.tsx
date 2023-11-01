@@ -74,7 +74,7 @@ export class OperationList extends React.Component<Props> {
           <TableHeader />
           <TableBody />
         </Table>
-        {this.props.toList.length === 0 && <div className={noOperationsStyle}>No Operations Defined</div>}
+        {this.props.toList.length === 0 && <div className={noOperationsStyle}>{$t('NoOperationsDefined')}</div>}
       </>
     );
   }

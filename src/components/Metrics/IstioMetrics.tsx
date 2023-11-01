@@ -357,7 +357,7 @@ class IstioMetricsComponent extends React.Component<Props, MetricsState> {
                 id={`spans-show-`}
                 isChecked={this.state.showSpans}
                 key={`spans-show-chart`}
-                label="Spans"
+                label={$t('Spans')}
                 onChange={(_event, checked) => this.onSpans(checked)}
               />
             </ToolbarItem>
@@ -366,7 +366,7 @@ class IstioMetricsComponent extends React.Component<Props, MetricsState> {
                 id={`trendlines-show-`}
                 isChecked={this.state.showTrendlines}
                 key={`trendlines-show-chart`}
-                label="Trendlines"
+                label={$t('Trendlines')}
                 onChange={(_event, checked) => this.onTrendlines(checked)}
               />
             </ToolbarItem>

@@ -132,7 +132,7 @@ export const details: Renderer<AppListItem | WorkloadListItem | ServiceListItem>
         {isAmbientWaypoint && (
           <li>
             <PFBadge badge={PFBadges.Waypoint} position={TooltipPosition.top} />
-            Waypoint Proxy
+            {$t('WaypointProxy')}
             <Tooltip
               key={`tooltip_missing_label`}
               position={TooltipPosition.top}

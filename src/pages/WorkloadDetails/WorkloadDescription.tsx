@@ -192,10 +192,7 @@ export class WorkloadDescription extends React.Component<WorkloadDescriptionProp
         </CardHeader>
         <CardBody>
           {workload.labels && (
-            <Labels
-              labels={workload.labels}
-              tooltipMessage={isTemplateLabels ? 'Labels defined on the Workload template' : undefined}
-            />
+            <Labels labels={workload.labels} tooltipMessage={isTemplateLabels ? $t('tip109') : undefined} />
           )}
           <DetailDescription
             namespace={this.props.namespace}
@@ -214,7 +211,7 @@ export class WorkloadDescription extends React.Component<WorkloadDescriptionProp
         </CardBody>
       </Card>
     ) : (
-      'Loading'
+      $t('Loading')
     );
   }
 }

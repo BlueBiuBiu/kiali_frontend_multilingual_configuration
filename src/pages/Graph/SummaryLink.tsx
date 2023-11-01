@@ -30,8 +30,8 @@ const getTooltip = (tooltip: React.ReactFragment, nodeData: GraphNodeData): Reac
   return (
     <div style={{ textAlign: 'left' }}>
       <span>{$t(tooltip as string)}</span>
-      {addNamespace && <div>{`Namespace: ${nodeData.namespace}`}</div>}
-      {addCluster && <div>{`Cluster: ${nodeData.cluster}`}</div>}
+      {addNamespace && <div>{`${$t('Namespace')}: ${nodeData.namespace}`}</div>}
+      {addCluster && <div>{`${$t('Cluster')}: ${nodeData.cluster}`}</div>}
     </div>
   );
 };
@@ -43,7 +43,7 @@ export const getBadge = (nodeData: GraphNodeData, nodeType?: NodeType) => {
         <PFBadge
           badge={PFBadges.Operation}
           size="sm"
-          tooltip={getTooltip(`Operation: ${nodeData.aggregate!}`, nodeData)}
+          tooltip={getTooltip(`${$t('Operation')}: ${nodeData.aggregate!}`, nodeData)}
         />
       );
     case NodeType.APP:
@@ -67,7 +67,7 @@ export const getBadge = (nodeData: GraphNodeData, nodeType?: NodeType) => {
           badge={PFBadges.ServiceEntry}
           size="sm"
           tooltip={getTooltip(
-            nodeData.isServiceEntry.location === 'MESH_EXTERNAL' ? 'External Service Entry' : 'Internal Service Entry',
+            nodeData.isServiceEntry.location === 'MESH_EXTERNAL' ? 'External_Service_Entry' : 'Internal_Service_Entry',
             nodeData
           )}
         />

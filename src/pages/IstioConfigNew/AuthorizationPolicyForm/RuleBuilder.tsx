@@ -148,15 +148,15 @@ export class RuleBuilder extends React.Component<Props, State> {
         </FormGroup>
         {this.state.addFromSwitch && (
           <>
-            <FormGroup label="Source Builder" fieldId="sourceBuilder">
+            <FormGroup label={$t('SourceBuilder')} fieldId="sourceBuilder">
               <SourceBuilder onAddFrom={this.onAddFrom} />
             </FormGroup>
-            <FormGroup label="From List" fieldId="sourceList">
+            <FormGroup label={$t('FromList')} fieldId="sourceList">
               <SourceList fromList={this.state.fromList} onRemoveFrom={this.onRemoveFrom} />
             </FormGroup>
           </>
         )}
-        <FormGroup label="To" fieldId="addToSwitch">
+        <FormGroup label={$t('To')} fieldId="addToSwitch">
           <Switch
             id="addToSwitch"
             label={' '}
@@ -171,15 +171,15 @@ export class RuleBuilder extends React.Component<Props, State> {
         </FormGroup>
         {this.state.addToSwitch && (
           <>
-            <FormGroup label="Operation Builder" fieldId="operationBuilder">
+            <FormGroup label={$t('OperationBuilder')} fieldId="operationBuilder">
               <OperationBuilder onAddTo={this.onAddTo} />
             </FormGroup>
-            <FormGroup label="To List" fieldId="operationList">
+            <FormGroup label={$t('To List')} fieldId="operationList">
               <OperationList toList={this.state.toList} onRemoveTo={this.onRemoveTo} />
             </FormGroup>
           </>
         )}
-        <FormGroup label="When" fieldId="addWhenSwitch">
+        <FormGroup label={$t('When')} fieldId="addWhenSwitch">
           <Switch
             id="addWhenSwitch"
             label={' '}
@@ -194,10 +194,10 @@ export class RuleBuilder extends React.Component<Props, State> {
         </FormGroup>
         {this.state.addWhenSwitch && (
           <>
-            <FormGroup label="Condition Builder" fieldId="conditionBuilder">
+            <FormGroup label={$t('ConditionBuilder')} fieldId="conditionBuilder">
               <ConditionBuilder onAddCondition={this.onAddCondition} />
             </FormGroup>
-            <FormGroup label="When List" fieldId="conditionList">
+            <FormGroup label={$t('WhenList')} fieldId="conditionList">
               <ConditionList conditionList={this.state.conditionList} onRemoveCondition={this.onRemoveCondition} />
             </FormGroup>
           </>
@@ -210,11 +210,9 @@ export class RuleBuilder extends React.Component<Props, State> {
             isDisabled={!this.canAddRule()}
             className={addRuleStyle}
           >
-            Add Rule to Rule List
+            {$t('action5')}
           </Button>
-          {!this.canAddRule() && (
-            <span className={warningStyle}>A Rule needs at least an item in "From", "To" or "When" sections</span>
-          )}
+          {!this.canAddRule() && <span className={warningStyle}>{$t('tip84')}</span>}
         </FormGroup>
       </>
     );

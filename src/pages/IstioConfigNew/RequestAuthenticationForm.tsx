@@ -146,7 +146,7 @@ export class RequestAuthenticationForm extends React.Component<Props, RequestAut
   render() {
     return (
       <>
-        <FormGroup label="Workload Selector" fieldId="workloadSelectorSwitch">
+        <FormGroup label={$t('WorkloadSelector')} fieldId="workloadSelectorSwitch">
           <Switch
             id="workloadSelectorSwitch"
             label={' '}

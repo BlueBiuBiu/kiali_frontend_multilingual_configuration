@@ -340,7 +340,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
       })
       .catch(err => {
         AlertUtils.addMessage({
-          ...AlertUtils.extractAxiosError('Could not fetch Grafana info. Turning off links to Grafana.', err),
+          ...AlertUtils.extractAxiosError($t('helpTip57'), err),
           group: 'default',
           type: MessageType.INFO,
           showNotification: false
@@ -393,7 +393,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           result.nsInfo.status = nsStatus;
         });
       })
-      .catch(err => this.handleAxiosError('Could not fetch health', err));
+      .catch(err => this.handleAxiosError($t('tip100'), err));
   }
 
   fetchMetrics(direction: DirectionType) {
@@ -441,7 +441,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           return nsInfo;
         });
       })
-    ).catch(err => this.handleAxiosError('Could not fetch metrics', err));
+    ).catch(err => this.handleAxiosError($t('tip101'), err));
   }
 
   fetchTLS(isAscending: boolean, sortField: SortField<NamespaceInfo>) {
@@ -475,7 +475,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           };
         });
       })
-      .catch(err => this.handleAxiosError('Could not fetch TLS status', err));
+      .catch(err => this.handleAxiosError($t('tip102'), err));
   }
 
   fetchValidations(isAscending: boolean, sortField: SortField<NamespaceInfo>) {
@@ -516,7 +516,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           }
         });
       })
-      .catch(err => this.handleAxiosError('Could not fetch validations status', err));
+      .catch(err => this.handleAxiosError($t('tip103'), err));
   }
 
   fetchOutboundTrafficPolicyMode() {
@@ -525,7 +525,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
         this.setState({ outboundPolicyMode: { mode: response.data.mode } });
       })
       .catch(error => {
-        AlertUtils.addError('Error fetching Mesh OutboundTrafficPolicy.Mode.', error, 'default', MessageType.ERROR);
+        AlertUtils.addError($t('helpTip58'), error, 'default', MessageType.ERROR);
       });
   }
 
@@ -542,7 +542,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
         });
       })
       .catch(error => {
-        AlertUtils.addError('Error fetching canary upgrade status.', error, 'default', MessageType.ERROR);
+        AlertUtils.addError($t('helpTip59'), error, 'default', MessageType.ERROR);
       });
   }
 
@@ -552,7 +552,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
         this.setState({ istiodResourceThresholds: response.data });
       })
       .catch(error => {
-        AlertUtils.addError('Error fetching Istiod resource thresholds.', error, 'default', MessageType.ERROR);
+        AlertUtils.addError($t('helpTip60'), error, 'default', MessageType.ERROR);
       });
   }
 
@@ -1004,9 +1004,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
                                   {serverConfig.ambientEnabled &&
                                     ns.name !== serverConfig.istioNamespace &&
                                     ns.labels &&
-                                    ns.isAmbient && (
-                                      <AmbientBadge tooltip={'labeled as part of Ambient Mesh'}></AmbientBadge>
-                                    )}
+                                    ns.isAmbient && <AmbientBadge tooltip={$t('tip104')}></AmbientBadge>}
                                 </span>
                               </Title>
                             </>
@@ -1083,7 +1081,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
                                 {this.renderLabels(ns)}
 
                                 <div style={{ textAlign: 'left' }}>
-                                  <div style={{ display: 'inline-block', width: '125px' }}>Istio config</div>
+                                  <div style={{ display: 'inline-block', width: '125px' }}>{$t('Istio config')}</div>
                                   {ns.tlsStatus && (
                                     <span>
                                       <NamespaceMTLSStatus status={ns.tlsStatus.status} />
@@ -1135,9 +1133,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
         ) : (
           <EmptyState className={emptyStateStyle} variant={EmptyStateVariant.full}>
             <EmptyStateHeader titleText="No unfiltered namespaces" headingLevel="h5" />
-            <EmptyStateBody>
-              Either all namespaces are being filtered or the user has no permission to access namespaces.
-            </EmptyStateBody>
+            <EmptyStateBody>{$t('tip291')}</EmptyStateBody>
           </EmptyState>
         )}
         <OverviewTrafficPolicies

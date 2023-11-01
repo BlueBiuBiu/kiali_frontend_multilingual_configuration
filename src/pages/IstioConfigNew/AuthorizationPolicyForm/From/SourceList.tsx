@@ -75,7 +75,7 @@ export class SourceList extends React.Component<Props> {
           <TableHeader />
           <TableBody />
         </Table>
-        {this.props.fromList.length === 0 && <div className={noSourceStyle}>No Source Matches Defined</div>}
+        {this.props.fromList.length === 0 && <div className={noSourceStyle}>{$t('tip360')}</div>}
       </>
     );
   }

@@ -256,7 +256,7 @@ class DetailDescriptionComponent extends React.Component<Props> {
       <div style={{ textAlign: 'left' }}>
         {workload.serviceAccountNames && workload.serviceAccountNames.length > 0 ? (
           <div key="properties-list" className={resourceListStyle}>
-            <span>Service accounts</span>
+            <span>{$t('ServiceAccounts')}</span>
             <ul>
               {workload.serviceAccountNames.map((serviceAccount, i) => (
                 <li key={i}>{serviceAccount}</li>
@@ -264,7 +264,7 @@ class DetailDescriptionComponent extends React.Component<Props> {
             </ul>
           </div>
         ) : (
-          'Not found'
+          $t('Not_found')
         )}
       </div>
     );
@@ -331,11 +331,8 @@ class DetailDescriptionComponent extends React.Component<Props> {
       <>
         <div key="waypoint-workloads-title">
           <PFBadge badge={PFBadges.Waypoint} position={TooltipPosition.top} />
-          Waypoint proxy
-          <Tooltip
-            position={TooltipPosition.right}
-            content="This workload is identified as a waypoint proxy, as part of Istio Ambient"
-          >
+          {$t('Waypoint_proxy')}
+          <Tooltip position={TooltipPosition.right} content={$t('tip169')}>
             <KialiIcon.Info className={infoStyle} />
           </Tooltip>
         </div>

@@ -226,10 +226,9 @@ class SpanTableComponent extends React.Component<Props, State> {
       {
         isDisabled: true,
         title: (
-          <h1
-            className={`pf-c-dropdown__group-title ${rowKebabStyle}`}
-            aria-hidden="true"
-          >{`Application (${item.app})`}</h1>
+          <h1 className={`pf-c-dropdown__group-title ${rowKebabStyle}`} aria-hidden="true">{`${$t('Application')} (${
+            item.app
+          })`}</h1>
         )
       },
       {
@@ -262,10 +261,9 @@ class SpanTableComponent extends React.Component<Props, State> {
         {
           isDisabled: true,
           title: (
-            <h1
-              className={`pf-c-dropdown__group-title ${rowKebabStyle}`}
-              aria-hidden="true"
-            >{`Workload (${item.workload})`}</h1>
+            <h1 className={`pf-c-dropdown__group-title ${rowKebabStyle}`} aria-hidden="true">{`${$t('Workload')} (${
+              item.workload
+            })`}</h1>
           )
         },
         {
@@ -318,7 +316,7 @@ class SpanTableComponent extends React.Component<Props, State> {
         {
           title: (
             <span className={linkStyle}>
-              More span details <ExternalLinkAltIcon />
+              {$t('MoreSpanDetails')} <ExternalLinkAltIcon />
             </span>
           ),
           onClick: (_event, _rowId, _rowData, _extra) => window.open(spanLink, '_blank')
@@ -369,7 +367,7 @@ class SpanTableComponent extends React.Component<Props, State> {
           ))) ||
           item.app}
         <br key={`${key}-br`} />
-        <strong key={`${key}-wl`}>Workload: </strong>
+        <strong key={`${key}-wl`}>{$t('Workload')}: </strong>
         {(item.linkToWorkload &&
           (parentKiosk ? (
             <Link
@@ -388,11 +386,11 @@ class SpanTableComponent extends React.Component<Props, State> {
               {item.workload}
             </Link>
           ))) ||
-          'unknown'}
+          $t('unknown')}
         {this.isExpanded(item.spanID) && (
           <div key={`${key}-expanded-br-1`}>
             <strong key={`${key}-expanded-pod`}>Pod: </strong>
-            {item.pod || 'unknown'}
+            {item.pod || $t('unknown')}
           </div>
         )}
       </>
@@ -409,11 +407,11 @@ class SpanTableComponent extends React.Component<Props, State> {
             <Icon key={`${key}-err-ic`} color={PFColors.Danger}>
               <ExclamationCircleIcon />
             </Icon>{' '}
-            <strong key={`${key}-err-msg`}>This span reported an error</strong>
+            <strong key={`${key}-err-msg`}>{$t('tip361')}</strong>
           </div>
         )}
         <div key={`${key}-op`}>
-          <strong key={`${key}-op-title`}>Operation: </strong>
+          <strong key={`${key}-op-title`}>{$t('Operation')}: </strong>
           {flag ? (
             <span key={`${key}-op-name`}>
               {item.operationName} ({flag}{' '}
@@ -427,7 +425,7 @@ class SpanTableComponent extends React.Component<Props, State> {
           )}
         </div>
         <div key={`${key}-comp`}>
-          <strong key={`${key}-comp=-title`}>Component: </strong>
+          <strong key={`${key}-comp=-title`}>{$t('Component')}: </strong>
           {item.component}
         </div>
         {this.isExpanded(item.spanID) &&
@@ -501,7 +499,7 @@ class SpanTableComponent extends React.Component<Props, State> {
     let flagInfo: string | undefined = undefined;
     if (info.responseFlags) {
       rsDetails.push(info.responseFlags);
-      flagInfo = responseFlags[info.responseFlags]?.help || 'Unknown flag';
+      flagInfo = responseFlags[info.responseFlags]?.help || $t('UnknownFlag');
     }
 
     return (
@@ -516,7 +514,7 @@ class SpanTableComponent extends React.Component<Props, State> {
           </span>
         </div>
         <div key={`${key}-status`}>
-          <strong key={`${key}-status-title`}>Response status: </strong>
+          <strong key={`${key}-status-title`}>{$t('ResponseStatus')}: </strong>
           <span key={`${key}-status-val`}>{rsDetails.join(', ')}</span>
         </div>
         <span key={`${key}-flag`}>{flagInfo}</span>
@@ -539,7 +537,7 @@ class SpanTableComponent extends React.Component<Props, State> {
         </div>
         {info.statusCode && (
           <div key={`${key}-code`}>
-            <strong key={`${key}-code-title`}>Response status: </strong>
+            <strong key={`${key}-code-title`}>{$t('ResponseStatus')}: </strong>
             <span key={`${key}-code-val`}>{info.statusCode}</span>
           </div>
         )}
@@ -554,7 +552,7 @@ class SpanTableComponent extends React.Component<Props, State> {
       <React.Fragment key={key}>
         {info.topic && (
           <div key={`${key}-topic`}>
-            <strong key={`${key}-topic-title`}>Topic: </strong>
+            <strong key={`${key}-topic-title`}>{$t('Topic')}: </strong>
             <span key={`${key}-topic-val`}>{info.topic}</span>
           </div>
         )}
@@ -567,7 +565,7 @@ class SpanTableComponent extends React.Component<Props, State> {
     return (
       <div key={key}>
         <div key={`${key}-dur-div`}>
-          <strong key={`${key}-dur-title`}>Duration: </strong>
+          <strong key={`${key}-dur-title`}>{$t('Duration')}: </strong>
           {formatDuration(item.duration)}
         </div>
         {item.type === 'envoy' &&

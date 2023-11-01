@@ -102,7 +102,7 @@ export class ServiceNetwork extends React.Component<Props> {
               {this.props.serviceDetails.service.type !== 'External' && (
                 <li>
                   <span>
-                    {this.props.serviceDetails.service.type !== 'ExternalName' ? 'Service IP' : 'ExternalName'}
+                    {this.props.serviceDetails.service.type !== 'ExternalName' ? $t('ServiceIP') : $t('ExternalName')}
                   </span>
                   {this.props.serviceDetails.service.type !== 'ExternalName'
                     ? this.props.serviceDetails.service.ip
@@ -157,7 +157,7 @@ export class ServiceNetwork extends React.Component<Props> {
                             {port.appProtocol && port.appProtocol !== '' ? (
                               <Tooltip
                                 position={TooltipPosition.right}
-                                content={<div style={{ textAlign: 'left' }}>App Protocol: {port.appProtocol}</div>}
+                                content={<div style={{ textAlign: 'left' }}>{$t('AppProtocol')}: {port.appProtocol}</div>}
                               >
                                 <span style={{ marginRight: '5px' }}>
                                   <KialiIcon.Info className={infoStyle} />
@@ -174,7 +174,7 @@ export class ServiceNetwork extends React.Component<Props> {
               )}
               {this.props.serviceDetails.virtualServices.length > 0 && (
                 <li>
-                  <span>Hostnames</span>
+                  <span>{$t('Hostnames')}</span>
                   <div
                     style={{
                       display: 'inline-block',

@@ -312,7 +312,7 @@ class CustomMetricsComponent extends React.Component<Props, MetricsState> {
                 id={`spans-show-`}
                 isChecked={this.state.showSpans}
                 key={`spans-show-chart`}
-                label="Spans"
+                label={$t('Spans')}
                 onChange={(_event, checked) => this.onSpans(checked)}
               />
             </ToolbarItem>

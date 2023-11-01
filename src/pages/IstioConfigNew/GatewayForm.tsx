@@ -130,7 +130,7 @@ export class GatewayForm extends React.Component<Props, GatewayState> {
   render() {
     return (
       <>
-        <FormGroup label="Workload Selector" fieldId="workloadSelectorSwitch">
+        <FormGroup label={$t('WorkloadSelector')} fieldId="workloadSelectorSwitch">
           <Switch
             id="workloadSelectorSwitch"
             label={' '}

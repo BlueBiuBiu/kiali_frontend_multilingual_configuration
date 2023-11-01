@@ -34,12 +34,12 @@ const TimeDurationComp: React.FC<TimeControlsProps> = (props: TimeControlsProps)
   };
 
   const durationTooltip = props.replayActive ? 'TrafficMetricsPerFrame' : 'TrafficMetricsPerRefresh';
-  let [prefix, suffix] = props.replayActive ? [undefined, 'Traffic'] : ['Last', undefined];
+  let [prefix, suffix] = props.replayActive ? [undefined, $t('Traffic')] : [$t('Last'), undefined];
 
   return (
     <span>
       {props.supportsReplay && !props.replayActive && (
-        <Tooltip key={'time_range_replay'} position={TooltipPosition.left} content="Replay...">
+        <Tooltip key={'time_range_replay'} position={TooltipPosition.left} content={$t('action1')}>
           <Button
             data-test="graph-replay-button"
             variant={ButtonVariant.link}

@@ -58,7 +58,7 @@ const getUnreadMessageLabel = (messages: NotificationMessage[]) => {
 const noNotificationsMessage = (
   <>
     <InfoIcon />
-    No Messages Available
+    {$t('NoMessagesAvailable')}
   </>
 );
 

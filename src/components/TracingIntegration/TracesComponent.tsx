@@ -303,7 +303,7 @@ class TracesComp extends React.Component<TracesProps, TracesState> {
                     <ToolbarItem>
                       <Tooltip content={<>Open Chart in {this.props.provider} UI</>}>
                         <a href={tracingURL} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '10px' }}>
-                          View in Tracing <ExternalLinkAltIcon />
+                          {$t('View_in_Tracing')} <ExternalLinkAltIcon />
                         </a>
                       </Tooltip>
                     </ToolbarItem>
@@ -337,7 +337,7 @@ class TracesComp extends React.Component<TracesProps, TracesState> {
                 activeKey={this.state.activeTab}
                 onSelect={(_, idx: any) => this.setState({ activeTab: idx })}
               >
-                <Tab eventKey={traceDetailsTab} title="Trace Details">
+                <Tab eventKey={traceDetailsTab} title={$t('TraceDetails')}>
                   <TraceDetails
                     namespace={this.props.namespace}
                     target={this.props.target}
@@ -353,7 +353,7 @@ class TracesComp extends React.Component<TracesProps, TracesState> {
                     tabTraceID={this.props.tabTrace?.traceID}
                   />
                 </Tab>
-                <Tab eventKey={spansDetailsTab} title="Span Details">
+                <Tab eventKey={spansDetailsTab} title={$t('SpanDetails')}>
                   <SpanDetails
                     namespace={this.props.namespace}
                     target={this.props.target}

@@ -309,7 +309,7 @@ export function NodeContextMenuComponent(props: Props) {
     const options: ContextMenuOption[] = getOptionsFromLinkParams(linkParams, props.tracingInfo);
     const menuOptions = (
       <>
-        <div className={contextMenuSubTitle}>Show</div>
+        <div className={contextMenuSubTitle}>{$t('Show')}</div>
         {options.map(o => createMenuItem(o.url, o.text, o.target, o.external))}
       </>
     );

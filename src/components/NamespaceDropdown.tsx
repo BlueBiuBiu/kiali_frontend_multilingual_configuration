@@ -175,12 +175,12 @@ class NamespaceDropdownComponent extends React.PureComponent<NamespaceDropdownPr
             aria-label="filter-namespace"
             type="text"
             name="namespace-filter"
-            placeholder="Filter by Name..."
+            placeholder={$t('placeholder9')}
             value={this.props.filter}
             onChange={(_event, value: string) => this.onFilterChange(value)}
           />
           {hasFilter && (
-            <Tooltip key="ot_clear_namespace_filter" position="top" content="Clear Filter by Name">
+            <Tooltip key="ot_clear_namespace_filter" position="top" content={$t('ClearFilterByName')}>
               <Button className={closeButtonStyle} onClick={this.clearFilter} isInline>
                 <KialiIcon.Close />
               </Button>

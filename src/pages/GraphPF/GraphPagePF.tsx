@@ -453,7 +453,11 @@ class GraphPagePFComponent extends React.Component<GraphPagePropsPF, GraphPageSt
                   className={`${graphTimeRange} ${this.props.replayActive ? replayBackground : graphBackground}`}
                   isReadOnly={true}
                 >
-                  {this.props.replayActive && <Badge style={{ marginRight: '4px' }} isRead={true}>{`Replay`}</Badge>}
+                  {this.props.replayActive && (
+                    <Badge style={{ marginRight: '4px' }} isRead={true}>
+                      {$t('Replay')}
+                    </Badge>
+                  )}
                   {!isReplayReady && this.props.replayActive && `click Play to start`}
                   {!isReplayReady && !this.props.replayActive && `${this.displayTimeRange()}`}
                   {isReplayReady && `${this.displayTimeRange()}`}

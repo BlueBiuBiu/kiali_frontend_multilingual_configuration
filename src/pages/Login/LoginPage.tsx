@@ -99,7 +99,7 @@ export class LoginPageComponent extends React.Component<LoginProps, LoginState> 
           filledInputs: true
         });
       } else {
-        const message = 'Please, provide a Service Account token.';
+        const message = $t('helpTip52');
 
         this.setState({
           showHelperText: true,
@@ -212,10 +212,10 @@ export class LoginPageComponent extends React.Component<LoginProps, LoginState> 
     const listItem = (
       <>
         <ListItem>
-          <LoginFooterItem href="https://www.kiali.io/">Documentation</LoginFooterItem>
+          <LoginFooterItem href="https://www.kiali.io/">{$t('Documentation')}</LoginFooterItem>
         </ListItem>
         <ListItem>
-          <LoginFooterItem href="https://github.com/kiali/kiali">Contribute</LoginFooterItem>
+          <LoginFooterItem href="https://github.com/kiali/kiali">{$t('Contribute')}</LoginFooterItem>
         </ListItem>
       </>
     );
@@ -225,7 +225,7 @@ export class LoginPageComponent extends React.Component<LoginProps, LoginState> 
       loginPane = (
         <Form data-test="login-form">
           <FormHelperText>{messages}</FormHelperText>
-          <FormGroup fieldId="token" label="Token" isRequired={true}>
+          <FormGroup fieldId="token" label={$t('Token')} isRequired={true}>
             <TextInput
               id="token"
               type="password"
@@ -241,7 +241,7 @@ export class LoginPageComponent extends React.Component<LoginProps, LoginState> 
               style={{ width: '100%' }}
               variant={ButtonVariant.primary}
             >
-              Log In
+              {$t('LogIn')}
             </Button>
           </ActionGroup>
         </Form>
@@ -265,8 +265,8 @@ export class LoginPageComponent extends React.Component<LoginProps, LoginState> 
         brandImgSrc={kialiLogoDark}
         brandImgAlt="Kiali logo"
         footerListItems={listItem}
-        textContent="Service mesh management for Istio."
-        loginTitle="Log in Kiali"
+        textContent={$t('label10')}
+        loginTitle={$t('LogInKiali')}
         className={loginStyle}
       >
         {loginPane}

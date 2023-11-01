@@ -47,7 +47,7 @@ export const ConfirmDeleteTrafficRoutingModal: React.FunctionComponent<Props> = 
 
     let k8sHTTPRouteMessage =
       props.k8sHTTPRoutes.length > 0
-        ? `K8s HTTPRoute${props.k8sHTTPRoutes.length > 1 ? 's' : ''}: '${props.k8sHTTPRoutes.map(
+        ? `K8s ${$t('HTTPRoute')}${props.k8sHTTPRoutes.length > 1 ? 's' : ''}: '${props.k8sHTTPRoutes.map(
             k8sr => k8sr.metadata.name
           )}'`
         : '';

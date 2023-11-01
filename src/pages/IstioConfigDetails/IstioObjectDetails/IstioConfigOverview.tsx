@@ -211,20 +211,14 @@ export class IstioConfigOverview extends React.Component<IstioConfigOverviewProp
         )}
         {!this.props.istioAPIEnabled && this.props.cluster === homeCluster?.name && (
           <StackItem>
-            <KialiIcon.Warning className={warnStyle} /> <b>Istio API is disabled.</b> Be careful when editing the
-            configuration as the Istio config validations are disabled when the Istio API is disabled.
+            <KialiIcon.Warning className={warnStyle} /> <b>{$t('tip10')}</b> {$t('tip11')}
           </StackItem>
         )}
         <KioskElement>
           <StackItem>
-            <Tooltip
-              content={
-                'This is a Read only view of the YAML including Validations. It is possible to edit directly in Kiali '
-              }
-              position={TooltipPosition.top}
-            >
+            <Tooltip content={$t('tip78')} position={TooltipPosition.top}>
               <Label color="green" isCompact>
-                Read only mode
+                {$t('ReadOnlyMode')}
               </Label>
             </Tooltip>
             <a
@@ -233,7 +227,7 @@ export class IstioConfigOverview extends React.Component<IstioConfigOverviewProp
               target="_blank"
               rel="noreferrer"
             >
-              Edit in Kiali
+              {$t('EditInKiali')}
             </a>
           </StackItem>
         </KioskElement>

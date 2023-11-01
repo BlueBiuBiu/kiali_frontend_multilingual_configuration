@@ -132,7 +132,7 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
           </Tooltip>
         </div>
         <div>
-          <Tooltip content="Hide healthy edges" position={TooltipPosition.right}>
+          <Tooltip content={$t('HideHealthyEdges')} position={TooltipPosition.right}>
             <Button
               id="toolbar_edge_mode_unhealthy"
               aria-label="Hide Healthy Edges"
@@ -150,7 +150,7 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
           </Tooltip>
         </div>
         <div>
-          <Tooltip content="Hide all edges" position={TooltipPosition.right}>
+          <Tooltip content={$t('HideAllEdges')} position={TooltipPosition.right}>
             <Button
               id="toolbar_edge_mode_none"
               aria-label="Hide All Edges"
@@ -190,7 +190,7 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
 
         <TourStop info={GraphTourStops.Layout}>
           <div>
-            <Tooltip content={'Layout 1 ' + KialiGridGraph.getLayout().name} position={TooltipPosition.right}>
+            <Tooltip content={`${$t('Layout1')} ` + KialiGridGraph.getLayout().name} position={TooltipPosition.right}>
               <Button
                 id="toolbar_layout1"
                 aria-label="Graph Layout Style 1"
@@ -211,7 +211,10 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
         </TourStop>
 
         <div>
-          <Tooltip content={'Layout 2 ' + KialiConcentricGraph.getLayout().name} position={TooltipPosition.right}>
+          <Tooltip
+            content={`${$t('Layout2')} ` + KialiConcentricGraph.getLayout().name}
+            position={TooltipPosition.right}
+          >
             <Button
               id="toolbar_layout2"
               aria-label="Graph Layout Style 2"
@@ -233,7 +236,10 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
         </div>
 
         <div>
-          <Tooltip content={'Layout 3 ' + KialiBreadthFirstGraph.getLayout().name} position={TooltipPosition.right}>
+          <Tooltip
+            content={`${$t('Layout3')} ` + KialiBreadthFirstGraph.getLayout().name}
+            position={TooltipPosition.right}
+          >
             <Button
               id="toolbar_layout3"
               aria-label="Graph Layout Style 3"

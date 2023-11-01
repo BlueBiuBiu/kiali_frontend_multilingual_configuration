@@ -134,7 +134,7 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
         <div className={summaryTitle}>
           <span>Trace</span>
           <span className={closeBoxStyle}>
-            <Tooltip content="Close and clear trace selection">
+            <Tooltip content={$t('tip285')}>
               <Button id="close-trace" variant={ButtonVariant.plain} onClick={this.props.close}>
                 <CloseIcon />
               </Button>
@@ -143,7 +143,7 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
         </div>
         <div>
           {tracesDetailsURL ? (
-            <Tooltip content={`View trace details for: ${info.name()}`}>
+            <Tooltip content={`${$t('tip286')}: ${info.name()}`}>
               <Link
                 to={tracesDetailsURL}
                 onClick={() => {
@@ -166,12 +166,12 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
               </>
             )}
             <div>
-              <strong>Started: </strong>
+              <strong>{$t('Started')}: </strong>
               {info.fromNow()}
             </div>
             {info.duration() && (
               <div>
-                <strong>Full duration: </strong>
+                <strong>{$t('Full_duration')}: </strong>
                 {info.duration()}
               </div>
             )}
@@ -179,7 +179,7 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
           {spans.length > 0 && (
             <div className={pStyle}>
               <div>
-                <strong>{pluralize(spans.length, 'span')}</strong> on this node
+                <strong>{pluralize(spans.length, 'span')}</strong> {$t('on_this_node')}
                 <SimplerSelect
                   selected={currentSpan?.operationName}
                   className={spanSelectStyle}
@@ -208,7 +208,7 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
             <>
               <br />
               <a href={jaegerTraceURL} target="_blank" rel="noopener noreferrer">
-                Show in Tracing{' '}
+                {$t('Show_in_Tracing')}{' '}
                 <Icon size="sm">
                   <ExternalLinkAltIcon />
                 </Icon>
@@ -239,17 +239,17 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
     return (
       <>
         <div>
-          <strong>Started after: </strong>
+          <strong>{$t('Started after')}: </strong>
           {formatDuration(span.relativeStartTime)}
         </div>
         <div>
-          <strong>Duration: </strong>
+          <strong>{$t('Duration')}: </strong>
           {formatDuration(span.duration)}
         </div>
         {(span.type === 'http' || span.type === 'envoy') && this.renderHTTPSpan(span)}
         {span.type === 'tcp' && this.renderTCPSpan(span)}
         <div>
-          <strong>Related: </strong>
+          <strong>{$t('Related')}: </strong>
           {this.renderRelatedSpans(span)}
         </div>
         {spanURL && (
@@ -262,7 +262,7 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
                 }
               }}
             >
-              Show span
+              {$t('Show_span')}
             </Link>
           </div>
         )}
@@ -330,9 +330,9 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
         key={target.spanID}
         content={
           <>
-            Operation name: {target.operationName}
+            {$t('OperationName')}: {target.operationName}
             <br />
-            Workload: {target.workload || 'unknown'}
+            {$t('Workload')}: {target.workload || $t('unknown')}
           </>
         }
       >
@@ -389,9 +389,9 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
         key={target.spanID}
         content={
           <>
-            Operation name: {target.operationName}
+            {$t('OperationName')}: {target.operationName}
             <br />
-            Workload: {target.workload || 'unknown'}
+            {$t('Workload')}: {target.workload || $t('unknown')}
           </>
         }
       >
@@ -412,13 +412,13 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
           {info.method} {info.url}
         </div>
         <div>
-          <strong>Response: </strong>
-          code {info.statusCode || 'unknown'}
+          <strong>{$t('Response')}: </strong>
+          {$t('code')} {info.statusCode || $t('unknown')}
           {flag && ', flags ' + flag}
         </div>
         {flag && (
           <div>
-            <InfoAltIcon /> {responseFlags[flag]?.help || 'Unknown flag'}
+            <InfoAltIcon /> {responseFlags[flag]?.help || $t('UnknownFlag')}
           </div>
         )}
       </>
@@ -431,7 +431,7 @@ class SummaryPanelTraceDetailsComponent extends React.Component<Props, State> {
       <>
         {info.topic && (
           <div>
-            <strong>Topic: </strong>
+            <strong>{$t('Topic')}: </strong>
             {info.topic}
           </div>
         )}

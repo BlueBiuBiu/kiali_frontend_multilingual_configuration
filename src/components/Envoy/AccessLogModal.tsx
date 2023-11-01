@@ -65,7 +65,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
     this.state = {
       description: (
         <div style={{ width: '100%', textAlign: 'center' }}>
-          <dt>Click Field Name for Description</dt>
+          <dt>{$t('tip170')}</dt>
         </div>
       )
     };
@@ -225,7 +225,7 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
             <dd>
               <p>{$t('tip336')}</p>
               <div className="admonition note">
-                <p className="admonition-title">Note</p>
+                <p className="admonition-title">{$t('Note')}</p>
                 <p>
                   This may not be the physical remote address of the peer if the address has been inferred from{' '}
                   <a
@@ -320,11 +320,11 @@ export class AccessLogModal extends React.Component<AccessLogModalProps, AccessL
                 </dd>
               </dl>
               <p>
-                In typed JSON logs, PROTOCOL will render the string{' '}
+                {$t('tip354')}{' '}
                 <code className="docutils literal notranslate">
                   <span className="pre">&quot;-&quot;</span>
                 </code>{' '}
-                if the protocol is not available (e.g. in TCP logs).
+                {$t('tip355')}
               </p>
             </dd>
           </>

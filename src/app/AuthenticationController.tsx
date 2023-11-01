@@ -68,8 +68,7 @@ class AuthenticationControllerComponent extends React.Component<
   AuthenticationControllerProps,
   AuthenticationControllerState
 > {
-  static readonly PostLoginErrorMsg = `Kiali failed to initialize. Please ensure that services
-    Kiali depends on, such as Prometheus, are healthy and reachable by Kiali then refresh your browser.`;
+  static readonly PostLoginErrorMsg = $t('tip156');
 
   // How long to wait for the post-login actions to complete
   // before transitioning to the "Loading" page.

@@ -418,11 +418,7 @@ export class ServiceEntryForm extends React.Component<Props, ServiceEntryState> 
           />
           <FormHelperText>
             <HelperText>
-              <HelperTextItem>
-                {isValid(this.state.validHosts)
-                  ? 'The hosts associated with the ServiceEntry.'
-                  : 'Invalid hosts for this ServiceEntry. Enter one or more hosts separated by comma.'}
-              </HelperTextItem>
+              <HelperTextItem>{isValid(this.state.validHosts) ? $t('helpTip48') : $t('helpTip49')}</HelperTextItem>
             </HelperText>
           </FormHelperText>
         </FormGroup>
@@ -444,7 +440,7 @@ export class ServiceEntryForm extends React.Component<Props, ServiceEntryState> 
             <TableBody />
           </Table>
           {(!this.state.serviceEntry.ports || this.state.serviceEntry.ports.length === 0) && (
-            <div className={noPortsStyle}>ServiceEntry has no Ports defined</div>
+            <div className={noPortsStyle}>{$t('tip365')}</div>
           )}
         </FormGroup>
         <FormGroup label="Resolution" isRequired={true} fieldId="resolution">

@@ -36,21 +36,21 @@ export const LabelFilters: React.FC<LabelFiltersProps> = (props: LabelFiltersPro
         style={{ width: 'auto' }}
       />
       <Popover
-        headerContent={<span>Label Filter Help</span>}
+        headerContent={<span>{$t('LabelFilterHelp')}</span>}
         position={PopoverPosition.right}
         bodyContent={
           <>
-            To set a label filter you must enter values like.
+            {$t('tip228')}
             <br />
             <ul style={{ listStyleType: 'circle', marginLeft: '20px' }}>
-              <li>Filter by label presence: label</li>
-              <li>Filter by label and value: label=value</li>
+              <li>{$t('placeholder36')}: label</li>
+              <li>{$t('placeholder37')}: label=value</li>
               <li>
-                Filter by more than one label and one or more values:
+                {$t('placeholder38')}:
                 <br />
                 label=value label2=value2,value2-2
                 <br />
-                (separate with ' ')
+                {$t('tip229')}
               </li>
             </ul>
           </>

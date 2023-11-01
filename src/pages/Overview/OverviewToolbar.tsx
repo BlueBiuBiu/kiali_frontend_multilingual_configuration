@@ -234,7 +234,7 @@ class OverviewToolbarComponent extends React.Component<Props, State> {
           disabled={false}
           className={typeSelectStyle}
           handleSelect={this.updateOverviewType}
-          nameDropdown="Health for"
+          nameDropdown={$t('HealthFor')}
           value={this.state.overviewType}
           label={$t(overviewTypes[this.state.overviewType])}
           options={overviewTypes}

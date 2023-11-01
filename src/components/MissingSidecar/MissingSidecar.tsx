@@ -26,59 +26,57 @@ const infoStyle = kialiStyle({
 });
 
 export class MissingSidecar extends React.Component<MissingSidecarProps, {}> {
-  static defaultProps = {
-    textmesh: 'Out of mesh',
-    text: 'Missing Sidecar',
-    meshtooltip:
-      'Out of mesh. Istio sidecar container or Ambient labels not found in Pod(s). Check if the istio-injection label/annotation is correctly set on the namespace/workload.',
-    texttooltip:
-      'Istio sidecar container not found in Pod(s). Check if the istio-injection label/annotation is correctly set on the namespace/workload.',
-    tooltip: false,
-    icon: icons.istio.missingSidecar.icon,
-    color: icons.istio.missingSidecar.color
-  };
+         static defaultProps = {
+           textmesh: 'Out of mesh',
+           text: 'Missing Sidecar',
+           meshtooltip: $t('tip255'),
+           texttooltip: $t('tip256'),
+           tooltip: false,
+           icon: icons.istio.missingSidecar.icon,
+           color: icons.istio.missingSidecar.color
+         };
 
-  render() {
-    const { text, texttooltip, icon, namespace, color, tooltip, style, ...otherProps } = this.props;
-    const iconComponent = (
-      <span style={style} {...otherProps} data-test={this.props['data-test']}>
-        {React.createElement(icon, { style: { color: color, verticalAlign: '-2px' } })}
-        {!tooltip && (
-          <span style={{ marginLeft: '8px' }}>
-            {serverConfig.ambientEnabled ? this.props.textmesh : this.props.text}
-            <Tooltip
-              key={`tooltip_missing_sidecar`}
-              position={TooltipPosition.top}
-              content={
-                <div style={{ textAlign: 'left' }}>
-                  {serverConfig.ambientEnabled ? this.props.meshtooltip : this.props.texttooltip}
-                </div>
-              }
-            >
-              <KialiIcon.Info className={infoStyle} />
-            </Tooltip>
-          </span>
-        )}
-      </span>
-    );
+         render() {
+           const { text, texttooltip, icon, namespace, color, tooltip, style, ...otherProps } = this.props;
+           const iconComponent = (
+             <span style={style} {...otherProps} data-test={this.props['data-test']}>
+               {React.createElement(icon, { style: { color: color, verticalAlign: '-2px' } })}
+               {!tooltip && (
+                 <span style={{ marginLeft: '8px' }}>
+                   {serverConfig.ambientEnabled ? this.props.textmesh : this.props.text}
+                   <Tooltip
+                     key={`tooltip_missing_sidecar`}
+                     position={TooltipPosition.top}
+                     content={
+                       <div style={{ textAlign: 'left' }}>
+                         {serverConfig.ambientEnabled ? this.props.meshtooltip : this.props.texttooltip}
+                       </div>
+                     }
+                   >
+                     <KialiIcon.Info className={infoStyle} />
+                   </Tooltip>
+                 </span>
+               )}
+             </span>
+           );
 
-    if (isIstioNamespace(namespace) || this.props.isGateway) {
-      return <></>;
-    }
+           if (isIstioNamespace(namespace) || this.props.isGateway) {
+             return <></>;
+           }
 
-    return tooltip ? (
-      <Tooltip
-        content={
-          <div style={{ textAlign: 'left' }}>
-            {serverConfig.ambientEnabled ? this.props.meshtooltip : this.props.texttooltip}
-          </div>
-        }
-        position={TooltipPosition.right}
-      >
-        {iconComponent}
-      </Tooltip>
-    ) : (
-      iconComponent
-    );
-  }
-}
+           return tooltip ? (
+             <Tooltip
+               content={
+                 <div style={{ textAlign: 'left' }}>
+                   {serverConfig.ambientEnabled ? this.props.meshtooltip : this.props.texttooltip}
+                 </div>
+               }
+               position={TooltipPosition.right}
+             >
+               {iconComponent}
+             </Tooltip>
+           ) : (
+             iconComponent
+           );
+         }
+       }

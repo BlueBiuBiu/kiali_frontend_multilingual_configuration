@@ -124,7 +124,7 @@ const MeshPageComponent: React.FunctionComponent<MeshPageProps> = (props: MeshPa
       setMeshClustersList(meshClusters.data);
     } catch (e) {
       if (e instanceof Error) {
-        addError('Could not fetch the list of clusters that are part of the mesh.', e);
+        addError($t('tip93'), e);
       }
     }
   };

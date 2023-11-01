@@ -221,7 +221,7 @@ export class SidecarForm extends React.Component<Props, SidecarState> {
   render() {
     return (
       <>
-        <FormGroup label="Workload Selector" fieldId="workloadSelectorSwitch">
+        <FormGroup label={$t('WorkloadSelector')} fieldId="workloadSelectorSwitch">
           <Switch
             id="workloadSelectorSwitch"
             label={' '}

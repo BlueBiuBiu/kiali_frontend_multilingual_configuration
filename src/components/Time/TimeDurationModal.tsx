@@ -96,7 +96,7 @@ export function TimeDurationModal(props: Props) {
               id={'drform-duration-dd'}
               disabled={false}
               duration={duration}
-              prefix="Last"
+              prefix={$t('Last')}
               setDuration={handleSetDuration}
               tooltip={$t('TrafficMetricsPerRefresh')}
               tooltipPosition={TooltipPosition.top}

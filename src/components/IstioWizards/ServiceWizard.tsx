@@ -725,13 +725,13 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
         ? this.props.update
           ? $t('Update') + ' ' + WIZARD_TITLES[this.props.type]
           : $t('Create') + ' ' + WIZARD_TITLES[this.props.type]
-        : 'View Modal';
+        : $t('ViewModal');
     const titleModal =
       this.props.type.length > 0
         ? this.props.update
           ? $t('Update') + ' ' + WIZARD_TITLES[this.props.type]
           : $t('Create') + ' ' + WIZARD_TITLES[this.props.type]
-        : 'View Modal';
+        : $t('ViewModal');
     return (
       <>
         <Modal
@@ -858,7 +858,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
             <ExpandableSection
               className={advancedOptionsStyle}
               isExpanded={this.state.showAdvanced}
-              toggleText={(this.state.showAdvanced ? 'Hide' : 'Show') + ' Advanced Options'}
+              toggleText={(this.state.showAdvanced ? $t('Hide') : $t('Show')) + $t('Advanced_Options')}
               contentId={(this.state.showAdvanced ? 'hide' : 'show') + '_advanced_options'}
               onToggle={() => {
                 this.setState({
@@ -867,7 +867,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
               }}
             >
               <Tabs isFilled={true} activeKey={this.state.advancedTabKey} onSelect={this.advancedHandleTabClick}>
-                <Tab eventKey={0} title={'Destination Hosts'}>
+                <Tab eventKey={0} title={$t('DestinationHosts')}>
                   <div style={{ marginTop: '20px' }}>
                     <VirtualServiceHosts
                       vsHosts={this.state.vsHosts}
@@ -876,7 +876,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
                     />
                   </div>
                 </Tab>
-                <Tab eventKey={1} title={'Gateways'} data-test={'Gateways'}>
+                <Tab eventKey={1} title={$t('Gateways')} data-test={'Gateways'}>
                   <div style={{ marginTop: '20px', marginBottom: '10px' }}>
                     <GatewaySelector
                       serviceName={this.props.serviceName}
@@ -910,7 +910,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
                   </div>
                 </Tab>
                 {this.props.type !== WIZARD_TCP_TRAFFIC_SHIFTING && (
-                  <Tab eventKey={3} title={'Circuit Breaker'}>
+                  <Tab eventKey={3} title={$t('CircuitBreaker')}>
                     <div style={{ marginTop: '20px', marginBottom: '10px' }}>
                       <CircuitBreaker
                         hasConnectionPool={this.state.trafficPolicy.addConnectionPool}
@@ -929,7 +929,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
             <ExpandableSection
               className={advancedOptionsStyle}
               isExpanded={this.state.showAdvanced}
-              toggleText={(this.state.showAdvanced ? 'Hide' : 'Show') + ' Advanced Options'}
+              toggleText={(this.state.showAdvanced ? $t('Hide') : $t('Show')) + $t('Advanced_Options')}
               contentId={(this.state.showAdvanced ? 'hide' : 'show') + '_advanced_options'}
               onToggle={() => {
                 this.setState({
@@ -938,7 +938,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
               }}
             >
               <Tabs isFilled={true} activeKey={this.state.advancedTabKey} onSelect={this.advancedHandleTabClick}>
-                <Tab eventKey={0} title={'K8s HTTPRoute Hosts'}>
+                <Tab eventKey={0} title={$t('K8sHTTPRouteHosts')}>
                   <div style={{ marginTop: '20px' }}>
                     <K8sRouteHosts
                       valid={this.state.valid.k8sRouteHosts}
@@ -948,7 +948,7 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
                     />
                   </div>
                 </Tab>
-                <Tab eventKey={1} title={'K8s Gateways'} data-test={'K8s Gateways'}>
+                <Tab eventKey={1} title={$t('K8sGateways')} data-test={'K8s Gateways'}>
                   <div style={{ marginTop: '20px', marginBottom: '10px' }}>
                     <K8sGatewaySelector
                       serviceName={this.props.serviceName}

@@ -123,7 +123,6 @@ enum LogLevel {
 }
 
 const RETURN_KEY_CODE = 13;
-const NoLogsFoundMessage = 'No container logs found for the time period.';
 
 const MaxLinesDefault = 3000;
 const MaxLinesOptions = {
@@ -502,12 +501,7 @@ export class WorkloadPodLogsComponent extends React.Component<WorkloadPodLogsPro
               {e.timestamp}
             </span>
           )}
-          <Tooltip
-            key={`al-tt-${index}`}
-            position={TooltipPosition.auto}
-            entryDelay={1000}
-            content="Click to navigate to span detail"
-          >
+          <Tooltip key={`al-tt-${index}`} position={TooltipPosition.auto} entryDelay={1000} content={$t('tip126')}>
             <Button
               key={`s-b-${index}`}
               variant={ButtonVariant.plain}
@@ -743,7 +737,7 @@ export class WorkloadPodLogsComponent extends React.Component<WorkloadPodLogsPro
                 width={width}
                 scrollToIndex={logEntries.length - 1}
                 noRowsRenderer={() => (
-                  <div style={{ paddingTop: '0.75rem', paddingLeft: '0.75rem' }}>{NoLogsFoundMessage}</div>
+                  <div style={{ paddingTop: '0.75rem', paddingLeft: '0.75rem' }}>{$t('tip119')}</div>
                 )}
                 containerStyle={{ overflow: 'initial !important' }}
                 style={{ overflowX: 'auto', overflowY: 'auto' }}

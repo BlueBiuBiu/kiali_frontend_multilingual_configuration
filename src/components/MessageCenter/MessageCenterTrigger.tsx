@@ -45,7 +45,7 @@ class MessageCenterTriggerComponent extends React.PureComponent<PropsType, {}> {
       >
         <KialiIcon.Warning className={systemErrorCountStyle} />
         {this.props.systemErrorsCount}
-        {this.props.systemErrorsCount === 1 ? ' Open Issue' : ' Open Issues'}
+        {this.props.systemErrorsCount === 1 ? ` ${$t('OpenIssue')}` : ` ${$t('OpenIssues')}`}
       </Button>
     );
   };

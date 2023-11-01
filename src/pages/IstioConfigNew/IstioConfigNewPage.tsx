@@ -212,14 +212,10 @@ class IstioConfigNewPageComponent extends React.Component<Props, State> {
             () => {
               this.props.activeNamespaces.forEach(ns => {
                 if (!this.canCreate(ns.name)) {
-                  AlertUtils.addWarning(
-                    'User does not have permission to create Istio Config on namespace: ' +
-                      ns.name +
-                      (cluster ? ' in cluster ' + cluster : '')
-                  );
+                  AlertUtils.addWarning(`${$t('tip373')}: ` + ns.name + (cluster ? ' in cluster ' + cluster : ''));
                 }
                 if (cluster && !this.isNamespaceInCluster(ns.name, cluster)) {
-                  AlertUtils.addInfo('Namespace: ' + ns.name + ' is not found in cluster ' + cluster);
+                  AlertUtils.addInfo(`${$t('Namespace')}: ` + ns.name + ' is not found in cluster ' + cluster);
                 }
               });
             }
@@ -228,7 +224,7 @@ class IstioConfigNewPageComponent extends React.Component<Props, State> {
         .catch(error => {
           // Canceled errors are expected on this query when page is unmounted
           if (!error.isCanceled) {
-            AlertUtils.addError('Could not fetch Permissions.', error);
+            AlertUtils.addError($t('AlertUtils19'), error);
           }
         });
     }

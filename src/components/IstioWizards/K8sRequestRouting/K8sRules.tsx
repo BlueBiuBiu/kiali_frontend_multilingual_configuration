@@ -143,7 +143,7 @@ export class K8sRules extends React.Component<Props> {
                         return (
                           <div key={'br_' + order + '_' + bRef.name + '_' + i}>
                             <PFBadge badge={PFBadges.Workload} position={TooltipPosition.top} />
-                            {bRef.name} ({bRef.weight}% routed traffic)
+                            {bRef.name} ({bRef.weight}% {$t('routedTraffic')})
                           </div>
                         );
                       })}

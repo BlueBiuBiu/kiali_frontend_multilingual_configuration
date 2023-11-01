@@ -275,12 +275,12 @@ const DebugInformationComponent: React.FC<DebugInformationProps> = (props: Debug
       onClose={props.onClose}
       title="Debug information"
       actions={[
-        <Button onClick={close}>Close</Button>,
+        <Button onClick={close}>{$t('Close')}</Button>,
         <CopyToClipboard onCopy={copyCallback} text={getCopyText()} options={copyToClipboardOptions}>
           <Button variant={ButtonVariant.secondary}>Copy</Button>
         </CopyToClipboard>,
         <Button variant={ButtonVariant.secondary} onClick={download}>
-          Download
+          {$t('Download')}
         </Button>
       ]}
     >

@@ -33,7 +33,13 @@ export class SessionTimeout extends React.Component<SessionTimeoutProps, {}> {
       </Button>
     ];
     return (
-      <Modal isOpen={this.props.show} onClose={defaultAction} actions={buttons} title={'Session Timeout'} width={'40%'}>
+      <Modal
+        isOpen={this.props.show}
+        onClose={defaultAction}
+        actions={buttons}
+        title={$t('SessionTimeout')}
+        width={'40%'}
+      >
         <span>
           <Icon size="xl" color={PFColors.Warning}>
             <WarningTriangleIcon />

@@ -174,7 +174,7 @@ export class ServerBuilder extends React.Component<Props, State> {
     return (
       <Tr>
         <Td>
-          <FormGroup label="Hosts" isRequired={true} fieldId="gateway-selector">
+          <FormGroup label={$t('Hosts')} isRequired={true} fieldId="gateway-selector">
             <TextInput
               value={this.props.server.hosts.join(',')}
               isRequired={true}
@@ -188,14 +188,12 @@ export class ServerBuilder extends React.Component<Props, State> {
             <FormHelperText>
               <HelperText>
                 <HelperTextItem>
-                  {isValid(areValidHosts(this.props.server.hosts))
-                    ? 'One or more hosts exposed by this Gateway.'
-                    : 'Invalid hosts for this Gateway. Enter one or more hosts separated by comma.'}
+                  {isValid(areValidHosts(this.props.server.hosts)) ? $t('helpTip41') : $t('helpTip42')}
                 </HelperTextItem>
               </HelperText>
             </FormHelperText>
           </FormGroup>
-          <FormGroup label="Port" isRequired={true} fieldId="server-port" style={{ padding: '10px 0' }}>
+          <FormGroup label={$t('Port')} isRequired={true} fieldId="server-port" style={{ padding: '10px 0' }}>
             <Table aria-label="Port Level MTLS">
               <Thead>
                 <Tr>
@@ -208,7 +206,7 @@ export class ServerBuilder extends React.Component<Props, State> {
             </Table>
           </FormGroup>
           {showTls && (
-            <FormGroup label="TLS Mode" isRequired={true} fieldId="addTlsMode" style={{ margin: '10px 0' }}>
+            <FormGroup label={`TLS ${$t('Mode')}`} isRequired={true} fieldId="addTlsMode" style={{ margin: '10px 0' }}>
               <FormSelect
                 value={this.props.server.tlsMode}
                 id="addTlsMode"
@@ -224,7 +222,7 @@ export class ServerBuilder extends React.Component<Props, State> {
           {showTls && (this.props.server.tlsMode === 'SIMPLE' || this.props.server.tlsMode === 'MUTUAL') && (
             <>
               <FormGroup
-                label="Server Certificate"
+                label={$t('ServerCertificate')}
                 style={{ margin: '10px 0' }}
                 isRequired={true}
                 fieldId="server-certificate"
@@ -242,14 +240,12 @@ export class ServerBuilder extends React.Component<Props, State> {
                 {!isValid(this.props.server.tlsServerCertificate.length > 0) && (
                   <FormHelperText>
                     <HelperText>
-                      <HelperTextItem>
-                        The path to the file holding the server-side TLS certificate to use.
-                      </HelperTextItem>
+                      <HelperTextItem>{$t('tip372')}</HelperTextItem>
                     </HelperText>
                   </FormHelperText>
                 )}
               </FormGroup>
-              <FormGroup label="Private Key" isRequired={true} fieldId="private-key" style={{ margin: '10px 0' }}>
+              <FormGroup label={$t('PrivateKey')} isRequired={true} fieldId="private-key" style={{ margin: '10px 0' }}>
                 <TextInput
                   value={this.props.server.tlsPrivateKey}
                   isRequired={true}
@@ -263,7 +259,7 @@ export class ServerBuilder extends React.Component<Props, State> {
                 {!isValid(this.props.server.tlsPrivateKey.length > 0) && (
                   <FormHelperText>
                     <HelperText>
-                      <HelperTextItem>The path to the file holding the server’s private key.</HelperTextItem>
+                      <HelperTextItem>{$t('helpTip43')}</HelperTextItem>
                     </HelperText>
                   </FormHelperText>
                 )}
@@ -271,7 +267,12 @@ export class ServerBuilder extends React.Component<Props, State> {
             </>
           )}
           {showTls && this.props.server.tlsMode === 'MUTUAL' && (
-            <FormGroup label="CA Certificate" style={{ margin: '10px 0' }} isRequired={true} fieldId="ca-certificate">
+            <FormGroup
+              label={$t('CACertificate')}
+              style={{ margin: '10px 0' }}
+              isRequired={true}
+              fieldId="ca-certificate"
+            >
               <TextInput
                 value={this.props.server.tlsCaCertificate}
                 isRequired={true}
@@ -285,10 +286,7 @@ export class ServerBuilder extends React.Component<Props, State> {
               {!isValid(this.props.server.tlsCaCertificate.length > 0) && (
                 <FormHelperText>
                   <HelperText>
-                    <HelperTextItem>
-                      The path to a file containing certificate authority certificates to use in verifying a presented
-                      client side certificate.
-                    </HelperTextItem>
+                    <HelperTextItem>{$t('helpTip44')}</HelperTextItem>
                   </HelperText>
                 </FormHelperText>
               )}

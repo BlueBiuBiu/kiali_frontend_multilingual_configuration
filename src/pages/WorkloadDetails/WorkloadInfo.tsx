@@ -110,31 +110,31 @@ export class WorkloadInfo extends React.Component<WorkloadInfoProps, WorkloadInf
   // All information for validations is fetched in the workload, no need to add another call
   private workloadValidations(workload: Workload): Validations {
     const noIstiosidecar: ObjectCheck = {
-      message: 'Pod has no Istio sidecar',
+      message: $t('tip110'),
       severity: ValidationTypes.Warning,
       path: ''
     };
-    const noAppLabel: ObjectCheck = { message: 'Pod has no app label', severity: ValidationTypes.Warning, path: '' };
+    const noAppLabel: ObjectCheck = { message: $t('tip111'), severity: ValidationTypes.Warning, path: '' };
     const noVersionLabel: ObjectCheck = {
-      message: 'Pod has no version label',
+      message: $t('tip112'),
       severity: ValidationTypes.Warning,
       path: ''
     };
-    const pendingPod: ObjectCheck = { message: 'Pod is in Pending Phase', severity: ValidationTypes.Warning, path: '' };
-    const unknownPod: ObjectCheck = { message: 'Pod is in Unknown Phase', severity: ValidationTypes.Warning, path: '' };
-    const failedPod: ObjectCheck = { message: 'Pod is in Failed Phase', severity: ValidationTypes.Error, path: '' };
+    const pendingPod: ObjectCheck = { message: $t('tip113'), severity: ValidationTypes.Warning, path: '' };
+    const unknownPod: ObjectCheck = { message: $t('tip114'), severity: ValidationTypes.Warning, path: '' };
+    const failedPod: ObjectCheck = { message: $t('tip115'), severity: ValidationTypes.Error, path: '' };
     const failingPodContainer: ObjectCheck = {
-      message: 'Pod has failing container',
+      message: $t('tip116'),
       severity: ValidationTypes.Warning,
       path: ''
     };
     const failingPodIstioContainer: ObjectCheck = {
-      message: 'Pod has failing Istio container',
+      message: $t('tip117'),
       severity: ValidationTypes.Warning,
       path: ''
     };
     const failingPodAppContainer: ObjectCheck = {
-      message: 'Pod has failing app container',
+      message: $t('tip118'),
       severity: ValidationTypes.Warning,
       path: ''
     };

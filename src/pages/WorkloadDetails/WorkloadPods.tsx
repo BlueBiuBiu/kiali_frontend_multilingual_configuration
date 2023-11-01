@@ -67,7 +67,9 @@ export class WorkloadPods extends React.Component<WorkloadPodsProps> {
           {
             title: (
               <EmptyState variant={EmptyStateVariant.sm} className={emptyStyle}>
-                <EmptyStateBody className={emptyStyle}>No Pods in workload {this.props.workload}</EmptyStateBody>
+                <EmptyStateBody className={emptyStyle}>
+                  {$t('label16')} {this.props.workload}
+                </EmptyStateBody>
               </EmptyState>
             ),
             props: { colSpan: 2 }
@@ -104,23 +106,25 @@ export class WorkloadPods extends React.Component<WorkloadPodsProps> {
                 <div style={{ display: 'inline-block' }}>
                   {pod.createdBy && pod.createdBy.length > 0
                     ? pod.createdBy.map(ref => ref.name + ' (' + ref.kind + ')').join(', ')
-                    : 'Not found'}
+                    : $t('Not_found')}
                 </div>
               </li>
               <li>
                 <span>{$t('ServiceAccount')}</span>
-                <div style={{ display: 'inline-block' }}>{pod.serviceAccountName || 'Not found'}</div>
+                <div style={{ display: 'inline-block' }}>{pod.serviceAccountName || $t('Not_found')}</div>
               </li>
               <li>
                 <span>{$t('IstioInitContainer')}</span>
                 <div style={{ display: 'inline-block' }}>
-                  {pod.istioInitContainers ? pod.istioInitContainers.map(c => `${c.image}`).join(', ') : 'Not found'}
+                  {pod.istioInitContainers
+                    ? pod.istioInitContainers.map(c => `${c.image}`).join(', ')
+                    : $t('Not_found')}
                 </div>
               </li>
               <li>
                 <span>{$t('IstioContainer')}</span>
                 <div style={{ display: 'inline-block' }}>
-                  {pod.istioContainers ? pod.istioContainers.map(c => `${c.image}`).join(', ') : 'Not found'}
+                  {pod.istioContainers ? pod.istioContainers.map(c => `${c.image}`).join(', ') : $t('Not_found')}
                 </div>
               </li>
               <li>

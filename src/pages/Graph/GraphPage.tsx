@@ -482,8 +482,12 @@ class GraphPageComponent extends React.Component<GraphPageProps, GraphPageState>
                   className={`${graphTimeRange} ${this.props.replayActive ? replayBackground : graphBackground}`}
                   isReadOnly={true}
                 >
-                  {this.props.replayActive && <Badge style={{ marginRight: '4px' }} isRead={true}>{`Replay`}</Badge>}
-                  {!isReplayReady && this.props.replayActive && `click Play to start`}
+                  {this.props.replayActive && (
+                    <Badge style={{ marginRight: '4px' }} isRead={true}>
+                      {$t('Replay')}
+                    </Badge>
+                  )}
+                  {!isReplayReady && this.props.replayActive && $t('tip287')}
                   {!isReplayReady && !this.props.replayActive && `${this.displayTimeRange()}`}
                   {isReplayReady && `${this.displayTimeRange()}`}
                 </Chip>
@@ -640,7 +644,7 @@ class GraphPageComponent extends React.Component<GraphPageProps, GraphPageState>
 
     if (event.isOutOfMesh) {
       AlertUtils.add(
-        `A node with a missing sidecar provides no node-specific telemetry and can not provide a node detail graph.`,
+        $t('tip47'),
         undefined,
         MessageType.WARNING
       );
@@ -648,7 +652,7 @@ class GraphPageComponent extends React.Component<GraphPageProps, GraphPageState>
     }
     if (event.isIdle) {
       AlertUtils.add(
-        `An idle node has no node-specific traffic and can not provide a node detail graph.`,
+        $t('tip48'),
         undefined,
         MessageType.WARNING
       );
@@ -812,7 +816,7 @@ class GraphPageComponent extends React.Component<GraphPageProps, GraphPageState>
         triggerRefresh();
       })
       .catch(error => {
-        AlertUtils.addError('Could not delete Istio config objects.', error);
+        AlertUtils.addError($t('tip49'), error);
       });
   };
 
@@ -858,7 +862,7 @@ class GraphPageComponent extends React.Component<GraphPageProps, GraphPageState>
   };
 
   private notifyError = (error: Error, _componentStack: string) => {
-    AlertUtils.add(`There was an error when rendering the graph: ${error.message}, please try a different layout`);
+    AlertUtils.add(`${$t('tip363')}: ${error.message}, ${$t('tip364')}`);
   };
 
   private displayTimeRange = () => {

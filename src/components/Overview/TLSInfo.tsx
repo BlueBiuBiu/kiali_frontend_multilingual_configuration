@@ -23,15 +23,15 @@ function showCerts(certs) {
         <div key={'showCerts'}>
           <div style={{ display: 'inline-block', width: '125px', whiteSpace: 'nowrap' }}>From {item.issuer}</div>
           <div>
-            <div>Issuer: </div>
+            <div>{$t('Issuer')}: </div>
             <div>{item.secretName}</div>
           </div>
           <div>
-            <div>Valid From: </div>
+            <div>{$t('Valid_from')}: </div>
             <div>{item.notAfter}</div>
           </div>
           <div>
-            <div>Valid To: </div>
+            <div>{$t('Valid_To')}: </div>
             <div>{item.notBefore}</div>
           </div>
         </div>
@@ -60,7 +60,7 @@ class TLSInfoComponent extends React.Component<Props> {
     return (
       <div style={{ textAlign: 'left' }}>
         <div>
-          <div style={{ display: 'inline-block', width: '125px', whiteSpace: 'nowrap' }}>Min TLS version</div>
+          <div style={{ display: 'inline-block', width: '125px', whiteSpace: 'nowrap' }}>{$t('MinTLSversion')}</div>
           <Label isCompact color="blue" data-test={'label-TLS'}>
             <div style={{ display: '-webkit-box' }}>
               {this.props.version}{' '}
@@ -70,12 +70,7 @@ class TLSInfoComponent extends React.Component<Props> {
               ></LockIcon>
               <Tooltip
                 position={TooltipPosition.right}
-                content={
-                  <div style={{ textAlign: 'left' }}>
-                    The meshConfig.meshMTLS.minProtocolVersion field specifies the minimum TLS version for the TLS
-                    connections among Istio workloads. N/A if it was not set.
-                  </div>
-                }
+                content={<div style={{ textAlign: 'left' }}>{$t('tip257')}</div>}
               >
                 <KialiIcon.Info className={infoStyle} />
               </Tooltip>

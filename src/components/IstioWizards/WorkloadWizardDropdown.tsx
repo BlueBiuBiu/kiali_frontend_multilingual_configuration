@@ -58,10 +58,14 @@ export const WorkloadWizardDropdown: React.FC<Props> = (props: Props) => {
           props.workload.cluster
         )
           .then(_ => {
-            AlertUtils.add('Workload ' + props.workload.name + ' updated', 'default', MessageType.SUCCESS);
+            AlertUtils.add(
+              `${$t('Workload')} ` + props.workload.name + ` ${$t('updated')}`,
+              'default',
+              MessageType.SUCCESS
+            );
           })
           .catch(error => {
-            AlertUtils.addError('Could not update workload ' + props.workload.name, error);
+            AlertUtils.addError(`${$t('AlertUtils3')} ` + props.workload.name, error);
           })
           .finally(() => {
             setShowWizard(false);
@@ -85,10 +89,14 @@ export const WorkloadWizardDropdown: React.FC<Props> = (props: Props) => {
       props.workload.cluster
     )
       .then(_ => {
-        AlertUtils.add('Workload ' + props.workload.name + ' updated', 'default', MessageType.SUCCESS);
+        AlertUtils.add(
+          `${$t('Workload')} ` + props.workload.name + ` ${$t('updated')}`,
+          'default',
+          MessageType.SUCCESS
+        );
       })
       .catch(error => {
-        AlertUtils.addError('Could not update workload ' + props.workload.name, error);
+        AlertUtils.addError(`${$t('AlertUtils3')} ` + props.workload.name, error);
       })
       .finally(() => {
         setShowWizard(false);
@@ -195,7 +203,7 @@ export const WorkloadWizardDropdown: React.FC<Props> = (props: Props) => {
           isExpanded={isActionsOpen}
           isDisabled={!validActions}
         >
-          Actions
+          {$t('Actions')}
         </MenuToggle>
       )}
       isOpen={isActionsOpen}

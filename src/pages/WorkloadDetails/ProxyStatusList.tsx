@@ -40,7 +40,7 @@ export class ProxyStatusList extends React.Component<Props> {
     if (this.props.status && !isProxyStatusSynced(this.props.status)) {
       return (
         <Stack>
-          <StackItem className={colorStyle}>Istio Proxy Status</StackItem>
+          <StackItem className={colorStyle}>{$t('IstioProxyStatus')}</StackItem>
           {this.statusList()}
         </Stack>
       );

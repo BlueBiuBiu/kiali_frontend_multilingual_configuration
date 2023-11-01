@@ -135,12 +135,7 @@ export class ListenerTable implements SummaryTable {
         transforms: [sortable],
         header: {
           info: {
-            tooltip: (
-              <div className={kialiStyle({ textAlign: 'left' })}>
-                The address that the listener should listen on. In general, the address must be unique, though that is
-                governed by the bind rules of the OS
-              </div>
-            )
+            tooltip: <div className={kialiStyle({ textAlign: 'left' })}>{$t('tip224')}</div>
           }
         }
       },
@@ -151,13 +146,7 @@ export class ListenerTable implements SummaryTable {
         transforms: [sortable],
         header: {
           info: {
-            tooltip: (
-              <div className={kialiStyle({ textAlign: 'left' })}>
-                Original destination listener filter reads the SO_ORIGINAL_DST socket option set when a connection has
-                been redirected by an iptables REDIRECT target, or by an iptables TPROXY target in combination with
-                setting the listener’s transparent option
-              </div>
-            )
+            tooltip: <div className={kialiStyle({ textAlign: 'left' })}>{$t('tip225')}</div>
           }
         }
       }
@@ -180,14 +169,7 @@ export class ListenerTable implements SummaryTable {
 
   tooltip = (): React.ReactNode => {
     return (
-      <Tooltip
-        content={
-          <div className={kialiStyle({ textAlign: 'left' })}>
-            Network location that can be connected to by downstream clients (Incomming to envoy). List of
-            endpoints:ports that envoy lets traffic
-          </div>
-        }
-      >
+      <Tooltip content={<div className={kialiStyle({ textAlign: 'left' })}>{$t('tip226')}</div>}>
         <KialiIcon.Help className={kialiStyle({ width: '14px', height: '14px', color: PFColors.Info })} />
       </Tooltip>
     );
