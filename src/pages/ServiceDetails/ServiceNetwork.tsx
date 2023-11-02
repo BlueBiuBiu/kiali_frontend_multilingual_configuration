@@ -89,14 +89,14 @@ export class ServiceNetwork extends React.Component<Props> {
       <Card isCompact={true} id={'ServiceNetworkCard'}>
         <CardHeader>
           <Title headingLevel="h3" size={TitleSizes['2xl']}>
-            Network
+            {$t('Network')}
           </Title>
         </CardHeader>
         <CardBody>
           <div key="network-list" className={resourceListStyle}>
             <ul style={{ listStyleType: 'none' }}>
               <li>
-                <span>Type</span>
+                <span>{$t('Type')}</span>
                 {this.props.serviceDetails.service.type}
               </li>
               {this.props.serviceDetails.service.type !== 'External' && (
@@ -144,7 +144,7 @@ export class ServiceNetwork extends React.Component<Props> {
               )}
               {this.props.serviceDetails.service.ports && this.props.serviceDetails.service.ports.length > 0 && (
                 <li>
-                  <span>Ports</span>
+                  <span>{$t('Ports')}</span>
                   <div style={{ display: 'inline-block' }}>
                     {(this.props.serviceDetails.service.ports || []).map((port, i) => {
                       return (
@@ -157,7 +157,11 @@ export class ServiceNetwork extends React.Component<Props> {
                             {port.appProtocol && port.appProtocol !== '' ? (
                               <Tooltip
                                 position={TooltipPosition.right}
-                                content={<div style={{ textAlign: 'left' }}>{$t('AppProtocol')}: {port.appProtocol}</div>}
+                                content={
+                                  <div style={{ textAlign: 'left' }}>
+                                    {$t('AppProtocol')}: {port.appProtocol}
+                                  </div>
+                                }
                               >
                                 <span style={{ marginRight: '5px' }}>
                                   <KialiIcon.Info className={infoStyle} />

@@ -37,9 +37,9 @@ export const ALLOW = 'ALLOW';
 export const DENY = 'DENY';
 
 const HELPER_TEXT = {
-  DENY_ALL: 'Denies all requests to workloads in given namespace(s)',
-  ALLOW_ALL: 'Allows all requests to workloads in given namespace(s)',
-  RULES: 'Builds an Authorization Policy based on Rules'
+  DENY_ALL: $t('tip80'),
+  ALLOW_ALL: $t('tip81'),
+  RULES: $t('tip82')
 };
 
 const rulesFormValues = [DENY_ALL, ALLOW_ALL, RULES];

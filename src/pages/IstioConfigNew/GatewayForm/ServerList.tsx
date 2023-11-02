@@ -22,7 +22,7 @@ const noServerStyle = kialiStyle({
 
 const headerCells = [
   {
-    title: 'Servers',
+    title: $t('Servers'),
     transforms: [cellWidth(100) as any],
     props: {}
   },
@@ -139,13 +139,13 @@ export class ServerList extends React.Component<Props> {
                   onClick={this.onAddServer}
                   className={addServerStyle}
                 >
-                  Add Server to Servers List
+                  {$t('action9')}
                 </Button>
               </Td>
             </Tr>
           </Tbody>
         </Table>
-        {this.props.serverList.length === 0 && <div className={noServerStyle}>No Servers defined</div>}
+        {this.props.serverList.length === 0 && <div className={noServerStyle}>{$t('NoServersDefined')}</div>}
       </>
     );
   }

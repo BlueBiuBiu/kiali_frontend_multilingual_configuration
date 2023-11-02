@@ -26,10 +26,10 @@ export class SessionTimeout extends React.Component<SessionTimeoutProps, {}> {
     const defaultAction = this.props.onDismiss;
     const buttons = [
       <Button autoFocus={true} variant={ButtonVariant.primary} onClick={this.props.onDismiss}>
-        OK
+        {$t('OK')}
       </Button>,
       <Button key="confirm" variant={ButtonVariant.secondary} onClick={this.props.onLogout}>
-        Log Out
+        {$t('LogOut')}
       </Button>
     ];
     return (
@@ -56,7 +56,7 @@ export class SessionTimeout extends React.Component<SessionTimeoutProps, {}> {
     const line1 =
       this.props.timeOutCountDown <= 0
         ? $t('tip26')
-        : `Your session will expire in ${this.props.timeOutCountDown.toFixed()} seconds.`;
+        : `${$t('tip27')} ${this.props.timeOutCountDown.toFixed()} ${$t('seconds')}.`;
 
     const line2 = $t('tip28');
 

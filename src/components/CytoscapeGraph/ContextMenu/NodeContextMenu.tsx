@@ -399,7 +399,7 @@ const getOptionsFromLinkParams = (linkParams: LinkParams, tracingInfo?: TracingI
         options.push({ text: 'Traces', url: `${detailsPageUrl}${concat}tab=traces` });
       } else if (tracingInfo.url) {
         options.push({
-          text: 'Show Traces',
+          text: $t('ShowTraces'),
           url: getTracingURL(namespace, tracingInfo.namespaceSelector, tracingInfo.url, name),
           external: true,
           target: '_blank'

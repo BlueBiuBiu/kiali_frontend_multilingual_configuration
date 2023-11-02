@@ -33,14 +33,14 @@ export class RouteTable implements SummaryTable {
     return [
       {
         category: 'Name',
-        placeholder: 'Name',
+        placeholder: $t('Name'),
         filterType: AllFilterTypes.text,
         action: FILTER_ACTION_APPEND,
         filterValues: []
       },
       {
         category: 'Domains',
-        placeholder: 'Domains',
+        placeholder: $t('Domains'),
         filterType: AllFilterTypes.text,
         action: FILTER_ACTION_APPEND,
         filterValues: []
@@ -63,7 +63,7 @@ export class RouteTable implements SummaryTable {
     return [
       {
         id: 'name',
-        title: 'Name',
+        title: $t('Name'),
         isNumeric: false,
         param: 'name',
         compare: (a, b) => {
@@ -72,7 +72,7 @@ export class RouteTable implements SummaryTable {
       },
       {
         id: 'domains',
-        title: 'Domains',
+        title: $t('Domains'),
         isNumeric: false,
         param: 'doms',
         compare: (a, b) => {
@@ -83,7 +83,7 @@ export class RouteTable implements SummaryTable {
       },
       {
         id: 'match',
-        title: 'Match',
+        title: $t('Match'),
         isNumeric: false,
         param: 'match',
         compare: (a, b) => {
@@ -92,7 +92,7 @@ export class RouteTable implements SummaryTable {
       },
       {
         id: 'vs',
-        title: 'Virtual Service',
+        title: $t('Virtual Service'),
         isNumeric: false,
         param: 'vs',
         compare: (a, b) => {
@@ -104,9 +104,9 @@ export class RouteTable implements SummaryTable {
 
   head(): ICell[] {
     return [
-      { title: 'Name', transforms: [sortable] },
+      { title: $t('Name'), transforms: [sortable] },
       {
-        title: 'Domains',
+        title: $t('Domains'),
         transforms: [sortable],
         header: {
           info: {
@@ -115,7 +115,7 @@ export class RouteTable implements SummaryTable {
         }
       },
       {
-        title: 'Match',
+        title: $t('Match'),
         transforms: [sortable],
         header: {
           info: {
@@ -123,7 +123,7 @@ export class RouteTable implements SummaryTable {
           }
         }
       },
-      { title: 'Virtual Service', transforms: [sortable] }
+      { title: $t('Virtual Service'), transforms: [sortable] }
     ];
   }
 

@@ -771,12 +771,7 @@ export class CytoscapeGraph extends React.Component<CytoscapeGraphProps, Cytosca
     let selected = cy.$(focusSelector);
 
     if (!selected) {
-      addInfo(
-        'Could not focus on requested node. The node may be idle or hidden.',
-        true,
-        undefined,
-        `${focusSelector}`
-      );
+      addInfo($t('tip161'), true, undefined, `${focusSelector}`);
       return;
     }
 

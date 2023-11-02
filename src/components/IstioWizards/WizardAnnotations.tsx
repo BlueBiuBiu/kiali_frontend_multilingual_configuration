@@ -80,7 +80,7 @@ export class WizardAnnotations extends React.Component<Props, State> {
         .map(k => k[0])
         .some((e, i, arr) => arr.indexOf(e) !== i)
     ) {
-      validation.push('Duplicate keys found.');
+      validation.push($t('tip14'));
     }
     // Check if empty keys
     if (
@@ -88,7 +88,7 @@ export class WizardAnnotations extends React.Component<Props, State> {
         .map(k => k[0])
         .filter(e => e.length === 0).length > 0
     ) {
-      validation.push('Empty keys found.');
+      validation.push($t('tip15'));
     }
     // Check if empty values
     if (
@@ -96,7 +96,7 @@ export class WizardAnnotations extends React.Component<Props, State> {
         .map(k => k[1])
         .filter(e => e.length === 0).length > 0
     ) {
-      validation.push('Empty values found.');
+      validation.push($t('tip16'));
     }
     this.setState({ validation });
     return validation.length === 0 ? true : false;
@@ -131,7 +131,7 @@ export class WizardAnnotations extends React.Component<Props, State> {
                 }
                 id={'annotationInputForKey_' + index}
                 onChange={(_event, newKey) => this.changeAnnotation([newKey, value], index)}
-                placeholder={'Key'}
+                placeholder={$t('Key')}
                 type="text"
                 value={key}
               />
@@ -141,7 +141,7 @@ export class WizardAnnotations extends React.Component<Props, State> {
                 aria-invalid={value === ''}
                 id={'annotationInputForValue_' + index}
                 onChange={(_event, v) => this.changeAnnotation([key, v], index)}
-                placeholder={'Value'}
+                placeholder={$t('Value')}
                 type="text"
                 value={value}
               />
@@ -224,7 +224,7 @@ export class WizardAnnotations extends React.Component<Props, State> {
             <span style={{ marginLeft: '3px' }}>{$t('AddMore')}</span>
           </Button>
           {this.state.validation.length > 0 && (
-            <Alert variant="danger" isInline isExpandable title="An error occurred">
+            <Alert variant="danger" isInline isExpandable title={$t('AnErrorOccurre')}>
               <List isPlain>
                 {this.state.validation.map((message, i) => (
                   <ListItem key={'Message_' + i}>{message}</ListItem>

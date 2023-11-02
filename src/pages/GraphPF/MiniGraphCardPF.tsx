@@ -116,7 +116,7 @@ class MiniGraphCardPFComponent extends React.Component<MiniGraphCardPropsPF, Min
     const rangeStart: TimeInMilliseconds = rangeEnd - this.props.dataSource.graphDuration * 1000;
 
     const intervalTitle =
-      rangeEnd > 0 ? toRangeString(rangeStart, rangeEnd, { second: '2-digit' }, { second: '2-digit' }) : 'Loading';
+      rangeEnd > 0 ? toRangeString(rangeStart, rangeEnd, { second: '2-digit' }, { second: '2-digit' }) : $t('Loading');
 
     return (
       <>

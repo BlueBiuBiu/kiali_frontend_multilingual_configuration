@@ -661,7 +661,7 @@ export class SummaryPanelEdge extends React.Component<SummaryPanelPropType, Summ
     let mtls = 'mTLS Enabled';
     const isMtls = mTLSPercentage > 0;
     if (isMtls && mTLSPercentage < 100.0) {
-      mtls = `${mtls} [${mTLSPercentage}% of request traffic]`;
+      mtls = `${mtls} [${mTLSPercentage}% ${$t('tip61')}]`;
     }
     return (
       <>

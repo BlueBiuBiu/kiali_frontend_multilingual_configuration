@@ -179,10 +179,8 @@ class VirtualListComponent<R extends RenderResource> extends React.Component<Vir
                     </EmptyState>
                   ) : (
                     <EmptyState variant={EmptyStateVariant.full}>
-                      <EmptyStateHeader titleText="No namespace is selected" headingLevel="h5" />
-                      <EmptyStateBody>
-                        There is currently no namespace selected, please select one using the Namespace selector.
-                      </EmptyStateBody>
+                      <EmptyStateHeader titleText={$t('title7')} headingLevel="h5" />
+                      <EmptyStateBody>{$t('tip162')}</EmptyStateBody>
                     </EmptyState>
                   )}
                 </td>

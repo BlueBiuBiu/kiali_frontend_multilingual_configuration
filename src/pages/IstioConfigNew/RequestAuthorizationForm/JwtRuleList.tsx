@@ -13,7 +13,7 @@ type Props = {
 
 const headerCells: ICell[] = [
   {
-    title: 'JWT Rules to be validated',
+    title: $t('title35'),
     transforms: [cellWidth(100) as any],
     props: {}
   },
@@ -39,12 +39,12 @@ export class JwtRuleList extends React.Component<Props> {
           <>
             {jwtRule.issuer ? (
               <div>
-                <b>issuer</b>: [{formatJwtField('issuer', jwtRule)}]
+                <b>{$t('issuer')}</b>: [{formatJwtField('issuer', jwtRule)}]
               </div>
             ) : undefined}
             {jwtRule.audiences ? (
               <div>
-                <b>audiences</b>: [{formatJwtField('audiences', jwtRule)}]
+                <b>{$t('audiences')}</b>: [{formatJwtField('audiences', jwtRule)}]
               </div>
             ) : undefined}
             {jwtRule.jwks ? (
@@ -59,22 +59,22 @@ export class JwtRuleList extends React.Component<Props> {
             ) : undefined}
             {jwtRule.fromHeaders ? (
               <div>
-                <b>fromHeaders</b>: [{formatJwtField('fromHeaders', jwtRule)}]
+                <b>{$t('fromHeaders')}</b>: [{formatJwtField('fromHeaders', jwtRule)}]
               </div>
             ) : undefined}
             {jwtRule.fromParams ? (
               <div>
-                <b>fromParams</b>: [{formatJwtField('fromParams', jwtRule)}]
+                <b>{$t('fromParams')}</b>: [{formatJwtField('fromParams', jwtRule)}]
               </div>
             ) : undefined}
             {jwtRule.outputPayloadToHeader ? (
               <div>
-                <b>outputPayloadToHeader</b>: [{formatJwtField('outputPayloadToHeader', jwtRule)}]
+                <b>{$t('outputPayloadToHeader')}</b>: [{formatJwtField('outputPayloadToHeader', jwtRule)}]
               </div>
             ) : undefined}
             {jwtRule.forwardOriginalToken !== undefined ? (
               <div>
-                <b>forwardOriginalToken</b>: [{formatJwtField('forwardOriginalToken', jwtRule)}]
+                <b>{$t('forwardOriginalToken')}</b>: [{formatJwtField('forwardOriginalToken', jwtRule)}]
               </div>
             ) : undefined}
           </>,
@@ -87,7 +87,7 @@ export class JwtRuleList extends React.Component<Props> {
   // @ts-ignore
   actionResolver = (rowData, { rowIndex }) => {
     const removeAction = {
-      title: 'Remove JWT Rule',
+      title: $t('RemoveJWTRule'),
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => {
         this.props.onRemoveJwtRule(rowIndex);
@@ -109,7 +109,7 @@ export class JwtRuleList extends React.Component<Props> {
           <TableHeader />
           <TableBody />
         </Table>
-        {this.props.jwtRules.length === 0 && <div className={noJWTRulesStyle}>No JWT Rules Defined</div>}
+        {this.props.jwtRules.length === 0 && <div className={noJWTRulesStyle}>{$t('tip92')}</div>}
       </>
     );
   }

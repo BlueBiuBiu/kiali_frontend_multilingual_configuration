@@ -133,7 +133,7 @@ export class K8sRules extends React.Component<Props> {
                 </>,
                 <>
                   {!rule.filters || rule.filters.length === 0
-                    ? 'No Request Filter'
+                    ? $t('NoRequestFilter')
                     : rule.filters.map((filter, i) => <div key={'filter_' + i}>{filter}</div>)}
                 </>,
                 <>

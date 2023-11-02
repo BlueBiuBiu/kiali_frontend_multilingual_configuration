@@ -165,7 +165,7 @@ export class GatewayForm extends React.Component<Props, GatewayState> {
             </FormHelperText>
           </FormGroup>
         )}
-        <FormGroup label="Server List" fieldId="gwServerList" isRequired={true}>
+        <FormGroup label={$t('ServerList')} fieldId="gwServerList" isRequired={true}>
           <ServerList
             serverList={this.state.gatewayServers}
             serverForm={this.state.serversForm}

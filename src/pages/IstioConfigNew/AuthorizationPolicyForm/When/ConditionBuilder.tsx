@@ -26,17 +26,17 @@ type State = {
 
 const headerCells: ICell[] = [
   {
-    title: 'Condition Key',
+    title: $t('ConditionKey'),
     transforms: [cellWidth(30) as any],
     props: {}
   },
   {
-    title: 'Values',
+    title: $t('Values'),
     transforms: [cellWidth(30) as any],
     props: {}
   },
   {
-    title: 'Not Values',
+    title: $t('NotValues'),
     transforms: [cellWidth(30) as any],
     props: {}
   }
@@ -136,12 +136,12 @@ export class ConditionBuilder extends React.Component<Props, State> {
     const key = this.state.condition.key;
     const isValidKey = this.isValidKey(key);
     if (!isValidKey) {
-      return [false, true, true, 'Condition Key not supported'];
+      return [false, true, true, $t('tip85')];
     }
     const values = this.state.condition.values;
     const notValues = this.state.condition.notValues;
     if ((!values || values.length === 0) && (!notValues || notValues.length === 0)) {
-      return [true, false, false, 'Values and NotValues cannot be empty'];
+      return [true, false, false, $t('tip86')];
     }
 
     if (conditionIpAddressKeys.includes(key)) {
@@ -150,7 +150,7 @@ export class ConditionBuilder extends React.Component<Props, State> {
       const valuesValid = values ? !values.some(value => !isValidIp(value)) : true;
       // @ts-ignore
       const notValuesValid = notValues ? !notValues.some(value => !isValidIp(value)) : true;
-      return [true, valuesValid, notValuesValid, 'Not valid IP'];
+      return [true, valuesValid, notValuesValid, $t('NotValidIP')];
     }
     return [true, true, true, ''];
   };
@@ -233,7 +233,7 @@ export class ConditionBuilder extends React.Component<Props, State> {
           isDisabled={!validCondition}
           onClick={this.onAddConditionToList}
         >
-          Add Condition to When List
+          {$t('tip377')}
         </Button>
       </>
     );

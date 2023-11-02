@@ -226,7 +226,7 @@ export class WorkloadPodLogsComponent extends React.Component<WorkloadPodLogsPro
     if (this.props.pods.length < 1) {
       this.state = {
         ...defaultState,
-        loadingLogsError: 'There are no logs to display because no pods are available.'
+        loadingLogsError: $t('tip120')
       };
       return;
     }
@@ -400,7 +400,7 @@ export class WorkloadPodLogsComponent extends React.Component<WorkloadPodLogsPro
                               value={this.state.maxLines}
                               label={MaxLinesOptions[this.state.maxLines]}
                               options={MaxLinesOptions}
-                              tooltip={'Truncate after N log lines'}
+                              tooltip={$t('tip125')}
                               className={toolbarTail}
                             />
                           </ToolbarItem>

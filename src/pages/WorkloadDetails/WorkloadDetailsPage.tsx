@@ -129,8 +129,8 @@ class WorkloadDetailsPageComponent extends React.Component<WorkloadDetailsPagePr
       .catch(error => {
         AlertUtils.addError($t('helpTip67'), error);
         const msg: ErrorMsg = {
-          title: 'No Workload is selected',
-          description: this.props.workloadId.workload + ' is not found in the mesh'
+          title: $t('title36'),
+          description: this.props.workloadId.workload + ` ${$t('title8')}`
         };
         this.setState({ error: msg });
       });

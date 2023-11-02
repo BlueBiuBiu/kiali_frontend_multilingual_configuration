@@ -33,7 +33,7 @@ const missingLabels = (r: WorkloadListItem): number => {
 export const sortFields: SortField<WorkloadListItem>[] = [
   {
     id: 'namespace',
-    title: 'Namespace',
+    title: $t('Namespace'),
     isNumeric: false,
     param: 'ns',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => {
@@ -46,21 +46,21 @@ export const sortFields: SortField<WorkloadListItem>[] = [
   },
   {
     id: 'workloadname',
-    title: 'Workload Name',
+    title: $t('WorkloadName'),
     isNumeric: false,
     param: 'wn',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => a.name.localeCompare(b.name)
   },
   {
     id: 'workloadtype',
-    title: 'Workload Type',
+    title: $t('WorkloadType'),
     isNumeric: false,
     param: 'wt',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => a.type.localeCompare(b.type)
   },
   {
     id: 'details',
-    title: 'Details',
+    title: $t('Details'),
     isNumeric: false,
     param: 'is',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => {
@@ -105,7 +105,7 @@ export const sortFields: SortField<WorkloadListItem>[] = [
   },
   {
     id: 'applabel',
-    title: 'App Label',
+    title: $t('AppLabel'),
     isNumeric: false,
     param: 'al',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => {
@@ -120,7 +120,7 @@ export const sortFields: SortField<WorkloadListItem>[] = [
   },
   {
     id: 'versionlabel',
-    title: 'Version Label',
+    title: $t('VersionLabel'),
     isNumeric: false,
     param: 'vl',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => {
@@ -135,7 +135,7 @@ export const sortFields: SortField<WorkloadListItem>[] = [
   },
   {
     id: 'labelValidation',
-    title: 'Label Validation',
+    title: $t('LabelValidation'),
     isNumeric: false,
     param: 'lb',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => {
@@ -162,7 +162,7 @@ export const sortFields: SortField<WorkloadListItem>[] = [
   },
   {
     id: 'health',
-    title: 'Health',
+    title: $t('Health'),
     isNumeric: false,
     param: 'he',
     compare: (a, b) => {
@@ -187,7 +187,7 @@ export const sortFields: SortField<WorkloadListItem>[] = [
   },
   {
     id: 'cluster',
-    title: 'Cluster',
+    title: $t('Cluster'),
     isNumeric: false,
     param: 'cl',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => {
@@ -206,7 +206,7 @@ export const sortFields: SortField<WorkloadListItem>[] = [
 
 const workloadNameFilter: FilterType = {
   category: 'Workload Name',
-  placeholder: 'placeholder29',
+  placeholder: $t('placeholder29'),
   filterType: TextInputTypes.text,
   action: FILTER_ACTION_APPEND,
   filterValues: []
@@ -214,7 +214,7 @@ const workloadNameFilter: FilterType = {
 
 export const appLabelFilter: FilterType = {
   category: 'App Label',
-  placeholder: 'placeholder30',
+  placeholder: $t('placeholder30'),
   filterType: AllFilterTypes.select,
   action: FILTER_ACTION_UPDATE,
   filterValues: presenceValues
@@ -222,7 +222,7 @@ export const appLabelFilter: FilterType = {
 
 export const versionLabelFilter: FilterType = {
   category: 'Version Label',
-  placeholder: 'placeholder44',
+  placeholder: $t('placeholder44'),
   filterType: AllFilterTypes.select,
   action: FILTER_ACTION_UPDATE,
   filterValues: presenceValues
@@ -230,45 +230,45 @@ export const versionLabelFilter: FilterType = {
 
 const workloadTypeFilter: FilterType = {
   category: 'Workload Type',
-  placeholder: 'placeholder31',
+  placeholder: $t('placeholder31'),
   filterType: AllFilterTypes.typeAhead,
   action: FILTER_ACTION_APPEND,
   filterValues: [
     {
       id: WorkloadType.CronJob,
-      title: WorkloadType.CronJob
+      title: $t('WorkloadTypeLabel.CronJob')
     },
     {
       id: WorkloadType.DaemonSet,
-      title: WorkloadType.DaemonSet
+      title: $t('WorkloadTypeLabel.DaemonSet')
     },
     {
       id: WorkloadType.Deployment,
-      title: WorkloadType.Deployment
+      title: $t('WorkloadTypeLabel.Deployment')
     },
     {
       id: WorkloadType.DeploymentConfig,
-      title: WorkloadType.DeploymentConfig
+      title: $t('WorkloadTypeLabel.DeploymentConfig')
     },
     {
       id: WorkloadType.Job,
-      title: WorkloadType.Job
+      title: $t('WorkloadTypeLabel.Job')
     },
     {
       id: WorkloadType.Pod,
-      title: WorkloadType.Pod
+      title: $t('WorkloadTypeLabel.Pod')
     },
     {
       id: WorkloadType.ReplicaSet,
-      title: WorkloadType.ReplicaSet
+      title: $t('WorkloadTypeLabel.ReplicaSet')
     },
     {
       id: WorkloadType.ReplicationController,
-      title: WorkloadType.ReplicationController
+      title: $t('WorkloadTypeLabel.ReplicationController')
     },
     {
       id: WorkloadType.StatefulSet,
-      title: WorkloadType.StatefulSet
+      title: $t('WorkloadTypeLabel.StatefulSet')
     }
   ]
 };
@@ -362,13 +362,13 @@ export const filterBy = (items: WorkloadListItem[], filters: ActiveFiltersInfo):
 /** Column Toggle Method */
 
 const healthToggle: ToggleType = {
-  label: 'Health',
+  label: $t('Health'),
   name: 'health',
   isChecked: true
 };
 
 const istioResourcesToggle: ToggleType = {
-  label: 'Istio Resources Detail',
+  label: $t('IstioResourcesDetail'),
   name: 'istioResources',
   isChecked: true
 };

@@ -4,7 +4,7 @@ import { RichSpanData } from 'types/TracingInfo';
 const byWorkload = (workloads: FilterValue[]): RunnableFilter<RichSpanData> => {
   return {
     category: 'Workload',
-    placeholder: 'placeholder10',
+    placeholder: $t('placeholder10'),
     filterType: AllFilterTypes.typeAhead,
     action: FILTER_ACTION_APPEND,
     filterValues: workloads,
@@ -15,7 +15,7 @@ const byWorkload = (workloads: FilterValue[]): RunnableFilter<RichSpanData> => {
 const byApp = (apps: FilterValue[]): RunnableFilter<RichSpanData> => {
   return {
     category: 'App',
-    placeholder: 'placeholder11',
+    placeholder: $t('placeholder11'),
     filterType: AllFilterTypes.typeAhead,
     action: FILTER_ACTION_APPEND,
     filterValues: apps,
@@ -26,7 +26,7 @@ const byApp = (apps: FilterValue[]): RunnableFilter<RichSpanData> => {
 const byComponent = (components: FilterValue[]): RunnableFilter<RichSpanData> => {
   return {
     category: 'Component',
-    placeholder: 'placeholder12',
+    placeholder: $t('placeholder12'),
     filterType: AllFilterTypes.typeAhead,
     action: FILTER_ACTION_APPEND,
     filterValues: components,
@@ -37,7 +37,7 @@ const byComponent = (components: FilterValue[]): RunnableFilter<RichSpanData> =>
 const byOperation = (ops: FilterValue[]): RunnableFilter<RichSpanData> => {
   return {
     category: 'Operation',
-    placeholder: 'placeholder13',
+    placeholder: $t('placeholder13'),
     filterType: AllFilterTypes.typeAhead,
     action: FILTER_ACTION_APPEND,
     filterValues: ops,
@@ -47,14 +47,15 @@ const byOperation = (ops: FilterValue[]): RunnableFilter<RichSpanData> => {
 
 const byError: RunnableFilter<RichSpanData> = {
   category: 'Error',
-  placeholder: 'placeholder14',
+  placeholder: $t('placeholder14'),
   filterType: AllFilterTypes.select,
   action: FILTER_ACTION_UPDATE,
   filterValues: [
-    { id: 'yes', title: 'With errors' },
-    { id: 'no', title: 'Without errors' }
+    { id: 'yes', title: $t('WithErrors') },
+    { id: 'no', title: $t('WithoutErrors') }
   ],
-  run: (item, filters) => filters.filters.some(f => f.value === (item.info.hasError ? 'With errors' : 'Without errors'))
+  run: (item, filters) =>
+    filters.filters.some(f => f.value === (item.info.hasError ? $t('WithErrors') : $t('WithoutErrors')))
 };
 
 export const spanFilters = (spans: RichSpanData[]): RunnableFilter<RichSpanData>[] => {

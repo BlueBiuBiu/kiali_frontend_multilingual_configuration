@@ -31,7 +31,7 @@ const emtpytStyle = kialiStyle({
 
 export class IstioConfigCard extends React.Component<Props> {
   columns(): ICell[] {
-    return [{ title: 'Name' }, { title: 'Status', transforms: [cellWidth(10) as any] }];
+    return [{ title: $t('Name') }, { title: $t('Status'), transforms: [cellWidth(10) as any] }];
   }
 
   noIstioConfig(): IRow[] {
@@ -108,7 +108,7 @@ export class IstioConfigCard extends React.Component<Props> {
     return (
       <Card isCompact={true} id={'IstioConfigCard'}>
         <CardHeader actions={{ actions: <></>, hasNoOffset: false, className: undefined }}>
-          <CardTitle style={{ float: 'left' }}>Istio Config</CardTitle>
+          <CardTitle style={{ float: 'left' }}>{$t('Istio Config')}</CardTitle>
         </CardHeader>
         <CardBody>
           <Table

@@ -399,7 +399,7 @@ export class SummaryPanelNodeTraffic extends React.Component<SummaryPanelNodePro
     return (
       <>
         <InOutRateTableGrpc
-          title="gRPC Traffic (requests per second):"
+          title={`${$t('title14')}:`}
           inRate={inbound.rate}
           inRateGrpcErr={inbound.rateGrpcErr}
           inRateNR={inbound.rateNoResponse}
@@ -419,7 +419,7 @@ export class SummaryPanelNodeTraffic extends React.Component<SummaryPanelNodePro
     return (
       <>
         <InOutRateTableHttp
-          title="HTTP (requests per second):"
+          title={`${$t('title15')}:`}
           inRate={inbound.rate}
           inRate3xx={inbound.rate3xx}
           inRate4xx={inbound.rate4xx}

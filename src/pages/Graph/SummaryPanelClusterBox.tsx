@@ -127,7 +127,7 @@ export class SummaryPanelClusterBox extends React.Component<SummaryPanelPropType
                 )}
                 {httpIn.rate > 0 && (
                   <RateTableHttp
-                    title="HTTP (requests per second):"
+                    title={`${$t('title15')}:`}
                     rate={httpIn.rate}
                     rate3xx={httpIn.rate3xx}
                     rate4xx={httpIn.rate4xx}

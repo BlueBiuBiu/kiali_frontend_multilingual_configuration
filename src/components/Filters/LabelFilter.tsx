@@ -30,7 +30,7 @@ export const LabelFilters: React.FC<LabelFiltersProps> = (props: LabelFiltersPro
         type={'text'}
         value={props.value}
         aria-label={'filter_input_label_key'}
-        placeholder={'Set Label'}
+        placeholder={$t('placeholder35')}
         onChange={(_event, value) => props.onChange(value)}
         onKeyPress={e => onkeyPress(e)}
         style={{ width: 'auto' }}

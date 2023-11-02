@@ -80,9 +80,9 @@ export class RateTableHttp extends React.Component<RateTableHttpPropType, {}> {
         <table className={tableStyle} style={{ marginBottom: '0' }}>
           <thead>
             <tr>
-              <th>Total</th>
-              <th>%Success</th>
-              <th>%Error</th>
+              <th>{$t('Total')}</th>
+              <th>{$t('title3')}</th>
+              <th>{$t('title4')}</th>
             </tr>
           </thead>
           <tbody>
@@ -101,11 +101,10 @@ export class RateTableHttp extends React.Component<RateTableHttpPropType, {}> {
 
 export class RateTableTcp extends React.Component<RateTableTcpPropType, {}> {
   render() {
-    const title = 'TCP Traffic (bytes per second)';
 
     return (
       <div>
-        <div className={summaryTitle}>{title}</div>
+        <div className={summaryTitle}>{$t('title2')}</div>
         <table className={tableStyle}>
           <thead>
             <tr>

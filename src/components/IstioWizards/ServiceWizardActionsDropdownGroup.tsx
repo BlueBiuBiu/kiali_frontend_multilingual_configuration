@@ -115,8 +115,8 @@ export const ServiceWizardActionsDropdownGroup: React.FunctionComponent<Props> =
         data-test={WIZARD_EDIT_ANNOTATIONS}
       >
         {serverConfig.kialiFeatureFlags.istioAnnotationAction && !serverConfig.deployment.viewOnlyMode
-          ? 'Edit Annotations'
-          : 'View Annotations'}
+          ? $t('EditAnnotations')
+          : $t('ViewAnnotations')}
       </DropdownItem>
     );
   }

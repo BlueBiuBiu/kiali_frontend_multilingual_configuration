@@ -20,7 +20,7 @@ const labelStyle = kialiStyle({
 
 export const Label = (props: Props) => {
   const { name, value } = props;
-  let label = 'This label has an unexpected format';
+  let label = $t('label2');
 
   if (canRender(name) && canRender(value)) {
     label = value && value.length > 0 ? `${name}=${value}` : name;

@@ -70,7 +70,7 @@ export class GraphLegendPF extends React.Component<GraphLegendProps> {
       <div className={aStyle}>
         {legendData.map((legendItem: GraphLegendItem) => (
           <div key={legendItem.title} className={legendColumnHeadingStyle}>
-            {$t(legendItem.title)}
+            {legendItem.title}
             {this.renderLegendRowItems(legendItem.data)}
           </div>
         ))}
@@ -109,7 +109,7 @@ export class GraphLegendPF extends React.Component<GraphLegendProps> {
         <span className={keyStyle}>
           <img alt={legendItemRow.label} src={legendItemRow.icon} />
         </span>
-        <span className={legendItemLabelStyle}>{$t(legendItemRow.label)}</span>
+        <span className={legendItemLabelStyle}>{legendItemRow.label}</span>
       </div>
     );
   }

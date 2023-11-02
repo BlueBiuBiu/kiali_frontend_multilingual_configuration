@@ -47,63 +47,63 @@ export interface GraphLegendItemRow {
 
 export const legendData: GraphLegendItem[] = [
   {
-    title: 'NodeShapes',
+    title: $t('NodeShapes'),
     data: [
-      { label: 'Workload', icon: workloadImage },
-      { label: 'App', icon: appImage },
-      { label: 'Operation', icon: aggregateImage },
-      { label: 'Service', icon: serviceImage },
-      { label: 'Service Entry', icon: serviceEntryImage }
+      { label: $t('Workload'), icon: workloadImage },
+      { label: $t('App'), icon: appImage },
+      { label: $t('Operation'), icon: aggregateImage },
+      { label: $t('Service'), icon: serviceImage },
+      { label: $t('Service Entry'), icon: serviceEntryImage }
     ]
   },
   {
-    title: 'NodeColors',
+    title: $t('NodeColors'),
     data: [
-      { label: 'Normal', icon: nodeColorNormalImage },
-      { label: 'Warn', icon: nodeColorWarningImage },
-      { label: 'Unhealthy', icon: nodeColorDangerImage },
-      { label: 'Idle', icon: nodeColorIdleImage }
+      { label: $t('Normal'), icon: nodeColorNormalImage },
+      { label: $t('Warn'), icon: nodeColorWarningImage },
+      { label: $t('Unhealthy'), icon: nodeColorDangerImage },
+      { label: $t('Idle'), icon: nodeColorIdleImage }
     ]
   },
   {
-    title: 'NodeBackground',
+    title: $t('NodeBackground'),
     data: [
-      { label: 'UnselectedNamespace', icon: externalNamespaceImage },
-      { label: 'title10', icon: restrictedNamespaceImage }
+      { label: $t('UnselectedNamespace'), icon: externalNamespaceImage },
+      { label: $t('title10'), icon: restrictedNamespaceImage }
     ]
   },
   {
-    title: 'Edges',
+    title: $t('Edges'),
     data: [
-      { label: 'Failure', icon: edgeDangerImage },
-      { label: 'Degraded', icon: edgeWarnImage },
-      { label: 'Healthy', icon: edgeSuccessImage },
-      { label: 'TCPConnection', icon: edgeTcpImage },
-      { label: 'Idle', icon: edgeIdlemage },
-      { label: 'title11', icon: edgeMtlsImage }
+      { label: $t('Failure'), icon: edgeDangerImage },
+      { label: $t('Degraded'), icon: edgeWarnImage },
+      { label: $t('Healthy'), icon: edgeSuccessImage },
+      { label: $t('TCPConnection'), icon: edgeTcpImage },
+      { label: $t('Idle'), icon: edgeIdlemage },
+      { label: $t('title11'), icon: edgeMtlsImage }
     ]
   },
   {
-    title: 'TrafficAnimation',
+    title: $t('TrafficAnimation'),
     data: [
-      { label: 'NormalRequest', icon: trafficNormalImage },
-      { label: 'FailedRequest', icon: trafficFailedImage },
-      { label: 'TCPTraffic', icon: trafficTcpImage }
+      { label: $t('NormalRequest'), icon: trafficNormalImage },
+      { label: $t('FailedRequest'), icon: trafficFailedImage },
+      { label: $t('TCPTraffic'), icon: trafficTcpImage }
     ]
   },
   {
-    title: 'NodeBadges',
+    title: $t('NodeBadges'),
     data: [
-      { label: 'CircuitBreaker', icon: badgeCircuitBreakerImage },
-      { label: 'FaultInjection', icon: badgeFaultInjectionImage },
-      { label: 'Gateway', icon: badgeGatewaysImage },
-      { label: 'Mirroring', icon: badgeMirroringImage },
-      { label: 'MissingSidecar', icon: badgeMissingSidecarImage },
-      { label: 'RequestTimeout', icon: badgeRequestTimeoutImage },
-      { label: 'title12', icon: badgeTrafficShiftingSourceImage },
-      { label: 'TrafficSource', icon: badgeTrafficSourceImage },
-      { label: 'title13', icon: badgeVirtualServicesImage },
-      { label: 'Workload_Entry', icon: badgeWorkloadEntryImage }
+      { label: $t('CircuitBreaker'), icon: badgeCircuitBreakerImage },
+      { label: $t('FaultInjection'), icon: badgeFaultInjectionImage },
+      { label: $t('Gateway'), icon: badgeGatewaysImage },
+      { label: $t('Mirroring'), icon: badgeMirroringImage },
+      { label: $t('MissingSidecar'), icon: badgeMissingSidecarImage },
+      { label: $t('RequestTimeout'), icon: badgeRequestTimeoutImage },
+      { label: $t('title12'), icon: badgeTrafficShiftingSourceImage },
+      { label: $t('TrafficSource'), icon: badgeTrafficSourceImage },
+      { label: $t('title13'), icon: badgeVirtualServicesImage },
+      { label: $t('Workload_Entry'), icon: badgeWorkloadEntryImage }
     ]
   }
 ];

@@ -72,7 +72,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
             <>
               <textarea className={`${prefaceStyle}`} readOnly={true} value={preface} />
               <SimpleTabs id="graph_find_help_tabs" defaultTab={0} style={{ width: contentWidth }}>
-                <Tab style={tabFont} eventKey={0} title="Examples">
+                <Tab style={tabFont} eventKey={0} title={$t('Examples')}>
                   <Table
                     header={<></>}
                     variant={TableVariant.compact}
@@ -83,7 +83,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
                     <TableBody />
                   </Table>
                 </Tab>
-                <Tab style={tabFont} eventKey={1} title="Nodes">
+                <Tab style={tabFont} eventKey={1} title={$t('Nodes')}>
                   <Table
                     header={<></>}
                     variant={TableVariant.compact}
@@ -94,7 +94,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
                     <TableBody />
                   </Table>
                 </Tab>
-                <Tab style={tabFont} eventKey={2} title="Edges">
+                <Tab style={tabFont} eventKey={2} title={$t('Edges')}>
                   <Table
                     header={<></>}
                     variant={TableVariant.compact}
@@ -105,7 +105,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
                     <TableBody />
                   </Table>
                 </Tab>
-                <Tab style={tabFont} eventKey={3} title="Operators">
+                <Tab style={tabFont} eventKey={3} title={$t('Operators')}>
                   <Table
                     header={<></>}
                     variant={TableVariant.compact}
@@ -116,7 +116,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
                     <TableBody />
                   </Table>
                 </Tab>
-                <Tab style={tabFont} eventKey={4} title="Usage Notes">
+                <Tab style={tabFont} eventKey={4} title={$t('UsageNotes')}>
                   <Table
                     header={<></>}
                     variant={TableVariant.compact}
@@ -138,7 +138,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
   }
 
   private edgeColumns = (): ICell[] => {
-    return [{ title: 'Expression' }, { title: 'Notes' }];
+    return [{ title: $t('Expression') }, { title: $t('Notes') }];
   };
   private edgeRows = (): string[][] => {
     return [
@@ -160,7 +160,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
   };
 
   private exampleColumns = (): ICell[] => {
-    return [{ title: 'Expression' }, { title: 'Description' }];
+    return [{ title: $t('Expression') }, { title: $t('Description') }];
   };
   private exampleRows = (): string[][] => {
     return [
@@ -191,7 +191,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
   };
 
   private nodeColumns = (): ICell[] => {
-    return [{ title: 'Expression' }, { title: 'Notes' }];
+    return [{ title: $t('Expression') }, { title: $t('Notes') }];
   };
   private nodeRows = (): string[][] => {
     return [
@@ -231,7 +231,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
   };
 
   private noteColumns = (): ICell[] => {
-    return [{ title: 'Usage Note', transforms: [cellWidth(10) as any], props: { style: { align: 'text-left' } } }];
+    return [{ title: $t('Usage Note'), transforms: [cellWidth(10) as any], props: { style: { align: 'text-left' } } }];
   };
   private noteRows = (): string[][] => {
     return [
@@ -252,7 +252,7 @@ export class GraphHelpFind extends React.Component<GraphHelpFindProps> {
   };
 
   private operatorColumns = (): ICell[] => {
-    return [{ title: 'Operator' }, { title: 'Description' }];
+    return [{ title: $t('Operator') }, { title: $t('Description') }];
   };
   private operatorRows = (): string[][] => {
     return [

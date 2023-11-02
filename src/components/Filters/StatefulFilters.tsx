@@ -183,7 +183,7 @@ export class StatefulFilters extends React.Component<StatefulFiltersProps, State
           ft.filterValues = values;
           return {
             category: ft.category,
-            placeholder: $t(ft.placeholder),
+            placeholder: ft.placeholder,
             filterType: ft.filterType,
             action: ft.action,
             filterValues: ft.filterValues
@@ -403,7 +403,7 @@ export class StatefulFilters extends React.Component<StatefulFiltersProps, State
             id="typeahead-select-input"
             autoComplete="off"
             onKeyDown={this.onTypeaheadInputKeyDown}
-            placeholder={$t(this.state.currentFilterType.placeholder)}
+            placeholder={this.state.currentFilterType.placeholder}
             role="combobox"
             isExpanded={this.state.isOpen}
             aria-controls="select-typeahead-listbox"
@@ -438,9 +438,9 @@ export class StatefulFilters extends React.Component<StatefulFiltersProps, State
                   key={'filter_' + index}
                   value={filter.id}
                   isFocused={this.state.focusedItemIndex === index}
-                  label={$t(filter.title)}
+                  label={filter.title}
                 >
-                  {$t(filter.title)}
+                  {filter.title}
                 </SelectOption>
               ))
             ) : (
@@ -460,9 +460,9 @@ export class StatefulFilters extends React.Component<StatefulFiltersProps, State
           aria-label="filter_select_value"
           style={{ width: 'auto', paddingRight: '2rem' }}
         >
-          <FormSelectOption key={'filter_default'} value={'default'} label={$t(currentFilterType.placeholder)} />
+          <FormSelectOption key={'filter_default'} value={'default'} label={currentFilterType.placeholder} />
           {currentFilterType.filterValues.map((filter, index) => (
-            <FormSelectOption key={'filter_' + index} value={filter.id} label={$t(filter.title)} />
+            <FormSelectOption key={'filter_' + index} value={filter.id} label={filter.title} />
           ))}
         </FormSelect>
       );
@@ -484,7 +484,7 @@ export class StatefulFilters extends React.Component<StatefulFiltersProps, State
           type={currentFilterType.filterType as TextInputTypes}
           value={currentValue}
           aria-label="filter_input_value"
-          placeholder={$t(currentFilterType.placeholder)}
+          placeholder={currentFilterType.placeholder}
           onChange={(_event, value) => this.updateCurrentValue(value)}
           onKeyPress={e => this.onValueKeyPress(e)}
           style={{ width: 'auto' }}
@@ -577,7 +577,7 @@ export class StatefulFilters extends React.Component<StatefulFiltersProps, State
             {hasActiveFilters && (
               <ToolbarGroup>
                 <ToolbarItem>
-                  <div className={paddingStyle}>Label Operation</div>
+                  <div className={paddingStyle}>{$t('LabelOperation')}</div>
                   <FormSelect
                     value={activeFilters.op}
                     onChange={(_event, value) =>
@@ -589,8 +589,8 @@ export class StatefulFilters extends React.Component<StatefulFiltersProps, State
                     aria-label="filter_select_value"
                     style={{ width: 'auto' }}
                   >
-                    <FormSelectOption key="filter_or" value="or" label="or" />
-                    <FormSelectOption key="filter_and" value="and" label="and" />
+                    <FormSelectOption key="filter_or" value="or" label={$t('or')} />
+                    <FormSelectOption key="filter_and" value="and" label={$t('and')} />
                   </FormSelect>
                 </ToolbarItem>
               </ToolbarGroup>

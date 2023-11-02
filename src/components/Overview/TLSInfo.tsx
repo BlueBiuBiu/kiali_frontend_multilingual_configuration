@@ -39,7 +39,7 @@ function showCerts(certs) {
     });
     return <div>{rows}</div>;
   } else {
-    return 'No cert info';
+    return $t('NoCertInfo');
   }
 }
 

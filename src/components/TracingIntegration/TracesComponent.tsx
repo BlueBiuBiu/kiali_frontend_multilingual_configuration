@@ -171,10 +171,10 @@ class TracesComp extends React.Component<TracesProps, TracesState> {
         const percentiles = await this.percentilesPromise;
         options.minDuration = percentiles.get(this.state.querySettings.percentile);
         if (!options.minDuration) {
-          AlertUtils.addWarning('Cannot perform query above the requested percentile (value unknown).');
+          AlertUtils.addWarning($t('tip32'));
         }
       } catch (err) {
-        AlertUtils.addError(`Could not fetch percentiles: ${err}`);
+        AlertUtils.addError(`${$t('tip33')}: ${err}`);
       }
     }
     this.fetcher.fetch(options, this.state.traces);

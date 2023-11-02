@@ -60,7 +60,7 @@ export class ResponseFlagsTable extends React.PureComponent<ResponseFlagsTablePr
       .map(flagToken => {
         flagToken = flagToken.trim();
         const flag = responseFlags[flagToken];
-        return flagToken === '-' ? '' : `[${flagToken}] ${flag ? flag.help : 'Unknown Flag'}`;
+        return flagToken === '-' ? '' : `[${flagToken}] ${flag ? flag.help : $t('Unknown Flag')}`;
       })
       .join('\n');
   };

@@ -45,12 +45,12 @@ const noSourceStyle = kialiStyle({
 
 const headerCells: ICell[] = [
   {
-    title: 'Source Field',
+    title: $t('SourceField'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Values',
+    title: $t('Values'),
     transforms: [cellWidth(80) as any],
     props: {}
   },
@@ -132,7 +132,7 @@ export class SourceBuilder extends React.Component<Props, State> {
   // @ts-ignore
   actionResolver = (rowData, { rowIndex }) => {
     const removeAction = {
-      title: 'Remove Field',
+      title: $t('RemoveField'),
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => {
         // Fetch sourceField from rowData, it's a fixed string on children

@@ -37,12 +37,12 @@ const INIT_OPERATION_FIELDS = [
 
 const headerCells: ICell[] = [
   {
-    title: 'Operation Field',
+    title: $t('OperationField'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Values',
+    title: $t('Values'),
     transforms: [cellWidth(80) as any],
     props: {}
   },
@@ -199,7 +199,7 @@ export class OperationBuilder extends React.Component<Props, State> {
           isDisabled={Object.keys(this.state.operation).length === 0}
           onClick={this.onAddOperationToList}
         >
-          Add Operation to To List
+          {$t('action6')}
         </Button>
       </>
     );

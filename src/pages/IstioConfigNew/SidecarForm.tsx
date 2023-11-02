@@ -20,7 +20,7 @@ import { isValid } from 'utils/Common';
 
 const headerCells: ICell[] = [
   {
-    title: 'Egress Host',
+    title: $t('EgressHost'),
     transforms: [cellWidth(60) as any],
     props: {}
   },
@@ -35,7 +35,6 @@ const noEgressHostsStyle = kialiStyle({
   color: PFColors.Red100
 });
 
-const hostsHelperText = 'Enter a valid namespace/FQDN Egress host.';
 
 export type EgressHost = {
   host: string;
@@ -93,7 +92,7 @@ export class SidecarForm extends React.Component<Props, SidecarState> {
   // @ts-ignore
   actionResolver = (rowData, { rowIndex }) => {
     const removeAction = {
-      title: 'Remove Server',
+      title: $t('RemoveServer'),
       // @ts-ignore
       onClick: (event, rowIndex, _rowData, _extraData) => {
         this.setState(
@@ -201,7 +200,7 @@ export class SidecarForm extends React.Component<Props, SidecarState> {
               />
               {!this.state.validEgressHost && (
                 <div key="hostsHelperText" className={noEgressHostsStyle}>
-                  {hostsHelperText}
+                  {$t('helpTip50')}
                 </div>
               )}
             </>,

@@ -299,13 +299,13 @@ class EnvoyDetailsComponent extends React.Component<EnvoyDetailsProps, EnvoyDeta
                     </div>
                     <ToolbarDropdown
                       id="envoy_pods_list"
-                      tooltip="Display envoy config for the selected pod"
+                      tooltip={$t('tip214')}
                       handleSelect={key => this.setPod(key)}
                       value={this.state.pod.name}
                       label={this.state.pod.name}
                       options={this.props.workload.pods.map((pod: Pod) => pod.name).sort()}
                     />
-                    <Tooltip key="copy_config" position="top" content="Copy config dump to clipboard">
+                    <Tooltip key="copy_config" position="top" content={$t('tip382')}>
                       <CopyToClipboard
                         style={{ float: 'right', marginTop: '15px' }}
                         onCopy={this.onCopyToClipboard}

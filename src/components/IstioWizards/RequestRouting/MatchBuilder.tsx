@@ -44,11 +44,11 @@ export const ANYTHING = '^.*$';
 const opOptions: string[] = [EXACT, PREFIX, REGEX];
 
 const placeholderText = {
-  [HEADERS]: 'Header value...',
-  [URI]: 'Uri value...',
-  [SCHEME]: 'Scheme value...',
-  [METHOD]: 'Method value...',
-  [AUTHORITY]: 'Authority value...'
+  [HEADERS]: $t('placeholder2'),
+  [URI]: $t('placeholder5'),
+  [SCHEME]: $t('placeholder6'),
+  [METHOD]: $t('placeholder7'),
+  [AUTHORITY]: $t('placeholder8')
 };
 
 export const MatchBuilder: React.FC<MatchBuilderProps> = (props: MatchBuilderProps) => {

@@ -99,12 +99,12 @@ export class K8sTrafficShifting extends React.Component<Props, State> {
     // https://github.com/patternfly/patternfly-next/issues/2373
     const serviceCells: ICell[] = [
       {
-        title: 'Destination Service',
+        title: $t('DestinationService'),
         transforms: [cellWidth(30) as any],
         props: {}
       },
       {
-        title: 'Traffic Weight',
+        title: $t('TrafficWeight'),
         transforms: [cellWidth(70) as any],
         props: {}
       }

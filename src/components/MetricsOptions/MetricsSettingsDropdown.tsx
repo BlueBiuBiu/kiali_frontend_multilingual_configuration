@@ -210,7 +210,7 @@ export class MetricsSettingsDropdown extends React.Component<Props, State> {
       <Dropdown
         toggle={(toggleRef: React.Ref<MenuToggleElement>) => (
           <MenuToggle ref={toggleRef} onClick={() => this.onToggle(!this.state.isOpen)} isExpanded={this.state.isOpen}>
-            Metrics Settings
+            {$t('MetricsSettings')}
           </MenuToggle>
         )}
         isOpen={this.state.isOpen}

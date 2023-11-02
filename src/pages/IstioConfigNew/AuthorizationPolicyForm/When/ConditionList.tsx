@@ -12,7 +12,7 @@ type Props = {
 
 const headerCells: ICell[] = [
   {
-    title: 'Additional Conditions of a Request',
+    title: $t('title33'),
     transforms: [cellWidth(100) as any],
     props: {}
   },
@@ -57,7 +57,7 @@ export class ConditionList extends React.Component<Props> {
   // @ts-ignore
   actionResolver = (rowData, { rowIndex }) => {
     const removeAction = {
-      title: 'Remove Condition',
+      title: $t('RemoveCondition'),
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => {
         this.props.onRemoveCondition(rowIndex);

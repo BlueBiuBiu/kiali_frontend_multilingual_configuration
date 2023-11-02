@@ -130,7 +130,7 @@ class SummaryPanelNodeTracesComponent extends React.Component<Props, State> {
         this.setState({ traces: traces });
       })
       .catch(error => {
-        AlertUtils.addError('Could not fetch traces.', error);
+        AlertUtils.addError($t('tip35'), error);
       });
   }
 
@@ -156,7 +156,7 @@ class SummaryPanelNodeTracesComponent extends React.Component<Props, State> {
         <div className={refreshDivStyle}>
           <Checkbox
             id="use-graph-refresh"
-            label="Use graph refresh"
+            label={$t('UseGraphRefresh')}
             className={checkboxStyle}
             isChecked={this.state.useGraphRefresh}
             onChange={(_event, checked) => this.setState({ useGraphRefresh: checked })}

@@ -55,7 +55,7 @@ export const OverviewNamespaceActions: React.FC<Props> = (props: Props) => {
                 isDisabled={subaction.isDisabled}
                 onClick={() => (subaction.action ? subaction.action(props.namespace) : undefined)}
               >
-                {$t(subaction.title ?? '')}
+                {subaction.title ?? ''}
               </DropdownItem>
             );
             return subaction.isDisabled

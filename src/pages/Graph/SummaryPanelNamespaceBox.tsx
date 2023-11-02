@@ -257,7 +257,7 @@ export class SummaryPanelNamespaceBox extends React.Component<SummaryPanelPropTy
                        )}
                        {httpOut.rate > 0 && (
                          <RateTableHttp
-                           title="HTTP (requests per second):"
+                           title={`${$t('title15')}:`}
                            rate={httpOut.rate}
                            rate3xx={httpOut.rate3xx}
                            rate4xx={httpOut.rate4xx}

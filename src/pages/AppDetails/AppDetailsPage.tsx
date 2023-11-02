@@ -106,10 +106,10 @@ class AppDetails extends React.Component<AppDetailsProps, AppDetailsState> {
         });
       })
       .catch(error => {
-        AlertUtils.addError('Could not fetch App Details.', error);
+        AlertUtils.addError($t('AlertUtils6'), error);
         const msg: ErrorMsg = {
-          title: 'No App is selected',
-          description: this.props.appId.app + ' is not found in the mesh'
+          title: $t('title8'),
+          description: this.props.appId.app + ` ${$t('title9')}`
         };
         this.setState({ error: msg });
       });
@@ -221,7 +221,7 @@ class AppDetails extends React.Component<AppDetailsProps, AppDetailsState> {
             target="_blank"
             title={
               <>
-                Traces <ExternalLinkAltIcon />
+                {$t('Traces')} <ExternalLinkAltIcon />
               </>
             }
           />

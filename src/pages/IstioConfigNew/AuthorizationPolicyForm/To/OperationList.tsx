@@ -11,7 +11,7 @@ type Props = {
 
 const headerCells: ICell[] = [
   {
-    title: 'Operations of a Request',
+    title: $t('title32'),
     transforms: [cellWidth(100) as any],
     props: {}
   },
@@ -52,7 +52,7 @@ export class OperationList extends React.Component<Props> {
   // @ts-ignore
   actionResolver = (rowData, { rowIndex }) => {
     const removeAction = {
-      title: 'Remove To',
+      title: $t('RemoveTo'),
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => {
         this.props.onRemoveTo(rowIndex);

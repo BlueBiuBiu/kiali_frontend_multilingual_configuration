@@ -47,9 +47,9 @@ const allOptions = {
 };
 
 const placeholderText = {
-  [PATH]: 'Path value...',
-  [HEADERS]: 'Header Value...',
-  [QUERY_PARAMS]: 'Query param value...'
+  [PATH]: $t('placeholder47'),
+  [HEADERS]: $t('placeholder2'),
+  [QUERY_PARAMS]: $t('placeholder48')
 };
 
 export const K8sMatchBuilder: React.FC<K8sMatchBuilderProps> = (props: K8sMatchBuilderProps) => {

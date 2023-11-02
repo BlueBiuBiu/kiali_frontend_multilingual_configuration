@@ -458,7 +458,7 @@ class GraphPagePFComponent extends React.Component<GraphPagePropsPF, GraphPageSt
                       {$t('Replay')}
                     </Badge>
                   )}
-                  {!isReplayReady && this.props.replayActive && `click Play to start`}
+                  {!isReplayReady && this.props.replayActive && $t('tip287')}
                   {!isReplayReady && !this.props.replayActive && `${this.displayTimeRange()}`}
                   {isReplayReady && `${this.displayTimeRange()}`}
                 </Chip>
@@ -670,7 +670,7 @@ class GraphPagePFComponent extends React.Component<GraphPagePropsPF, GraphPageSt
         triggerRefresh();
       })
       .catch(error => {
-        AlertUtils.addError('Could not delete Istio config objects.', error);
+        AlertUtils.addError($t('AlertUtils1'), error);
       });
   };
 
@@ -712,7 +712,7 @@ class GraphPagePFComponent extends React.Component<GraphPagePropsPF, GraphPageSt
   };
 
   private notifyError = (error: Error, _componentStack: string) => {
-    AlertUtils.add(`There was an error when rendering the graph: ${error.message}, please try a different layout`);
+    AlertUtils.add(`${$t('tip363')}: ${error.message}, ${$t('tip364')}`);
   };
 
   private displayTimeRange = () => {

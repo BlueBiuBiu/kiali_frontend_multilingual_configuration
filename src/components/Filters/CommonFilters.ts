@@ -12,17 +12,17 @@ import { removeDuplicatesArray } from '../../utils/Common';
 export const presenceValues: FilterValue[] = [
   {
     id: 'present',
-    title: 'Present'
+    title: $t('Present')
   },
   {
     id: 'notpresent',
-    title: 'Not Present'
+    title: $t('Not_Present')
   }
 ];
 
 export const istioSidecarFilter: FilterType = {
   category: 'Istio Sidecar',
-  placeholder: 'placeholder32',
+  placeholder: $t('placeholder32'),
   filterType: AllFilterTypes.select,
   action: FILTER_ACTION_UPDATE,
   filterValues: presenceValues
@@ -30,7 +30,7 @@ export const istioSidecarFilter: FilterType = {
 
 export const healthFilter: FilterType = {
   category: 'Health',
-  placeholder: 'placeholder33',
+  placeholder: $t('placeholder33'),
   filterType: AllFilterTypes.select,
   action: FILTER_ACTION_APPEND,
   filterValues: [
@@ -59,7 +59,7 @@ export const healthFilter: FilterType = {
 
 export const labelFilter: FilterType = {
   category: 'Label',
-  placeholder: 'placeholder34',
+  placeholder: $t('placeholder34'),
   filterType: AllFilterTypes.label,
   action: FILTER_ACTION_APPEND,
   filterValues: []

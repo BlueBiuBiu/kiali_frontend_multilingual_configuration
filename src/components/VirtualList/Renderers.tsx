@@ -133,11 +133,7 @@ export const details: Renderer<AppListItem | WorkloadListItem | ServiceListItem>
           <li>
             <PFBadge badge={PFBadges.Waypoint} position={TooltipPosition.top} />
             {$t('WaypointProxy')}
-            <Tooltip
-              key={`tooltip_missing_label`}
-              position={TooltipPosition.top}
-              content="Layer 7 service Mesh capabilities in Istio Ambient"
-            >
+            <Tooltip key={`tooltip_missing_label`} position={TooltipPosition.top} content={$t('tip44')}>
               <KialiIcon.Info className={infoStyle} />
             </Tooltip>
           </li>

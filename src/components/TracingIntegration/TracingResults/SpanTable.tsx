@@ -101,21 +101,21 @@ const getClassName = (isError: boolean, isSpan: boolean): string | undefined => 
 
 const cells: SortableCell<RichSpanData>[] = [
   {
-    title: 'Timeline',
+    title: $t('Timeline'),
     transforms: [sortable],
     compare: (a, b) => a.startTime - b.startTime
   },
   {
-    title: 'App / Workload',
+    title: $t('title6'),
     transforms: [sortable],
     compare: (a, b) => compareNullable(a.workload, b.workload, (a2, b2) => a2.localeCompare(b2))
   },
   {
-    title: 'Summary',
+    title: $t('Summary'),
     transforms: []
   },
   {
-    title: 'Statistics',
+    title: $t('Statistics'),
     transforms: [sortable],
     compare: (a, b) => a.duration - b.duration
   }
@@ -165,8 +165,8 @@ class SpanTableComponent extends React.Component<Props, State> {
             <tr>
               <td colSpan={cells.length}>
                 <EmptyState variant={EmptyStateVariant.full}>
-                  <EmptyStateHeader titleText="No spans found" headingLevel="h5" />
-                  <EmptyStateBody>No spans match the current filters</EmptyStateBody>
+                  <EmptyStateHeader titleText={$t('NoSpansFound')} headingLevel="h5" />
+                  <EmptyStateBody>{$t('tip36')}</EmptyStateBody>
                 </EmptyState>
               </td>
             </tr>
@@ -232,7 +232,7 @@ class SpanTableComponent extends React.Component<Props, State> {
         )
       },
       {
-        title: 'Inbound Metrics',
+        title: $t('Inbound Metrics'),
         onClick: (_event, _rowId, rowData, _extra) => {
           const href = rowData.item.linkToApp + getParamsSeparator(rowData.item.linkToApp) + 'tab=in_metrics';
           if (parentKiosk) {
@@ -243,7 +243,7 @@ class SpanTableComponent extends React.Component<Props, State> {
         }
       },
       {
-        title: 'Outbound Metrics',
+        title: $t('Outbound Metrics'),
         onClick: (_event, _rowId, rowData, _extra) => {
           const href = rowData.item.linkToApp + getParamsSeparator(rowData.item.linkToApp) + 'tab=out_metrics';
           if (parentKiosk) {
@@ -278,7 +278,7 @@ class SpanTableComponent extends React.Component<Props, State> {
           }
         },
         {
-          title: 'Inbound Metrics',
+          title: $t('Inbound Metrics'),
           onClick: (_event, _rowId, rowData, _extra) => {
             const href =
               rowData.item.linkToWorkload + getParamsSeparator(rowData.item.linkToWorkload) + 'tab=in_metrics';
@@ -290,7 +290,7 @@ class SpanTableComponent extends React.Component<Props, State> {
           }
         },
         {
-          title: 'Outbound Metrics',
+          title: $t('Outbound Metrics'),
           onClick: (_event, _rowId, rowData, _extra) => {
             const href =
               rowData.item.linkToWorkload + getParamsSeparator(rowData.item.linkToWorkload) + 'tab=out_metrics';
@@ -443,7 +443,7 @@ class SpanTableComponent extends React.Component<Props, State> {
     let peerLink: JSX.Element | undefined = undefined;
     const key = `${item.spanID}-summary-envoy`;
     if (info.direction === 'inbound') {
-      rqLabel = 'Received request';
+      rqLabel = 'ReceivedRequest';
       if (info.peer) {
         peerLink = (
           <>
@@ -466,7 +466,7 @@ class SpanTableComponent extends React.Component<Props, State> {
         );
       }
     } else if (info.direction === 'outbound') {
-      rqLabel = 'Sent request';
+      rqLabel = 'SentRequest';
       if (info.peer) {
         peerLink = (
           <React.Fragment key={`${key}-out`}>
@@ -499,14 +499,14 @@ class SpanTableComponent extends React.Component<Props, State> {
     let flagInfo: string | undefined = undefined;
     if (info.responseFlags) {
       rsDetails.push(info.responseFlags);
-      flagInfo = responseFlags[info.responseFlags]?.help || $t('UnknownFlag');
+      flagInfo = $t(responseFlags[info.responseFlags]?.help) || $t('UnknownFlag');
     }
 
     return (
       <React.Fragment key={`${key}`}>
         <div key={`${key}-req`}>
           <strong key={`${key}-req-title`}>
-            {rqLabel}
+            {$t(rqLabel)}
             {peerLink}:{' '}
           </strong>
           <span key={`${key}-req-val`}>
@@ -525,12 +525,12 @@ class SpanTableComponent extends React.Component<Props, State> {
   private renderHTTPSummary = (item: RichSpanData) => {
     const info = item.info as OpenTracingHTTPInfo;
     const rqLabel =
-      info.direction === 'inbound' ? 'Received request' : info.direction === 'outbound' ? 'Sent request' : 'Request';
+      info.direction === 'inbound' ? 'ReceivedRequest' : info.direction === 'outbound' ? 'SentRequest' : 'Request';
     const key = `${item.spanID}-summary-http`;
     return (
       <React.Fragment key={key}>
         <div key={`${key}-req`}>
-          <strong key={`${key}-req-title`}>{rqLabel}: </strong>
+          <strong key={`${key}-req-title`}>{$t(rqLabel)}: </strong>
           <span key={`${key}-req-val`}>
             {info.method} {info.url}
           </span>

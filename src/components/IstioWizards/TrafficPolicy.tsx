@@ -608,7 +608,7 @@ class TrafficPolicyComponent extends React.Component<Props, TrafficPolicyState> 
                 {!isValid(isValidLB) && (
                   <FormHelperText>
                     <HelperText>
-                      <HelperTextItem>HTTP Header Name must be non empty</HelperTextItem>
+                      <HelperTextItem>{$t('tip380')}</HelperTextItem>
                     </HelperText>
                   </FormHelperText>
                 )}

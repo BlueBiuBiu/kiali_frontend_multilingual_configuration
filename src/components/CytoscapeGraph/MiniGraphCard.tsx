@@ -114,7 +114,7 @@ class MiniGraphCardComponent extends React.Component<MiniGraphCardProps, MiniGra
     const rangeEnd: TimeInMilliseconds = this.props.dataSource.graphTimestamp * 1000;
     const rangeStart: TimeInMilliseconds = rangeEnd - this.props.dataSource.graphDuration * 1000;
     const intervalTitle =
-      rangeEnd > 0 ? toRangeString(rangeStart, rangeEnd, { second: '2-digit' }, { second: '2-digit' }) : 'Loading';
+      rangeEnd > 0 ? toRangeString(rangeStart, rangeEnd, { second: '2-digit' }, { second: '2-digit' }) : $t('Loading');
 
     return (
       <>

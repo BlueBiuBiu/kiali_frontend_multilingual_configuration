@@ -294,42 +294,42 @@ class IstioConfigNewPageComponent extends React.Component<Props, State> {
       switch (this.props.objectType) {
         case AUTHORIZACION_POLICY:
           items.push({
-            title: 'Authorization Policy',
+            title: $t('Authorization_Policy'),
             type: 'authorizationpolicy',
             items: [buildAuthorizationPolicy(this.state.name, ns.name, this.state.authorizationPolicy)]
           });
           break;
         case GATEWAY:
           items.push({
-            title: 'Gateway',
+            title: $t('Gateway'),
             type: 'gateway',
             items: [buildGateway(this.state.name, ns.name, this.state.gateway)]
           });
           break;
         case K8SGATEWAY:
           items.push({
-            title: 'K8sGateway',
+            title: $t('K8sGateway'),
             type: 'k8sGateway',
             items: [buildK8sGateway(this.state.name, ns.name, this.state.k8sGateway)]
           });
           break;
         case PEER_AUTHENTICATION:
           items.push({
-            title: 'Peer Authentication',
+            title: $t('Peer_Authentication'),
             type: 'peerauthentication',
             items: [buildPeerAuthentication(this.state.name, ns.name, this.state.peerAuthentication)]
           });
           break;
         case REQUEST_AUTHENTICATION:
           items.push({
-            title: 'Request Authentication',
+            title: $t('Request_Authentication'),
             type: 'requestauthentication',
             items: [buildRequestAuthentication(this.state.name, ns.name, this.state.requestAuthentication)]
           });
           break;
         case SERVICE_ENTRY:
           items.push({
-            title: 'Service Entry',
+            title: $t('Service Entry'),
             type: 'serviceentry',
             items: [buildServiceEntry(this.state.name, ns.name, this.state.serviceEntry)]
           });

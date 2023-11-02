@@ -52,7 +52,7 @@ const getUnreadCount = (messages: NotificationMessage[]) => {
 
 const getUnreadMessageLabel = (messages: NotificationMessage[]) => {
   const unreadCount = getUnreadCount(messages);
-  return unreadCount === 1 ? '1 Unread Message' : `${getUnreadCount(messages)} Unread Messages`;
+  return unreadCount === 1 ? $t('tip23') : `${getUnreadCount(messages)} ${$t('tip23')}`;
 };
 
 const noNotificationsMessage = (

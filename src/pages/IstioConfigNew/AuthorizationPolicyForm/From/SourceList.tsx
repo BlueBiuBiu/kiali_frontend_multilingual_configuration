@@ -11,7 +11,7 @@ type Props = {
 
 const headerCells: ICell[] = [
   {
-    title: 'Source Matches of a Request',
+    title: $t('title31'),
     transforms: [cellWidth(100) as any],
     props: {}
   },
@@ -53,7 +53,7 @@ export class SourceList extends React.Component<Props> {
   // @ts-ignore
   actionResolver = (rowData, { rowIndex }) => {
     const removeAction = {
-      title: 'Remove From',
+      title: $t('RemoveFrom'),
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => {
         this.props.onRemoveFrom(rowIndex);

@@ -158,7 +158,7 @@ class TracingScatterComponent extends React.Component<TracingScatterProps> {
         </div>
       </div>
     ) : (
-      this.renderFetchEmpty('No traces', 'No trace results. Try another query.')
+      this.renderFetchEmpty($t('NoTraces'), $t('tip40'))
     );
   }
 

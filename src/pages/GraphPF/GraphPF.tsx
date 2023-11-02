@@ -359,7 +359,7 @@ export const TopologyContent: React.FC<{
         if (parent) {
           parent.children?.push(node.id);
         } else {
-          console.error(`Could not find parent node |${parentId}|`);
+          console.error(`${$t('tip384')} |${parentId}|`);
         }
       }
 

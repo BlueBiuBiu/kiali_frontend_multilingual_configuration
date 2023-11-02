@@ -179,19 +179,14 @@ class AuthenticationControllerComponent extends React.Component<
         .register('getStatus', API.getStatus())
         .then(response => this.processServerStatus(response.data))
         .catch(error => {
-          AlertUtils.addError('Error fetching server status.', error, 'default', MessageType.WARNING);
+          AlertUtils.addError($t('tip157'), error, 'default', MessageType.WARNING);
         });
       const getTracingInfoPromise = this.promises
         .register('getTracingInfo', API.getTracingInfo())
         .then(response => this.props.setTracingInfo(response.data))
         .catch(error => {
           this.props.setTracingInfo(null);
-          AlertUtils.addError(
-            'Could not fetch Tracing info. Turning off Tracing integration.',
-            error,
-            'default',
-            MessageType.INFO
-          );
+          AlertUtils.addError($t('tip381'), error, 'default', MessageType.INFO);
         });
       const getNamespaces = this.promises.register('getNamespaces', API.getNamespaces());
       const getServerConfig = this.promises.register('getServerConfig', API.getServerConfig());
@@ -316,7 +311,7 @@ class AuthenticationControllerComponent extends React.Component<
 
     if (status.status[StatusKey.DISABLED_FEATURES]) {
       this.props.addMessage(
-        'The following features are disabled: ' + status.status[StatusKey.DISABLED_FEATURES],
+        `${$t('tip158')}: ` + status.status[StatusKey.DISABLED_FEATURES],
         '',
         'default',
         MessageType.INFO,

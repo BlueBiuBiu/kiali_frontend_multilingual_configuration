@@ -104,7 +104,7 @@ export class WorkloadInfo extends React.Component<WorkloadInfoProps, WorkloadInf
       .then(results => {
         this.setState({ workloadIstioConfig: results.data });
       })
-      .catch(error => AlertUtils.addError('Could not fetch Health/IstioConfig.', error));
+      .catch(error => AlertUtils.addError($t('AlertUtils20'), error));
   };
 
   // All information for validations is fetched in the workload, no need to add another call

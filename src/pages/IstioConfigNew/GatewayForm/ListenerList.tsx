@@ -28,32 +28,32 @@ const addListenerStyle = kialiStyle({
 
 const headerCells = [
   {
-    title: 'Name',
+    title: $t('Name'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Hostname',
+    title: $t('Hostname'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Port',
+    title: $t('Port'),
     transforms: [cellWidth(10) as any],
     props: {}
   },
   {
-    title: 'Protocol',
+    title: $t('Protocol'),
     transforms: [cellWidth(10) as any],
     props: {}
   },
   {
-    title: 'From Namespaces',
+    title: $t('FromNamespaces'),
     transforms: [cellWidth(10) as any],
     props: {}
   },
   {
-    title: 'Labels',
+    title: $t('Labels'),
     transforms: [cellWidth(25) as any],
     props: {}
   },
@@ -191,13 +191,13 @@ export class ListenerList extends React.Component<Props, ListenerListState> {
                   onClick={this.onAddListener}
                   className={addListenerStyle}
                 >
-                  Add Listener to Listener List
+                  {$t('action8')}
                 </Button>
               </Td>
             </Tr>
           </Tbody>
         </Table>
-        {this.props.listenersForm.length === 0 && <div className={noListenerStyle}>No Listeners defined</div>}
+        {this.props.listenersForm.length === 0 && <div className={noListenerStyle}>{$t('NoListenersDefined')}</div>}
       </>
     );
   }

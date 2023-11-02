@@ -116,7 +116,7 @@ export const WorkloadWizardDropdown: React.FC<Props> = (props: Props) => {
           onClick={() => onAction(WIZARD_ENABLE_AUTO_INJECTION)}
           isDisabled={serverConfig.deployment.viewOnlyMode}
         >
-          Enable Auto Injection
+          {$t('AlertUtils4')}
         </DropdownItem>
       );
 
@@ -132,7 +132,7 @@ export const WorkloadWizardDropdown: React.FC<Props> = (props: Props) => {
           onClick={() => onAction(WIZARD_DISABLE_AUTO_INJECTION)}
           isDisabled={serverConfig.deployment.viewOnlyMode}
         >
-          Disable Auto Injection
+          {$t('DisableAutoInjection')}
         </DropdownItem>
       );
 
@@ -177,8 +177,8 @@ export const WorkloadWizardDropdown: React.FC<Props> = (props: Props) => {
           onClick={() => onWizardToggle(true)}
         >
           {serverConfig.kialiFeatureFlags.istioAnnotationAction && !serverConfig.deployment.viewOnlyMode
-            ? 'Edit Annotations'
-            : 'View Annotations'}
+            ? $t('EditAnnotations')
+            : $t('ViewAnnotations')}
         </DropdownItem>
       );
 

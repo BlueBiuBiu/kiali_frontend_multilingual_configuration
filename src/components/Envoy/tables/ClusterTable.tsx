@@ -40,26 +40,26 @@ export class ClusterTable implements SummaryTable {
       },
       {
         category: 'Port',
-        placeholder: 'Port',
+        placeholder: $t('Port'),
         filterType: AllFilterTypes.text,
         action: FILTER_ACTION_APPEND,
         filterValues: []
       },
       {
         category: 'Subset',
-        placeholder: 'Subset',
+        placeholder: $t('Subset'),
         filterType: AllFilterTypes.text,
         action: FILTER_ACTION_APPEND,
         filterValues: []
       },
       {
         category: 'Direction',
-        placeholder: 'Direction',
+        placeholder: $t('Direction'),
         filterType: AllFilterTypes.select,
         action: FILTER_ACTION_APPEND,
         filterValues: [
-          { id: 'inbound', title: 'inbound' },
-          { id: 'outbound', title: 'outbound' }
+          { id: 'inbound', title: $t('inbound') },
+          { id: 'outbound', title: $t('outbound') }
         ]
       }
     ];
@@ -99,7 +99,7 @@ export class ClusterTable implements SummaryTable {
       },
       {
         id: 'port',
-        title: 'Port',
+        title: $t('Port'),
         isNumeric: true,
         param: 'port',
         compare: (a, b) => {
@@ -108,7 +108,7 @@ export class ClusterTable implements SummaryTable {
       },
       {
         id: 'subset',
-        title: 'Subset',
+        title: $t('Subset'),
         isNumeric: false,
         param: 'subset',
         compare: (a, b) => {
@@ -117,7 +117,7 @@ export class ClusterTable implements SummaryTable {
       },
       {
         id: 'direction',
-        title: 'Direction',
+        title: $t('Direction'),
         isNumeric: false,
         param: 'direction',
         compare: (a, b) => {
@@ -126,7 +126,7 @@ export class ClusterTable implements SummaryTable {
       },
       {
         id: 'type',
-        title: 'Type',
+        title: $t('Type'),
         isNumeric: true,
         param: 'type',
         compare: (a, b) => {
@@ -135,7 +135,7 @@ export class ClusterTable implements SummaryTable {
       },
       {
         id: 'dr',
-        title: 'Destination Rule',
+        title: $t('Destination_Rule'),
         isNumeric: true,
         param: 'dr',
         compare: (a, b) => {
@@ -170,14 +170,14 @@ export class ClusterTable implements SummaryTable {
   head = (): ICell[] => {
     return [
       {
-        title: 'Service FQDN',
+        title: `${$t('Service')} FQDN`,
         transforms: [sortable],
         header: { info: { tooltip: <>{$t('tip220')}</> } }
       },
-      { title: 'Port', transforms: [sortable] },
-      { title: 'Subset', transforms: [sortable] },
+      { title: $t('Port'), transforms: [sortable] },
+      { title: $t('Subset'), transforms: [sortable] },
       {
-        title: 'Direction',
+        title: $t('Direction'),
         transforms: [sortable],
         header: {
           info: {
@@ -194,8 +194,8 @@ export class ClusterTable implements SummaryTable {
           }
         }
       },
-      { title: 'Type', transforms: [sortable], header: { info: { tooltip: this.render_cluster_type() } } },
-      { title: 'DestinationRule', transforms: [sortable] }
+      { title: $t('Type'), transforms: [sortable], header: { info: { tooltip: this.render_cluster_type() } } },
+      { title: $t('DestinationRule'), transforms: [sortable] }
     ];
   };
 

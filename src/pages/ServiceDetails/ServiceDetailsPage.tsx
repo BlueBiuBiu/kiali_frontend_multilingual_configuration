@@ -145,8 +145,8 @@ class ServiceDetailsPageComponent extends React.Component<ServiceDetailsProps, S
       .catch(error => {
         AlertUtils.addError($t('helpTip65'), error);
         const msg: ErrorMsg = {
-          title: 'No Service is selected',
-          description: this.props.serviceId.service + ' is not found in the mesh'
+          title: $t('tip391'),
+          description: this.props.serviceId.service + ` ${$t('title9')}`
         };
         this.setState({ error: msg });
       });

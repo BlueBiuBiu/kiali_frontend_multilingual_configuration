@@ -318,12 +318,12 @@ export class SummaryPanelNodeComponent extends React.Component<SummaryPanelNodeC
     return (
       <div className={summaryBodyTabs}>
         <SimpleTabs id="graph_summary_tabs" defaultTab={0} style={{ paddingBottom: '0.5rem' }}>
-          <Tab style={summaryFont} title="Traffic" eventKey={0}>
+          <Tab style={summaryFont} title={$t('Traffic')} eventKey={0}>
             <div style={summaryFont}>
               <SummaryPanelNodeTraffic {...this.props} />
             </div>
           </Tab>
-          <Tab style={summaryFont} title="Traces" eventKey={1}>
+          <Tab style={summaryFont} title={$t('Traces')} eventKey={1}>
             <SummaryPanelNodeTraces nodeData={nodeData} queryTime={this.props.queryTime - this.props.duration} />
           </Tab>
         </SimpleTabs>

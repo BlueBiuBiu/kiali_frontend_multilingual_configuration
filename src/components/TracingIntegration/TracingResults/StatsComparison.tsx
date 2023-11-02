@@ -79,12 +79,9 @@ export const renderMetricsComparison = (
     return (
       <React.Fragment key={key}>
         {!isCompact && (
-          <Tooltip
-            key={`${key}-tt`}
-            content="This heatmap is a comparison matrix of this request duration against duration statistics aggregated over time. Move the pointer over cells to get more details."
-          >
+          <Tooltip key={`${key}-tt`} content={$t('tip37')}>
             <>
-              <InfoAltIcon key={`${key}-ic`} /> <strong key={`${key}-ic-title`}>Comparison map: </strong>
+              <InfoAltIcon key={`${key}-ic`} /> <strong key={`${key}-ic-title`}>{$t('ComparisonMap')}: </strong>
             </>
           </Tooltip>
         )}
@@ -93,9 +90,9 @@ export const renderMetricsComparison = (
     );
   }
   return (
-    <Tooltip key={`${key}-tt`} content="Click to load more statistics for this request">
+    <Tooltip key={`${key}-tt`} content={$t('tip38')}>
       <Button key={`${key}-load`} onClick={load} variant={ButtonVariant.link}>
-        <strong key={`${key}-load-title`}>Load statistics</strong>
+        <strong key={`${key}-load-title`}>{$t('LoadStatistics')}</strong>
       </Button>
     </Tooltip>
   );

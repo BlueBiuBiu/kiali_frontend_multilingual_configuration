@@ -41,28 +41,28 @@ export class ListenerTable implements SummaryTable {
     return [
       {
         category: 'Address',
-        placeholder: 'Address',
+        placeholder: $t('Address'),
         filterType: AllFilterTypes.text,
         action: FILTER_ACTION_APPEND,
         filterValues: []
       },
       {
         category: 'Port',
-        placeholder: 'Port',
+        placeholder: $t('Port'),
         filterType: AllFilterTypes.text,
         action: FILTER_ACTION_APPEND,
         filterValues: []
       },
       {
         category: 'Match',
-        placeholder: 'Match',
+        placeholder: $t('Match'),
         filterType: AllFilterTypes.text,
         action: FILTER_ACTION_APPEND,
         filterValues: []
       },
       {
         category: 'Destination',
-        placeholder: 'Destination',
+        placeholder: $t('Destination'),
         filterType: AllFilterTypes.text,
         action: FILTER_ACTION_APPEND,
         filterValues: []
@@ -91,7 +91,7 @@ export class ListenerTable implements SummaryTable {
     return [
       {
         id: 'address',
-        title: 'Address',
+        title: $t('Address'),
         isNumeric: false,
         param: 'addess',
         compare: (a, b) => {
@@ -100,7 +100,7 @@ export class ListenerTable implements SummaryTable {
       },
       {
         id: 'port',
-        title: 'Port',
+        title: $t('Port'),
         isNumeric: true,
         param: 'port',
         compare: (a, b) => {
@@ -109,7 +109,7 @@ export class ListenerTable implements SummaryTable {
       },
       {
         id: 'match',
-        title: 'Match',
+        title: $t('Match'),
         isNumeric: false,
         param: 'match',
         compare: (a, b) => {
@@ -118,7 +118,7 @@ export class ListenerTable implements SummaryTable {
       },
       {
         id: 'destination',
-        title: 'Destination',
+        title: $t('Destination'),
         isNumeric: false,
         param: 'destination',
         compare: (a, b) => {
@@ -131,7 +131,7 @@ export class ListenerTable implements SummaryTable {
   head = (): ICell[] => {
     return [
       {
-        title: 'Address',
+        title: $t('Address'),
         transforms: [sortable],
         header: {
           info: {
@@ -139,10 +139,10 @@ export class ListenerTable implements SummaryTable {
           }
         }
       },
-      { title: 'Port', transforms: [sortable] },
-      { title: 'Match', transforms: [sortable] },
+      { title: $t('Port'), transforms: [sortable] },
+      { title: $t('Match'), transforms: [sortable] },
       {
-        title: 'Destination',
+        title: $t('Destination'),
         transforms: [sortable],
         header: {
           info: {

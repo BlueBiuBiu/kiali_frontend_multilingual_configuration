@@ -289,7 +289,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
       })
       .catch(namespacesError => {
         if (!namespacesError.isCanceled) {
-          this.handleAxiosError('Could not fetch namespace list', namespacesError);
+          this.handleAxiosError($t('tip99'), namespacesError);
         }
       });
   };
@@ -313,7 +313,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           if (error.isCanceled) {
             return;
           }
-          this.handleAxiosError('Could not fetch health', error);
+          this.handleAxiosError($t('tip100'), error);
         });
     });
   }
@@ -618,19 +618,19 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
             isGroup: true,
             isSeparator: false,
             isDisabled: false,
-            title: 'Show',
+            title: $t('Show'),
             children: [
               {
                 isGroup: true,
                 isSeparator: false,
-                title: 'Graph',
+                title: $t('Graph'),
                 action: (ns: string) =>
                   kioskOverviewAction(Show.GRAPH, ns, this.props.duration, this.props.refreshInterval)
               },
               {
                 isGroup: true,
                 isSeparator: false,
-                title: 'Istio Config',
+                title: $t('Istio Config'),
                 action: (ns: string) =>
                   kioskOverviewAction(Show.ISTIO_CONFIG, ns, this.props.duration, this.props.refreshInterval)
               }
@@ -642,36 +642,36 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
             isGroup: true,
             isSeparator: false,
             isDisabled: false,
-            title: 'Show',
+            title: $t('Show'),
             children: [
               {
                 isGroup: true,
                 isSeparator: false,
-                title: 'Graph',
+                title: $t('Graph'),
                 action: (ns: string) => this.show(Show.GRAPH, ns, this.state.type)
               },
               {
                 isGroup: true,
                 isSeparator: false,
-                title: 'Applications',
+                title: $t('Applications'),
                 action: (ns: string) => this.show(Show.APPLICATIONS, ns, this.state.type)
               },
               {
                 isGroup: true,
                 isSeparator: false,
-                title: 'Workloads',
+                title: $t('Workloads'),
                 action: (ns: string) => this.show(Show.WORKLOADS, ns, this.state.type)
               },
               {
                 isGroup: true,
                 isSeparator: false,
-                title: 'Services',
+                title: $t('Services'),
                 action: (ns: string) => this.show(Show.SERVICES, ns, this.state.type)
               },
               {
                 isGroup: true,
                 isSeparator: false,
-                title: 'Istio Config',
+                title: $t('Istio Config'),
                 action: (ns: string) => this.show(Show.ISTIO_CONFIG, ns, this.state.type)
               }
             ]
@@ -695,7 +695,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           'data-test': `enable-${nsInfo.name}-namespace-sidecar-injection`,
           isGroup: false,
           isSeparator: false,
-          title: 'AlertUtils4',
+          title: $t('AlertUtils4'),
           action: (ns: string) =>
             this.setState({
               showTrafficPoliciesModal: true,
@@ -709,7 +709,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           'data-test': `disable-${nsInfo.name}-namespace-sidecar-injection`,
           isGroup: false,
           isSeparator: false,
-          title: 'DisableAutoInjection',
+          title: $t('DisableAutoInjection'),
           action: (ns: string) =>
             this.setState({
               showTrafficPoliciesModal: true,
@@ -723,7 +723,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           'data-test': `remove-${nsInfo.name}-namespace-sidecar-injection`,
           isGroup: false,
           isSeparator: false,
-          title: 'RemoveAutoInjection',
+          title: $t('RemoveAutoInjection'),
           action: (ns: string) =>
             this.setState({
               showTrafficPoliciesModal: true,
@@ -823,7 +823,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
       const removeAuthorizationAction = {
         isGroup: false,
         isSeparator: false,
-        title: 'DeleteTrafficPolicies',
+        title: $t('DeleteTrafficPolicies'),
         action: (ns: string) =>
           this.setState({
             opTarget: 'delete',
@@ -1025,7 +1025,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
                                   {this.renderLabels(ns)}
 
                                   <div style={{ textAlign: 'left' }}>
-                                    <div style={{ display: 'inline-block', width: '125px' }}>Istio config</div>
+                                    <div style={{ display: 'inline-block', width: '125px' }}>{$t('Istio config')}</div>
                                     {ns.tlsStatus && (
                                       <span>
                                         <NamespaceMTLSStatus status={ns.tlsStatus.status} />
@@ -1132,7 +1132,7 @@ export class OverviewPageComponent extends React.Component<OverviewProps, State>
           </RenderComponentScroll>
         ) : (
           <EmptyState className={emptyStateStyle} variant={EmptyStateVariant.full}>
-            <EmptyStateHeader titleText="No unfiltered namespaces" headingLevel="h5" />
+            <EmptyStateHeader titleText={$t('NoUnfilteredNamespaces')} headingLevel="h5" />
             <EmptyStateBody>{$t('tip291')}</EmptyStateBody>
           </EmptyState>
         )}

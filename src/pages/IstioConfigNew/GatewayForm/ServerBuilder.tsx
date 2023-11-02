@@ -38,17 +38,17 @@ type State = {
 
 const portHeader = [
   {
-    title: 'Port Number',
+    title: $t('PortNumber'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Port Name',
+    title: $t('PortName'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Protocol',
+    title: $t('Protocol'),
     transforms: [cellWidth(20) as any],
     props: {}
   }

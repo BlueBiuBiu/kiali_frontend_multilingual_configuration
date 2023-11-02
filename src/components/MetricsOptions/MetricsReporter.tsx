@@ -65,7 +65,7 @@ export class MetricsReporter extends React.Component<Props> {
                  id={'metrics_filter_reporter'}
                  disabled={false}
                  handleSelect={this.onReporterChanged}
-                 nameDropdown={'Reported from'}
+                 nameDropdown={$t('ReportedFrom')}
                  value={this.props.reporter}
                  label={MetricsReporter.ReporterOptions[this.props.reporter]}
                  options={MetricsReporter.ReporterOptions}

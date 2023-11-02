@@ -38,11 +38,11 @@ const MeshPageComponent: React.FunctionComponent<MeshPageProps> = (props: MeshPa
 
   const columns = [
     {
-      title: 'Cluster Name',
+      title: $t('ClusterName'),
       transforms: [sortable, cellWidth(20)]
     },
     {
-      title: 'Network',
+      title: $t('Network'),
       transforms: [sortable, cellWidth(10)]
     },
     {
@@ -50,11 +50,11 @@ const MeshPageComponent: React.FunctionComponent<MeshPageProps> = (props: MeshPa
       transforms: [cellWidth(20)]
     },
     {
-      title: 'API Endpoint',
+      title: $t('APIEndpoint'),
       transforms: [sortable, cellWidth(20)]
     },
     {
-      title: 'Secret name',
+      title: $t('SecretName'),
       transforms: [sortable, cellWidth(30)]
     }
   ];
@@ -71,7 +71,7 @@ const MeshPageComponent: React.FunctionComponent<MeshPageProps> = (props: MeshPa
         return (
           <Tooltip
             key={cluster.name + '/' + instance.namespace + '/' + instance.serviceName}
-            content={`Go to this Kiali instance: ${instance.url}`}
+            content={`${$t('label11')}: ${instance.url}`}
           >
             <p>
               <img alt="Kiali Icon" src={kialiIcon} className={iconStyle} />

@@ -47,33 +47,33 @@ type TrafficListComponentState = FilterComponent.State<TrafficListItem>;
 const columns = (isMultiCluster: boolean): any[] => {
   const cols = [
     {
-      title: 'Status',
+      title: $t('Status'),
       transforms: [sortable, cellWidth(15)]
     },
     {
-      title: 'Name',
+      title: $t('Name'),
       transforms: [sortable, cellWidth(30)]
     },
     {
-      title: 'Rate',
+      title: $t('Rate'),
       transforms: [sortable, cellWidth(10)]
     },
     {
-      title: 'Percent Success',
+      title: $t('PercentSuccess'),
       transforms: [sortable, cellWidth(20)]
     },
     {
-      title: 'Protocol',
+      title: $t('Protocol'),
       transforms: [sortable, cellWidth(15)]
     },
     {
-      title: 'Actions'
+      title: $t('Actions')
     }
   ];
 
   if (isMultiCluster) {
     cols.splice(2, 0, {
-      title: 'Cluster',
+      title: $t('Cluster'),
       transforms: [sortable, cellWidth(15)]
     });
   }
@@ -82,7 +82,7 @@ const columns = (isMultiCluster: boolean): any[] => {
 };
 
 function LockIcon(props) {
-  const msg = props.mTLS ? props.mTLS + ' % of mTLS traffic' : 'mTLS is disabled';
+  const msg = props.mTLS ? props.mTLS + $t('tip265') : $t('mTLSIsDisabled');
   return (
     <Tooltip position={TooltipPosition.top} content={msg}>
       <>

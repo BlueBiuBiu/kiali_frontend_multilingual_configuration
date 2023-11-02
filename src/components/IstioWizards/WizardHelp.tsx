@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Tooltip, TooltipPosition } from '@patternfly/react-core';
 import { KialiIcon } from '../../config/KialiIcon';
 import { kialiStyle } from 'styles/StyleUtils';
+import i18n from 'locales/i18n';
 
 const infoStyle = kialiStyle({
   marginLeft: '0.5rem'
@@ -21,8 +22,8 @@ export const wizardTooltip = (tooltipContent: React.ReactFragment) => {
 
 export const CONNECTION_POOL_TOOLTIP = (
   <>
-    <div style={{ marginBottom: 5 }}>{$t('tip17')}</div>
-    <div style={{ marginBottom: 5 }}>{$t('tip18')}</div>
+    <div style={{ marginBottom: 5 }}>{i18n.t('tip17')}</div>
+    <div style={{ marginBottom: 5 }}>{i18n.t('tip18')}</div>
     <div>
       Connection pool settings can be applied at the <span className={importantTooltip}>TCP</span> level as well as at{' '}
       <span className={importantTooltip}>HTTP</span> level.
@@ -32,10 +33,10 @@ export const CONNECTION_POOL_TOOLTIP = (
 
 export const GATEWAY_TOOLTIP = (
   <>
-    <div style={{ marginBottom: 5 }}>{$t('tip19')}</div>
-    <div style={{ marginBottom: 5 }}>{$t('tip20')}</div>
+    <div style={{ marginBottom: 5 }}>{i18n.t('tip19')}</div>
+    <div style={{ marginBottom: 5 }}>{i18n.t('tip20')}</div>
     <div>
-      {$t('tip21')} <span className={importantTooltip}>{$t('mesh')}</span>.
+      {i18n.t('tip21')} <span className={importantTooltip}>{i18n.t('mesh')}</span>.
     </div>
   </>
 );
@@ -54,15 +55,15 @@ export const HTTP_DELAY_TOOLTIP = (
   </>
 );
 
-export const HTTP_RETRY_TOOLTIP = <>{$t('helpTip31')}</>;
+export const HTTP_RETRY_TOOLTIP = <>{i18n.t('helpTip31')}</>;
 
-export const HTTP_TIMEOUT_TOOLTIP = <>{$t('helpTip32')}</>;
+export const HTTP_TIMEOUT_TOOLTIP = <>{i18n.t('helpTip32')}</>;
 
-export const LOAD_BALANCER_TOOLTIP = <>{$t('helpTip33')}</>;
+export const LOAD_BALANCER_TOOLTIP = <>{i18n.t('helpTip33')}</>;
 
 export const MATCHING_SELECTED_TOOLTIP = (
   <>
-    <div style={{ marginBottom: 5 }}>{$t('helpTip34')}</div>
+    <div style={{ marginBottom: 5 }}>{i18n.t('helpTip34')}</div>
     <div>
       Kiali Wizard will create all conditions with an <span className={importantTooltip}>OR</span> semantic.
     </div>
@@ -71,7 +72,7 @@ export const MATCHING_SELECTED_TOOLTIP = (
 
 export const FILTERING_SELECTED_TOOLTIP = (
   <>
-    <div style={{ marginBottom: 5 }}>{$t('helpTip35')}</div>
+    <div style={{ marginBottom: 5 }}>{i18n.t('helpTip35')}</div>
     <div>
       Kiali Wizard will create all conditions with an <span className={importantTooltip}>OR</span> semantic.
     </div>
@@ -97,7 +98,7 @@ export const OUTLIER_DETECTION_TOOLTIP = (
 
 export const PEER_AUTHENTICATION_TOOLTIP = (
   <>
-    <div style={{ marginBottom: 5 }}>{$t('helpTip36')}</div>
+    <div style={{ marginBottom: 5 }}>{i18n.t('helpTip36')}</div>
     <div>
       Defines the <span className={importantTooltip}>mTLS</span> mode used for peer authentication.
     </div>
@@ -106,7 +107,7 @@ export const PEER_AUTHENTICATION_TOOLTIP = (
 
 export const ROUTE_RULES_TOOLTIP = (
   <>
-    <div style={{ marginBottom: 5 }}>{$t('helpTip37')}</div>
+    <div style={{ marginBottom: 5 }}>{i18n.t('helpTip37')}</div>
     <div>
       The first rule <span className={importantTooltip}>MATCHING</span> an incoming request is used.
     </div>

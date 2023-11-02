@@ -115,7 +115,11 @@ const IstioCertsInfoComponent: React.FC<IstioCertsInfoProps> = (props: IstioCert
                 <CardBody>
                   <Grid>
                     <GridItem span={12}>
-                      {certInfo.error && <p style={{ color: PFColors.Danger }}>An error occurred, {certInfo.error}</p>}
+                      {certInfo.error && (
+                        <p style={{ color: PFColors.Danger }}>
+                          {$t('AnErrorOccurred')}, {certInfo.error}
+                        </p>
+                      )}
                       {!certInfo.accessible && (
                         <Tooltip
                           position={TooltipPosition.right}
@@ -127,9 +131,7 @@ const IstioCertsInfoComponent: React.FC<IstioCertsInfoProps> = (props: IstioCert
                                 Kiali service account permission to read the secret {certInfo.secretName} found in
                                 namespace {certInfo.secretNamespace}.
                               </p>
-                              <p style={{ marginTop: '20px' }}>
-                                Refer to the Kiali documentation for details on how you can add this permission.
-                              </p>
+                              <p style={{ marginTop: '20px' }}>{$t('tip385')}</p>
                             </div>
                           }
                         >

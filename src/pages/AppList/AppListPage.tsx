@@ -115,7 +115,7 @@ class AppListPageComponent extends FilterComponent.Component<AppListPageProps, A
       })
       .catch(err => {
         if (!err.isCanceled) {
-          this.handleAxiosError('Could not fetch apps list', err);
+          this.handleAxiosError($t('tip45'), err);
         }
       });
   }

@@ -13,17 +13,17 @@ type Props = {
 
 const headerCells: ICell[] = [
   {
-    title: 'From',
+    title: $t('From'),
     transforms: [cellWidth(40) as any],
     props: {}
   },
   {
-    title: 'To',
+    title: $t('To'),
     transforms: [cellWidth(40) as any],
     props: {}
   },
   {
-    title: 'When',
+    title: $t('When'),
     transforms: [cellWidth(40) as any],
     props: {}
   },
@@ -134,8 +134,7 @@ export class RuleList extends React.Component<Props> {
   };
 
   render() {
-    const noRulesMessage =
-      this.props.action === 'DENY' ? ' DENY action requires at least one Rule' : 'No Rules Defined.';
+    const noRulesMessage = this.props.action === 'DENY' ? ` ${$t('tip387')}` : $t('tip388');
     return (
       <>
         <Table

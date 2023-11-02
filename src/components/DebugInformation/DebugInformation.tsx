@@ -210,7 +210,7 @@ const DebugInformationComponent: React.FC<DebugInformationProps> = (props: Debug
   };
 
   const columns = (): ICell[] => {
-    return [{ title: 'Configuration' }, { title: 'Value' }];
+    return [{ title: $t('Configuration') }, { title: $t('Value') }];
   };
 
   const getRows = () => {
@@ -228,7 +228,7 @@ const DebugInformationComponent: React.FC<DebugInformationProps> = (props: Debug
 
   const renderTabs = () => {
     const kialiConfig = (
-      <Tab eventKey={0} title="Kiali Config" key="kialiConfig">
+      <Tab eventKey={0} title={$t('KialiConfig')} key="kialiConfig">
         <CopyToClipboard onCopy={copyCallback} text={getRows()} options={copyToClipboardOptions}>
           <Table className={tableStyle} cells={columns()} rows={getRows()}>
             <TableHeader />
@@ -241,8 +241,8 @@ const DebugInformationComponent: React.FC<DebugInformationProps> = (props: Debug
     const theme = props.appState.globalState.theme;
 
     const additionalState = (
-      <Tab eventKey={1} title="Additional State" key="additionalState">
-        <span>Please include this information when opening a bug:</span>
+      <Tab eventKey={1} title={$t('AdditionalState')} key="additionalState">
+        <span>{$t('tip167')}:</span>
         <CopyToClipboard onCopy={copyCallback} text={renderDebugInformation()} options={copyToClipboardOptions}>
           <AceEditor
             ref={aceEditorRef}
@@ -273,7 +273,7 @@ const DebugInformationComponent: React.FC<DebugInformationProps> = (props: Debug
       variant={ModalVariant.medium}
       isOpen={props.isOpen}
       onClose={props.onClose}
-      title="Debug information"
+      title={$t('DebugInformation')}
       actions={[
         <Button onClick={close}>{$t('Close')}</Button>,
         <CopyToClipboard onCopy={copyCallback} text={getCopyText()} options={copyToClipboardOptions}>
@@ -287,7 +287,7 @@ const DebugInformationComponent: React.FC<DebugInformationProps> = (props: Debug
       {copyStatus === CopyStatus.COPIED && (
         <Alert
           style={{ marginBottom: '20px' }}
-          title="Debug information has been copied to your clipboard."
+          title={$t('title37')}
           variant={AlertVariant.success}
           isInline={true}
           actionClose={<AlertActionCloseButton onClose={hideAlert} />}
@@ -296,7 +296,7 @@ const DebugInformationComponent: React.FC<DebugInformationProps> = (props: Debug
       {copyStatus === CopyStatus.OLD_COPY && (
         <Alert
           style={{ marginBottom: '20px' }}
-          title="Debug information was copied to your clipboard, but is outdated now. It could be caused by new data received by auto refresh timers."
+          title={$t('title38')}
           variant={AlertVariant.warning}
           isInline={true}
           actionClose={<AlertActionCloseButton onClose={hideAlert} />}

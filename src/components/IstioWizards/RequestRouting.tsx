@@ -3,7 +3,7 @@ import { WorkloadOverview } from '../../types/ServiceInfo';
 import { Rules, MOVE_TYPE, Rule } from './RequestRouting/Rules';
 import { RuleBuilder } from './RequestRouting/RuleBuilder';
 import { ANYTHING, EXACT, HEADERS, PRESENCE, REGEX } from './RequestRouting/MatchBuilder';
-import { MSG_WEIGHTS_NOT_VALID, WorkloadWeight } from './TrafficShifting';
+import { WorkloadWeight } from './TrafficShifting';
 import { getDefaultWeights } from './WizardActions';
 import { FaultInjectionRoute } from './FaultInjection';
 import { TimeoutRetryRoute } from './RequestTimeouts';
@@ -245,7 +245,7 @@ export class RequestRouting extends React.Component<Props, State> {
   onSelectWeights = (valid: boolean, workloads: WorkloadWeight[]) => {
     this.setState({
       workloadWeights: workloads,
-      validationMsg: !valid ? MSG_WEIGHTS_NOT_VALID : ''
+      validationMsg: !valid ? $t('helpTip28') : ''
     });
   };
 

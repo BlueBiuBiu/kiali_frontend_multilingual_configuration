@@ -63,18 +63,18 @@ export class ValidationSummary extends React.PureComponent<Props> {
   }
 
   tooltipNA() {
-    return <Text className={tooltipSentenceStyle}>No Istio config objects found</Text>;
+    return <Text className={tooltipSentenceStyle}>{$t('tip266')}</Text>;
   }
 
   tooltipNoValidationAvailable() {
-    return <Text className={tooltipListStyle}>No Istio config validation available</Text>;
+    return <Text className={tooltipListStyle}>{$t('tip267')}</Text>;
   }
 
   tooltipSummary() {
     return (
       <>
         <Text style={{ textAlign: 'left', textEmphasis: 'strong' }} component={TextVariants.p}>
-          Istio config objects analyzed: {this.props.objectCount}
+          {$t('tip268')}: {this.props.objectCount}
         </Text>
         <div className={tooltipListStyle}>
           {this.severitySummary().map(cat => (
@@ -83,7 +83,7 @@ export class ValidationSummary extends React.PureComponent<Props> {
         </div>
         {this.props.reconciledCondition?.status && (
           <Text style={{ textAlign: 'left', textEmphasis: 'strong' }} component={TextVariants.p}>
-            The object is reconciled
+            {$t('tip269')}
           </Text>
         )}
       </>

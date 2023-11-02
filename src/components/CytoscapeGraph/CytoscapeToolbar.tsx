@@ -105,7 +105,10 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
     return (
       <div className={cyToolbarStyle}>
         <div>
-          <Tooltip content={this.state.allowGrab ? 'Disable Drag' : 'Enable Drag'} position={TooltipPosition.right}>
+          <Tooltip
+            content={this.state.allowGrab ? $t('DisableDrag') : $t('EnableDrag')}
+            position={TooltipPosition.right}
+          >
             <Button
               id="toolbar_grab"
               aria-label="Toggle Drag"
@@ -119,7 +122,7 @@ class CytoscapeToolbarComponent extends React.PureComponent<CytoscapeToolbarProp
           </Tooltip>
         </div>
         <div>
-          <Tooltip content="Zoom to Fit" position={TooltipPosition.right}>
+          <Tooltip content={$t('ZoomToFit')} position={TooltipPosition.right}>
             <Button
               id="toolbar_graph_fit"
               aria-label="Zoom to Fit"

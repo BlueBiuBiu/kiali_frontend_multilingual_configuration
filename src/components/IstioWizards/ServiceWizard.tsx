@@ -696,22 +696,22 @@ export class ServiceWizard extends React.Component<ServiceWizardProps, ServiceWi
     const items: ConfigPreviewItem[] = [];
     if (this.state.previews) {
       if (this.state.previews.dr) {
-        items.push({ type: 'destinationrule', items: [this.state.previews.dr], title: 'Destination Rule' });
+        items.push({ type: 'destinationrule', items: [this.state.previews.dr], title: $t('Destination_Rule') });
       }
       if (this.state.previews.gw) {
-        items.push({ type: 'gateway', items: [this.state.previews.gw], title: 'Gateway' });
+        items.push({ type: 'gateway', items: [this.state.previews.gw], title: $t('Gateway') });
       }
       if (this.state.previews.k8sgateway) {
-        items.push({ type: 'k8sgateway', items: [this.state.previews.k8sgateway], title: 'K8s Gateway' });
+        items.push({ type: 'k8sgateway', items: [this.state.previews.k8sgateway], title: $t('K8sGateways') });
       }
       if (this.state.previews.k8shttproute) {
-        items.push({ type: 'k8shttproute', items: [this.state.previews.k8shttproute], title: 'K8s HTTPRoute' });
+        items.push({ type: 'k8shttproute', items: [this.state.previews.k8shttproute], title: $t('K8s_HTTPRoute') });
       }
       if (this.state.previews.pa) {
-        items.push({ type: 'peerauthentications', items: [this.state.previews.pa], title: 'Peer Authentication' });
+        items.push({ type: 'peerauthentications', items: [this.state.previews.pa], title: $t('Peer_Authentication') });
       }
       if (this.state.previews.vs) {
-        items.push({ type: 'virtualservice', items: [this.state.previews.vs], title: 'VirtualService' });
+        items.push({ type: 'virtualservice', items: [this.state.previews.vs], title: $t('VirtualService') });
       }
     }
     return items;

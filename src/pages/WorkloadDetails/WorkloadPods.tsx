@@ -57,7 +57,7 @@ const iconStyle = kialiStyle({
 
 export class WorkloadPods extends React.Component<WorkloadPodsProps> {
   columns(): ICell[] {
-    return [{ title: 'Name' }, { title: 'Status', transforms: [cellWidth(10) as any] }];
+    return [{ title: $t('Name') }, { title: $t('Status'), transforms: [cellWidth(10) as any] }];
   }
 
   noPods(): IRow[] {

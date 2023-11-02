@@ -121,7 +121,7 @@ export class Rules extends React.Component<Props> {
                 <>{order + 1}</>,
                 <>
                   {rule.matches.length === 0
-                    ? 'Any request'
+                    ? $t('AnyRequest')
                     : rule.matches.map((match, i) => <div key={'match_' + i}>{match}</div>)}
                   {!isValid && (
                     <div className={validationStyle}>

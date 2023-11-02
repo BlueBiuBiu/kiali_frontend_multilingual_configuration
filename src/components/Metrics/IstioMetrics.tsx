@@ -181,7 +181,7 @@ class IstioMetricsComponent extends React.Component<Props, MetricsState> {
         });
       })
       .catch(error => {
-        AlertUtils.addError('Could not fetch metrics.', error);
+        AlertUtils.addError($t('tip101'), error);
         throw error;
       });
   };
@@ -205,7 +205,7 @@ class IstioMetricsComponent extends React.Component<Props, MetricsState> {
       })
       .catch(err => {
         AlertUtils.addMessage({
-          ...AlertUtils.extractAxiosError('Could not fetch Grafana info. Turning off links to Grafana.', err),
+          ...AlertUtils.extractAxiosError($t('helpTip57'), err),
           group: 'default',
           type: MessageType.INFO,
           showNotification: false

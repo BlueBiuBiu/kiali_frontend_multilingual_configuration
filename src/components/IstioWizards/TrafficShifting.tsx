@@ -41,8 +41,6 @@ const evenlyButtonStyle = kialiStyle({
   textAlign: 'right'
 });
 
-export const MSG_WEIGHTS_NOT_VALID = 'The sum of all non-mirrored weights must be 100 %';
-
 export class TrafficShifting extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -202,12 +200,12 @@ export class TrafficShifting extends React.Component<Props, State> {
     // https://github.com/patternfly/patternfly-next/issues/2373
     const workloadCells: ICell[] = [
       {
-        title: 'Destination Workload',
+        title: $t('DestinationWorkload'),
         transforms: [cellWidth(30) as any],
         props: {}
       },
       {
-        title: 'Traffic Weight',
+        title: $t('TrafficWeight'),
         transforms: [cellWidth(70) as any],
         props: {}
       }
@@ -254,12 +252,12 @@ export class TrafficShifting extends React.Component<Props, State> {
       });
     const mirrorCells: ICell[] = [
       {
-        title: 'Mirrored Workload',
+        title: $t('MirroredWorkload'),
         transforms: [cellWidth(30) as any],
         props: {}
       },
       {
-        title: 'Mirror Percentage',
+        title: $t('MirrorPercentage'),
         transforms: [cellWidth(70) as any],
         props: {}
       }
@@ -319,11 +317,11 @@ export class TrafficShifting extends React.Component<Props, State> {
         {this.props.workloads.length > 1 && (
           <div className={evenlyButtonStyle}>
             <Button variant={ButtonVariant.link} icon={<EqualizerIcon />} onClick={() => this.resetState()}>
-              Evenly distribute traffic
+              {$t('EvenlyDistributeTraffic')}
             </Button>{' '}
           </div>
         )}
-        {this.props.showValid && !isValid && <div className={validationStyle}>{MSG_WEIGHTS_NOT_VALID}</div>}
+        {this.props.showValid && !isValid && <div className={validationStyle}>{$t('helpTip28')}</div>}
       </>
     );
   }

@@ -149,7 +149,7 @@ class TraceDetailsComponent extends React.Component<Props, State> {
           </Tooltip>
         );
       })
-      .concat([<>Mean</>]);
+      .concat([<>{$t('Mean')}</>]);
     const similarMatrix = similarTracesToShow
       .map(t => {
         const avgSpans = averageSpanDuration(t);
@@ -170,10 +170,7 @@ class TraceDetailsComponent extends React.Component<Props, State> {
           // Build explanation tooltip
           const slowOrFast = v > 0 ? 'slower' : 'faster';
           const diff = _round(Math.abs(v), 2);
-          const versus =
-            x === similarTracesToShow.length
-              ? 'the mean of all similar traces on chart'
-              : similarTracesToShow[x].traceID;
+          const versus = x === similarTracesToShow.length ? $t('tip386') : similarTracesToShow[x].traceID;
           return `This trace was ${diff}ms ${slowOrFast} than ${versus}`;
         }}
       />

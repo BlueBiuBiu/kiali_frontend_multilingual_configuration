@@ -38,22 +38,22 @@ const protocols = ['HTTP', 'HTTPS', 'GRPC', 'HTTP2', 'MONGO', 'TCP', 'TLS'];
 
 const headerCells: ICell[] = [
   {
-    title: 'Port Number',
+    title: $t('PortNumber'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Port Name',
+    title: $t('PortName'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Protocol',
+    title: $t('Protocol'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Target Port',
+    title: $t('TargetPort'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
@@ -394,7 +394,7 @@ export class ServiceEntryForm extends React.Component<Props, ServiceEntryState> 
                 onClick={this.onAddNewPort}
               >
                 {' '}
-                Add Port
+                {$t('Add Port')}
               </Button>
             </>
           ]
@@ -405,7 +405,7 @@ export class ServiceEntryForm extends React.Component<Props, ServiceEntryState> 
   render() {
     return (
       <>
-        <FormGroup label="Hosts" isRequired={true} fieldId="hosts">
+        <FormGroup label={$t('Hosts')} isRequired={true} fieldId="hosts">
           <TextInput
             value={this.state.serviceEntry.hosts?.join(',')}
             isRequired={true}
@@ -422,7 +422,7 @@ export class ServiceEntryForm extends React.Component<Props, ServiceEntryState> 
             </HelperText>
           </FormHelperText>
         </FormGroup>
-        <FormGroup label="Location" isRequired={true} fieldId="location">
+        <FormGroup label={$t('Location')} isRequired={true} fieldId="location">
           <FormSelect
             value={this.state.serviceEntry.location}
             id="location"
@@ -434,7 +434,7 @@ export class ServiceEntryForm extends React.Component<Props, ServiceEntryState> 
             ))}
           </FormSelect>
         </FormGroup>
-        <FormGroup label="Ports" fieldId="ports" isRequired={true}>
+        <FormGroup label={$t('Ports')} fieldId="ports" isRequired={true}>
           <Table aria-label="Ports" cells={headerCells} rows={this.rows()}>
             <TableHeader />
             <TableBody />
@@ -443,7 +443,7 @@ export class ServiceEntryForm extends React.Component<Props, ServiceEntryState> 
             <div className={noPortsStyle}>{$t('tip365')}</div>
           )}
         </FormGroup>
-        <FormGroup label="Resolution" isRequired={true} fieldId="resolution">
+        <FormGroup label={$t('Resolution')} isRequired={true} fieldId="resolution">
           <FormSelect
             value={this.state.serviceEntry.resolution}
             id="resolution"

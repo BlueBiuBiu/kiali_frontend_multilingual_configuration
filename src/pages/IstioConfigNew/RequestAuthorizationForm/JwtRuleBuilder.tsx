@@ -33,12 +33,12 @@ const INIT_JWT_RULE_FIELDS = [
 
 const headerCells: ICell[] = [
   {
-    title: 'JWT Rule Field',
+    title: $t('JWTRuleField'),
     transforms: [cellWidth(30) as any],
     props: {}
   },
   {
-    title: 'Values',
+    title: $t('Values'),
     transforms: [cellWidth(70) as any],
     props: {}
   },
@@ -189,7 +189,7 @@ export class JwtRuleBuilder extends React.Component<Props, State> {
   // @ts-ignore
   actionResolver = (rowData, { rowIndex }) => {
     const removeAction = {
-      title: 'Remove Field',
+      title: $t('RemoveField'),
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => {
         // Fetch sourceField from rowData, it's a fixed string on children
@@ -216,10 +216,10 @@ export class JwtRuleBuilder extends React.Component<Props, State> {
   isJwtFieldValid = (): [boolean, string] => {
     const isEmptyValue = this.state.newValues.split(',').every(v => v.length === 0);
     if (isEmptyValue) {
-      return [false, 'Value cannot be empty'];
+      return [false, $t('tip89')];
     }
     if (this.state.newJwtField === 'jwksUri' && !isValidUrl(this.state.newValues)) {
-      return [false, 'jwsUri is not a valid Uri'];
+      return [false, $t('tip90')];
     }
     return [true, ''];
   };
@@ -265,8 +265,8 @@ export class JwtRuleBuilder extends React.Component<Props, State> {
               />
               {this.state.newJwtField === 'fromHeaders' && (
                 <div key="fromHeadersHelperText">
-                  List of header locations from which JWT is expected. <br />
-                  I.e. "x-jwt-assertion: Bearer ,Authorization: Bearer "
+                  {$t('tip389')} <br />
+                  {$t('tip390')}
                 </div>
               )}
               {!isJwtFieldValid && (

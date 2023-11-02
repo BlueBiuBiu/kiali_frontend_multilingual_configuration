@@ -494,8 +494,8 @@ export class GraphDataSource {
 
         this._isError = true;
         this._errorMessage = API.getErrorString(error);
-        AlertUtils.addError('Cannot load the graph', error);
-        this.emit('fetchError', `Cannot load the graph: ${this.errorMessage}`, this.fetchParameters);
+        AlertUtils.addError($t('tip292'), error);
+        this.emit('fetchError', `${$t('tip292')}: ${this.errorMessage}`, this.fetchParameters);
       }
     );
   };
@@ -525,7 +525,7 @@ export class GraphDataSource {
 
         this._isError = true;
         this._errorMessage = API.getErrorString(error);
-        AlertUtils.addError('Cannot load the graph', error);
+        AlertUtils.addError($t('tip292'), error);
         this.emit('fetchError', this.errorMessage, this.fetchParameters);
       }
     );

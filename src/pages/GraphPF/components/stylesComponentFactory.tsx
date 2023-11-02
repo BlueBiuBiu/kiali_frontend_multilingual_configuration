@@ -49,7 +49,7 @@ const nodeContextMenu = (node: GraphElement): React.ReactElement[] => {
     optionsPF.unshift(
       nodeData.isOutside
         ? ({
-            text: 'Namespace Graph',
+            text: $t('Namespace Graph'),
             altClickHandler: doubleTapHandler,
             external: false,
             node: node,
@@ -57,7 +57,7 @@ const nodeContextMenu = (node: GraphElement): React.ReactElement[] => {
             url: ''
           } as ContextMenuOptionPF)
         : ({
-            text: 'Node Graph',
+            text: $t('Node Graph'),
             altClickHandler: doubleTapHandler,
             external: false,
             node: node,
@@ -72,11 +72,11 @@ const nodeContextMenu = (node: GraphElement): React.ReactElement[] => {
       // TODO: fix kiosk param
       !!o.altClickHandler ? (
         <ContextMenuItem key={`option-${i}`} onClick={() => o.altClickHandler!(o.node!)}>
-          {$t(o.text)}
+          {o.text}
         </ContextMenuItem>
       ) : (
         <ContextMenuItem key={`option-${i}`} onClick={() => clickHandler(o, '')}>
-          {$t(o.text)} {o.target === '_blank' && <ExternalLinkAltIcon />}
+          {o.text} {o.target === '_blank' && <ExternalLinkAltIcon />}
         </ContextMenuItem>
       )
     );

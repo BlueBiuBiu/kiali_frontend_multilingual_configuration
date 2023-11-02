@@ -26,12 +26,12 @@ const noPortMtlsStyle = kialiStyle({
 
 const headerCells: ICell[] = [
   {
-    title: 'Port Number',
+    title: $t('PortNumber'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
   {
-    title: 'Mutual TLS Mode',
+    title: $t('MutualTLSMode'),
     transforms: [cellWidth(20) as any],
     props: {}
   },
@@ -234,7 +234,7 @@ export class PeerAuthenticationForm extends React.Component<Props, PeerAuthentic
   // @ts-ignore
   actionResolver = (rowData, { rowIndex }) => {
     const removeAction = {
-      title: 'Remove Port MTLS',
+      title: $t('RemovePortMTLS'),
       // @ts-ignore
       onClick: (event, rowIndex, rowData, extraData) => {
         this.setState(
@@ -307,7 +307,7 @@ export class PeerAuthenticationForm extends React.Component<Props, PeerAuthentic
   render() {
     return (
       <>
-        <FormGroup label="Workload Selector" fieldId="workloadSelectorSwitch">
+        <FormGroup label={$t('WorkloadSelector')} fieldId="workloadSelectorSwitch">
           <Switch
             id="workloadSelectorSwitch"
             label={' '}
@@ -335,14 +335,14 @@ export class PeerAuthenticationForm extends React.Component<Props, PeerAuthentic
             </FormHelperText>
           </FormGroup>
         )}
-        <FormGroup label="Mutual TLS Mode" fieldId="mutualTls">
+        <FormGroup label={$t('MutualTLSMode')} fieldId="mutualTls">
           <FormSelect value={this.state.mtls} onChange={this.onMutualTlsChange} id="mutualTls" name="rules-form">
             {Object.keys(PeerAuthenticationMutualTLSMode).map((option, index) => (
               <FormSelectOption key={index} value={option} label={option} />
             ))}
           </FormSelect>
         </FormGroup>
-        <FormGroup label="Port Mutual TLS" fieldId="addPortMtls">
+        <FormGroup label={$t('PortMutualTLS')} fieldId="addPortMtls">
           <Switch
             id="addPortMtls"
             label={' '}
@@ -352,7 +352,7 @@ export class PeerAuthenticationForm extends React.Component<Props, PeerAuthentic
           />
         </FormGroup>
         {this.state.addPortMtls && (
-          <FormGroup label="Port Level MTLS" fieldId="portMtlsList">
+          <FormGroup label={$t('PortLevelMTLS')} fieldId="portMtlsList">
             <Table
               aria-label="Port Level MTLS"
               cells={headerCells}

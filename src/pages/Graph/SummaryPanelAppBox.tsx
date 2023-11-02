@@ -519,7 +519,7 @@ export class SummaryPanelAppBox extends React.Component<SummaryPanelPropType, Su
     return (
       <>
         <InOutRateTableGrpc
-          title="GRPC Traffic (requests per second):"
+          title={`${$t('title14')}:`}
           inRate={inbound.rate}
           inRateGrpcErr={inbound.rateGrpcErr}
           inRateNR={inbound.rateNoResponse}

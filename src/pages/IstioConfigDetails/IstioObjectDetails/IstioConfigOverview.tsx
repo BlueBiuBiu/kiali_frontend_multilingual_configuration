@@ -167,7 +167,7 @@ export class IstioConfigOverview extends React.Component<IstioConfigOverviewProp
 
         {istioObject?.metadata.labels && (
           <StackItem>
-            <Labels tooltipMessage="Labels defined on this resource" labels={istioObject?.metadata.labels}></Labels>
+            <Labels tooltipMessage={$t('tip77')} labels={istioObject?.metadata.labels}></Labels>
           </StackItem>
         )}
 

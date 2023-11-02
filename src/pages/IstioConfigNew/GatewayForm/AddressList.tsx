@@ -89,13 +89,13 @@ export class AddressList extends React.Component<Props> {
                   onClick={this.onAddAddress}
                   className={addAddressStyle}
                 >
-                  Add Address to Addresses List
+                  {$t('action7')}
                 </Button>
               </Td>
             </Tr>
           </Tbody>
         </Table>
-        {this.props.addressList.length === 0 && <div className={noAddressStyle}>No Addresses defined</div>}
+        {this.props.addressList.length === 0 && <div className={noAddressStyle}>{$t('NoAddressesDefined')}</div>}
       </>
     );
   }

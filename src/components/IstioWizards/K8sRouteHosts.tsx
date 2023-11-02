@@ -23,7 +23,7 @@ export class K8sRouteHosts extends React.Component<Props> {
     const k8sRouteHosts = this.props.k8sRouteHosts.length > 0 ? this.props.k8sRouteHosts.join(',') : '';
     return (
       <Form isHorizontal={true}>
-        <FormGroup label="K8s HTTPRoute Hosts" fieldId="advanced-k8sRouteHosts">
+        <FormGroup label={$t('K8sHTTPRouteHosts')} fieldId="advanced-k8sRouteHosts">
           <TextInput
             value={k8sRouteHosts}
             id="advanced-k8sRouteHosts"
@@ -37,11 +37,7 @@ export class K8sRouteHosts extends React.Component<Props> {
           />
           <FormHelperText>
             <HelperText>
-              <HelperTextItem>
-                {isValid(this.props.valid)
-                  ? 'The route hosts to which traffic is being sent. Enter one or multiple hosts separated by comma.'
-                  : "K8s Route hosts should be specified using FQDN format or '*.' format. IPs are not allowed."}
-              </HelperTextItem>
+              <HelperTextItem>{isValid(this.props.valid) ? $t('helpTip13') : $t('helpTip11')}</HelperTextItem>
             </HelperText>
           </FormHelperText>
         </FormGroup>
