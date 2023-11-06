@@ -13,13 +13,13 @@ i18n.use(initReactI18next).init({
       translation: translation_zh
     }
   },
-  lng: 'zh',
+  lng: localStorage.getItem('locale') || 'en',
   interpolation: {
     escapeValue: false
   }
 });
 
-// 将全局翻译方法绑定到window对象上  
+// 将全局翻译方法绑定到window对象上
 (window as any).$t = i18n.t;
 
 export default i18n;
