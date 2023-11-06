@@ -34,7 +34,7 @@ export const sortFields: SortField<AppListItem>[] = [
   },
   {
     id: 'appname',
-    title: $t('AppName'),
+    title: $t('App Name'),
     isNumeric: false,
     param: 'wn',
     compare: (a, b) => a.name.localeCompare(b.name)

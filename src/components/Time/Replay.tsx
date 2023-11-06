@@ -90,9 +90,9 @@ const replayLastIntervals = _.mapValues(replayIntervals, i => `${$t('Last')} ${i
 
 // key represents speed in milliseconds (i.e. how long to wait before refreshing-the-frame (fetching new data)
 const replaySpeeds: ReplaySpeed[] = [
-  { speed: 5000, text: 'slow' },
-  { speed: 3000, text: 'medium' },
-  { speed: 1000, text: 'fast' }
+  { speed: 5000, text: $t('slow') },
+  { speed: 3000, text: $t('medium') },
+  { speed: 1000, text: $t('fast') }
 ];
 
 const defaultReplayInterval: IntervalInMilliseconds = 300000; // 5 minutes

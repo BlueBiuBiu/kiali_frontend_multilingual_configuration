@@ -67,7 +67,7 @@ export class AddressBuilder extends React.Component<Props, State> {
             onChange={this.onAddType}
           >
             {addressTypes.map((option, index) => (
-              <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={option} />
+              <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={$t(option)} />
             ))}
           </FormSelect>
         </Td>

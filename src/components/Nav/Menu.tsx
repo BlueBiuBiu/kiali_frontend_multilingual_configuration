@@ -107,7 +107,7 @@ export class Menu extends React.Component<MenuProps, MenuState> {
         return (
           <NavItem isActive={activeMenuItem === item} key={item.to}>
             <Link id={title} to={item.to} onClick={() => history.push(item.to)}>
-              {$t(title)}
+              {title}
             </Link>
           </NavItem>
         );

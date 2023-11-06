@@ -430,7 +430,7 @@ export class ServiceEntryForm extends React.Component<Props, ServiceEntryState> 
             onChange={this.onAddLocation}
           >
             {location.map((option, index) => (
-              <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={option} />
+              <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={$t(option)} />
             ))}
           </FormSelect>
         </FormGroup>
@@ -451,7 +451,7 @@ export class ServiceEntryForm extends React.Component<Props, ServiceEntryState> 
             onChange={this.onAddResolution}
           >
             {resolution.map((option, index) => (
-              <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={option} />
+              <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={$t(option)} />
             ))}
           </FormSelect>
         </FormGroup>

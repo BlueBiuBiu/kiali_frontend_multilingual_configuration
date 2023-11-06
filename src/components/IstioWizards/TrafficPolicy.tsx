@@ -439,7 +439,7 @@ class TrafficPolicyComponent extends React.Component<Props, TrafficPolicyState> 
             name="advanced-tls"
           >
             {mTLSMode.map(mode => (
-              <FormSelectOption key={mode} value={mode} label={mode} />
+              <FormSelectOption key={mode} value={mode} label={$t(mode)} />
             ))}
           </FormSelect>
           <FormHelperText>

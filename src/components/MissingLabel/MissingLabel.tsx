@@ -50,7 +50,7 @@ export class MissingLabel extends React.Component<MissingLabelProps, {}> {
         {React.createElement(icon, { style: { color: color, verticalAlign: '-2px' } })}
         {!this.props.tooltip && (
           <span style={{ marginLeft: '8px' }}>
-            Missing {this.props.missingApp ? 'App' : this.props.missingVersion ? 'Version' : 'Label'}
+            {$t('Missing')} {this.props.missingApp ? 'App' : this.props.missingVersion ? $t('Version') : $t('Label')}
             <Tooltip key={`tooltip_missing_label`} position={TooltipPosition.top} content={tooltipContent}>
               <KialiIcon.Info className={infoStyle} />
             </Tooltip>

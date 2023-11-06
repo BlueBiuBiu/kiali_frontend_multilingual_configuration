@@ -71,7 +71,7 @@ export function SummaryTableRenderer<T extends SummaryTable>() {
                 tooltip={$t('tip214')}
                 handleSelect={key => this.props.setPod(key)}
                 value={this.props.pod}
-                label={this.props.pod}
+                label={$t(this.props.pod)}
                 options={this.props.pods.sort()}
               />
               <div className={kialiStyle({ position: 'absolute', right: '60px' })}>{this.props.writer.tooltip()}</div>

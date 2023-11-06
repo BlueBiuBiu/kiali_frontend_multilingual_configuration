@@ -15,7 +15,7 @@ export class RouteRetry extends React.Component<RouteRetryProps> {
   render() {
     return (
       <>
-        <FormGroup label="Add HTTP Retry" fieldId="retrySwitch">
+        <FormGroup label={$t('AddHTTPRetry')} fieldId="retrySwitch">
           <Switch
             id="retrySwitch"
             label={' '}

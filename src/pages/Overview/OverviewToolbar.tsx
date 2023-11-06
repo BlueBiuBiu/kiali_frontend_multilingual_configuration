@@ -205,7 +205,7 @@ class OverviewToolbarComponent extends React.Component<Props, State> {
               id="sort_selector"
               handleSelect={this.changeSortField}
               value={this.state.sortField.id}
-              label={sortTypes[this.state.sortField.id]}
+              label={$t(sortTypes[this.state.sortField.id])}
               options={sortTypes}
               data-sort-field={this.state.sortField.id}
             />
@@ -244,9 +244,9 @@ class OverviewToolbarComponent extends React.Component<Props, State> {
             id="direction-type"
             disabled={false}
             handleSelect={this.updateDirectionType}
-            nameDropdown="Traffic"
+            nameDropdown={$t('Traffic')}
             value={this.state.directionType}
-            label={directionTypes[this.state.directionType]}
+            label={$t(directionTypes[this.state.directionType])}
             options={directionTypes}
           />
         )}

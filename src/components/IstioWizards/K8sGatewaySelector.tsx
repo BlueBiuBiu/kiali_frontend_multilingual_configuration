@@ -177,7 +177,7 @@ export class K8sGatewaySelector extends React.Component<Props, K8sGatewaySelecto
                     }
                   >
                     {this.props.k8sGateways.map(k8sGateway => (
-                      <FormSelectOption key={k8sGateway} value={k8sGateway} label={k8sGateway} />
+                      <FormSelectOption key={k8sGateway} value={k8sGateway} label={$t(k8sGateway)} />
                     ))}
                   </FormSelect>
                 )}

@@ -24,7 +24,7 @@ export const sortFields: SortField<IstioConfigItem>[] = [
   },
   {
     id: 'istioname',
-    title: $t('IstioName'),
+    title: $t('Istio Name'),
     isNumeric: false,
     param: 'in',
     compare: (a: IstioConfigItem, b: IstioConfigItem) => {

@@ -214,7 +214,7 @@ export class ServerBuilder extends React.Component<Props, State> {
                 onChange={this.onAddTlsMode}
               >
                 {tlsModes.map((option, index) => (
-                  <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={option} />
+                  <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={$t(option)} />
                 ))}
               </FormSelect>
             </FormGroup>

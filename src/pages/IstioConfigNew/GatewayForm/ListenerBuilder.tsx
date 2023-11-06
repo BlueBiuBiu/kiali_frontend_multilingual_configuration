@@ -143,7 +143,7 @@ export class ListenerBuilder extends React.Component<Props> {
             onChange={this.onAddFrom}
           >
             {allowedRoutes.map((option, index) => (
-              <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={option} />
+              <FormSelectOption isDisabled={false} key={'p' + index} value={option} label={$t(option)} />
             ))}
           </FormSelect>
         </Td>

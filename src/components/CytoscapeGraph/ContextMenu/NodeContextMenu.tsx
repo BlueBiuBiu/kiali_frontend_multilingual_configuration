@@ -381,22 +381,22 @@ const getOptionsFromLinkParams = (linkParams: LinkParams, tracingInfo?: TracingI
     concat = '&';
   }
 
-  options.push({ text: 'Details', url: detailsPageUrl });
+  options.push({ text: $t('Details'), url: detailsPageUrl });
   if (type !== Paths.SERVICEENTRIES) {
-    options.push({ text: 'Traffic', url: `${detailsPageUrl}${concat}tab=traffic` });
+    options.push({ text: $t('Traffic'), url: `${detailsPageUrl}${concat}tab=traffic` });
     if (type === Paths.WORKLOADS) {
-      options.push({ text: 'Logs', url: `${detailsPageUrl}${concat}tab=logs` });
+      options.push({ text: $t('Logs'), url: `${detailsPageUrl}${concat}tab=logs` });
     }
     options.push({
-      text: 'Inbound Metrics',
+      text: $t('Inbound Metrics'),
       url: `${detailsPageUrl}${concat}tab=${type === Paths.SERVICES ? 'metrics' : 'in_metrics'}`
     });
     if (type !== Paths.SERVICES) {
-      options.push({ text: 'Outbound Metrics', url: `${detailsPageUrl}${concat}tab=out_metrics` });
+      options.push({ text: $t('Outbound Metrics'), url: `${detailsPageUrl}${concat}tab=out_metrics` });
     }
     if (type === Paths.APPLICATIONS && tracingInfo && tracingInfo.enabled) {
       if (tracingInfo.integration) {
-        options.push({ text: 'Traces', url: `${detailsPageUrl}${concat}tab=traces` });
+        options.push({ text: $t('Traces'), url: `${detailsPageUrl}${concat}tab=traces` });
       } else if (tracingInfo.url) {
         options.push({
           text: $t('ShowTraces'),

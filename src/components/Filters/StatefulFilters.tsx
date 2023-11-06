@@ -438,7 +438,7 @@ export class StatefulFilters extends React.Component<StatefulFiltersProps, State
                   key={'filter_' + index}
                   value={filter.id}
                   isFocused={this.state.focusedItemIndex === index}
-                  label={filter.title}
+                  label={$t(filter.title)}
                 >
                   {filter.title}
                 </SelectOption>
@@ -521,7 +521,7 @@ export class StatefulFilters extends React.Component<StatefulFiltersProps, State
     const showIncludeToggles = serverConfig.kialiFeatureFlags.uiDefaults.list.showIncludeToggles;
     const { currentFilterType, activeFilters } = this.state;
     const filterOptions = this.state.filterTypes.map(option => (
-      <FormSelectOption key={option.category} value={option.category} label={option.category} />
+      <FormSelectOption key={option.category} value={option.category} label={$t(option.category)} />
     ));
     const hasActiveFilters =
       this.state.activeFilters.filters.some(f => f.category === labelFilter.category) ||

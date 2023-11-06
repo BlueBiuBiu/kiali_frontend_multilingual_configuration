@@ -86,9 +86,7 @@ export const InitializingScreen: React.FC<initializingScreenProps> = (props: ini
                   {$t('ShowDetails')}
                 </Button>
               </p>
-              <textarea readOnly={true} rows={10}>
-                {props.errorDetails}
-              </textarea>
+              <textarea value={props.errorDetails} readOnly={true} rows={10}></textarea>
             </>
           ) : null}
         </div>

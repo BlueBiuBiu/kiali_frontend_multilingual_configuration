@@ -46,14 +46,14 @@ export const sortFields: SortField<WorkloadListItem>[] = [
   },
   {
     id: 'workloadname',
-    title: $t('WorkloadName'),
+    title: $t('Workload Name'),
     isNumeric: false,
     param: 'wn',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => a.name.localeCompare(b.name)
   },
   {
     id: 'workloadtype',
-    title: $t('WorkloadType'),
+    title: $t('Workload Type'),
     isNumeric: false,
     param: 'wt',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => a.type.localeCompare(b.type)
@@ -105,7 +105,7 @@ export const sortFields: SortField<WorkloadListItem>[] = [
   },
   {
     id: 'applabel',
-    title: $t('AppLabel'),
+    title: $t('App Label'),
     isNumeric: false,
     param: 'al',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => {
@@ -120,7 +120,7 @@ export const sortFields: SortField<WorkloadListItem>[] = [
   },
   {
     id: 'versionlabel',
-    title: $t('VersionLabel'),
+    title: $t('Version Label'),
     isNumeric: false,
     param: 'vl',
     compare: (a: WorkloadListItem, b: WorkloadListItem) => {

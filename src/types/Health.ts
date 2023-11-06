@@ -94,35 +94,35 @@ export interface ProxyStatus {
 }
 
 export const FAILURE: Status = {
-  name: 'Failure',
+  name: $t('Failure'),
   color: PFColors.Danger,
   priority: 4,
   icon: ExclamationCircleIcon,
   class: 'icon-failure'
 };
 export const DEGRADED: Status = {
-  name: 'Degraded',
+  name: $t('Degraded'),
   color: PFColors.Warning,
   priority: 3,
   icon: ExclamationTriangleIcon,
   class: 'icon-degraded'
 };
 export const NOT_READY: Status = {
-  name: 'Not Ready',
+  name: $t('NotReady'),
   color: PFColors.InfoBackground,
   priority: 2,
   icon: MinusCircleIcon,
   class: 'icon-idle'
 };
 export const HEALTHY: Status = {
-  name: 'Healthy',
+  name: $t('Healthy'),
   color: PFColors.Success,
   priority: 1,
   icon: CheckCircleIcon,
   class: 'icon-healthy'
 };
 export const NA: Status = {
-  name: 'No health information',
+  name: $t('NoHealthInformation'),
   color: PFColors.Color200,
   priority: 0,
   icon: UnknownIcon,

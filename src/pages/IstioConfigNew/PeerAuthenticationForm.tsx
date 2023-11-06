@@ -284,7 +284,7 @@ export class PeerAuthenticationForm extends React.Component<Props, PeerAuthentic
                 onChange={this.onAddPortMtlsMode}
               >
                 {Object.keys(PeerAuthenticationMutualTLSMode).map((option, index) => (
-                  <FormSelectOption key={'p' + index} value={option} label={option} />
+                  <FormSelectOption key={'p' + index} value={option} label={$t(option)} />
                 ))}
               </FormSelect>
             </>,
@@ -338,7 +338,7 @@ export class PeerAuthenticationForm extends React.Component<Props, PeerAuthentic
         <FormGroup label={$t('MutualTLSMode')} fieldId="mutualTls">
           <FormSelect value={this.state.mtls} onChange={this.onMutualTlsChange} id="mutualTls" name="rules-form">
             {Object.keys(PeerAuthenticationMutualTLSMode).map((option, index) => (
-              <FormSelectOption key={index} value={option} label={option} />
+              <FormSelectOption key={index} value={option} label={$t(option)} />
             ))}
           </FormSelect>
         </FormGroup>

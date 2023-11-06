@@ -34,7 +34,7 @@ export const sortFields: SortField<ServiceListItem>[] = [
   },
   {
     id: 'servicename',
-    title: $t('ServiceName'),
+    title: $t('Service Name'),
     isNumeric: false,
     param: 'sn',
     compare: (a: ServiceListItem, b: ServiceListItem) => a.name.localeCompare(b.name)

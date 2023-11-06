@@ -208,7 +208,7 @@ export class SummaryPanelNamespaceBox extends React.Component<SummaryPanelPropTy
                      triggerRef={tooltipOutboundRef}
                    />
                    <Tooltip id="tooltip-total" content={$t('title29')} entryDelay={1250} triggerRef={tooltipTotalRef} />
-                   <Tab style={summaryFont} title="Inbound" eventKey={0} ref={tooltipInboundRef}>
+                   <Tab style={summaryFont} title={$t('Inbound')} eventKey={0} ref={tooltipInboundRef}>
                      <div style={summaryFont}>
                        {grpcIn.rate === 0 && httpIn.rate === 0 && tcpIn.rate === 0 && (
                          <>
